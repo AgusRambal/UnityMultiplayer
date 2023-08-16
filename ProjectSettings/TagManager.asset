@@ -44,6 +44,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Terrain
+    uniqueID: 3550154549
+    locked: 0
   - name: Coin
     uniqueID: 1157877905
     locked: 0

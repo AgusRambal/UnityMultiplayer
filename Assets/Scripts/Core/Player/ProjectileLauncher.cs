@@ -5,19 +5,21 @@ public class ProjectileLauncher : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] private InputReader inputReader;
+    [SerializeField] private CoinWallet wallet;
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private GameObject serverProjectilePrefab;
     [SerializeField] private GameObject clientProjectilePrefab;
     [SerializeField] private GameObject muzzleFlash;
     [SerializeField] private Collider2D playerCollider;
 
-    [Header("References")]
+    [Header("Settings")]
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float fireRate;
     [SerializeField] private float muzzleFlashDuration;
+    [SerializeField] private int costToFire;
 
     private bool shouldFire;
-    private float previousFireTime;
+    private float timer;
     private float muzzleFlashTimer;
 
     public override void OnNetworkSpawn()
@@ -52,16 +54,21 @@ public class ProjectileLauncher : NetworkBehaviour
         if (!IsOwner)
             return;
 
+        timer -= Time.deltaTime;
+
         if (!shouldFire)
             return;
 
-        if (Time.time < (1 / fireRate) + previousFireTime)
+        if (timer > 0)
+            return;
+
+        if (wallet.totalCoins.Value < costToFire)
             return;
 
         PrimaryFireServerRPC(projectileSpawnPoint.position, projectileSpawnPoint.up);
         SpawnDummyProjectile(projectileSpawnPoint.position, projectileSpawnPoint.up);
 
-        previousFireTime = Time.time;
+        timer = 1 / fireRate;
     }
 
     private void HandlePrimaryFire(bool shouldFire)
@@ -97,6 +104,11 @@ public class ProjectileLauncher : NetworkBehaviour
     [ServerRpc]
     private void PrimaryFireServerRPC(Vector3 spawnPos, Vector3 direction)
     {
+        if (wallet.totalCoins.Value < costToFire)
+            return;
+
+        wallet.SpendCoins(costToFire);
+
         GameObject projectileInstance = Instantiate(serverProjectilePrefab, spawnPos, Quaternion.identity);
         projectileInstance.transform.up = direction;
 

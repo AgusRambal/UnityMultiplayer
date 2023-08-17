@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private TMP_InputField joinCodeField;
     [SerializeField] private List<GameObject> middleButtons = new List<GameObject>();
     [SerializeField] private List<GameObject> backButtons = new List<GameObject>();
-    [SerializeField] private GameObject title;
+    [SerializeField] private GameObject lobbiesPanel;
 
 
     void Start()
@@ -57,5 +57,18 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     { 
         Application.Quit();
+    }
+
+    public void InteractWithLobbiesPanel(bool state)
+    {
+        if (state)
+        {
+            lobbiesPanel.transform.DOScale(1f, .35f);
+        }
+
+        else
+        {
+            lobbiesPanel.transform.DOScale(0f, .25f);
+        }
     }
 }

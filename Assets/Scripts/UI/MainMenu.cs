@@ -1,18 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private List<Sprite> backgrounds = new List<Sprite>();
+    [SerializeField] private Image background;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        background.sprite = backgrounds[Random.Range(0, backgrounds.Count)];
     }
 }

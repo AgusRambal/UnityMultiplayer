@@ -11,4 +11,9 @@ public class MainMenu : MonoBehaviour
     {
         background.sprite = backgrounds[Random.Range(0, backgrounds.Count)];
     }
+
+    public async void StartHost()
+    {
+        await HostSingleton.Instance.gameManager.StartHostAsync();
+    }
 }

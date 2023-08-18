@@ -10,7 +10,11 @@ public class ProjectileLauncher : NetworkBehaviour
     [SerializeField] private GameObject serverProjectilePrefab;
     [SerializeField] private GameObject clientProjectilePrefab;
     [SerializeField] private GameObject muzzleFlash;
+    [SerializeField] private GameObject muzzleFlashLVL2;
+    [SerializeField] private GameObject muzzleFlashLVL3;
+    //[SerializeField] private GameObject muzzleFlashLVL3b;
     [SerializeField] private Collider2D playerCollider;
+    [SerializeField] private TankLevelHandling tankLevel;
 
     [Header("Settings")]
     [SerializeField] private float projectileSpeed;
@@ -41,6 +45,16 @@ public class ProjectileLauncher : NetworkBehaviour
 
     private void Update()
     {
+        if (tankLevel.lvl == 2)
+        {
+            muzzleFlash = muzzleFlashLVL2;
+        }
+
+        if (tankLevel.lvl == 3)
+        {
+            muzzleFlash = muzzleFlashLVL3;
+        }
+
         if (muzzleFlashTimer > 0f)
         {
             muzzleFlashTimer -= Time.deltaTime;

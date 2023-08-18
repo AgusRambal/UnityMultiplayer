@@ -6,7 +6,7 @@ public class HealthDisplay : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] private Health health;
-    [SerializeField] private Image healthBarImage;
+    [SerializeField] private Slider healthBarImage;
 
     public override void OnNetworkSpawn()
     {
@@ -27,6 +27,6 @@ public class HealthDisplay : NetworkBehaviour
 
     private void HandleHealthChanged(int oldHealth, int newHealth)
     {
-        healthBarImage.fillAmount = (float)newHealth / health.maxHelath;
+        healthBarImage.value = (float)newHealth / health.maxHelath;
     }
 }

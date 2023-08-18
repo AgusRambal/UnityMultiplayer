@@ -31,6 +31,21 @@ public class NetworkServer : IDisposable
         }
     }
 
+    public UserData GetUserDataByClientID(ulong clientID)
+    {
+        if (clientIDtoAuth.TryGetValue(clientID, out string authID))
+        {
+            if (authIDtoUserData.TryGetValue(authID, out UserData data))
+            {
+                return data;
+            }
+
+            return null;
+        }
+
+        return null;
+    }
+
     private void ApprovalCheck(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)
     {
         string payload =  System.Text.Encoding.UTF8.GetString(request.Payload);
@@ -40,6 +55,8 @@ public class NetworkServer : IDisposable
         authIDtoUserData[userData.userAuthID] = userData;
 
         response.Approved = true;
+        response.Position = SpawnPoint.GetRandomSpawnPos();
+        response.Rotation = Quaternion.identity;
         response.CreatePlayerObject = true;
     }
 

@@ -19,7 +19,7 @@ public class HostGameManager : IDisposable
     private Allocation allocation;
     private string joinCode;
     private string lobbyID;
-    private NetworkServer networkServer;
+    public NetworkServer networkServer { get; private set; }
 
     private const int maxConnections = 20;
     private const string gameplayScene = "Gameplay";

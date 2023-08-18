@@ -1475,6 +1475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef8d0855d306194eb13295302701427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputReader: {fileID: 11400000, guid: 5c89ea4be3c2f5c47866988153501788, type: 2}
   tankPartsLVL1:
   - {fileID: 3416283556264672634}
   - {fileID: 7619674628351197934}

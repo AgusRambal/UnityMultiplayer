@@ -1,16 +1,37 @@
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class TankLevelHandling : MonoBehaviour
+public class TankLevelHandling : NetworkBehaviour
 {
+    [SerializeField] private InputReader inputReader;
     [SerializeField] private List<GameObject> tankPartsLVL1 = new List<GameObject>();
     [SerializeField] private List<GameObject> tankPartsLVL2 = new List<GameObject>();
     [SerializeField] private List<GameObject> tankPartsLVL3 = new List<GameObject>();
 
     public int lvl { get; private set; } = 1;
 
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner)
+            return;
+
+        inputReader.LevelUpEvent += SetLevel;
+    }
+
+    public override void OnNetworkDespawn()
+    {
+        if (!IsOwner)
+            return;
+
+        inputReader.LevelUpEvent -= SetLevel;
+    }
+
     private void Update()
     {
+        if (!IsOwner)
+            return;
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             lvl++;
@@ -18,7 +39,7 @@ public class TankLevelHandling : MonoBehaviour
         }
     }
 
-    private void SetLevel(int id)
+    private void SetLevel(int lvlup)
     {
         if (lvl == 2)
         {

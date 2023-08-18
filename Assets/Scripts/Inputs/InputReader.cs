@@ -8,6 +8,7 @@ public class InputReader : ScriptableObject, IPlayerActions
 {
     public event Action<bool> PrimaryFireEvent;
     public event Action<Vector2> MoveEvent;
+    public event Action<int> LevelUpEvent;
     public Vector2 AimPosition { get; private set; }
 
     private Controls controls;

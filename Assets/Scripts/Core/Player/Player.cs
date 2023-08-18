@@ -12,7 +12,7 @@ public class Player : NetworkBehaviour
 
     [Header("Settings")]
     [SerializeField] private int ownerPriority = 15;
-    public NetworkVariable<FixedString32Bytes> platerName = new NetworkVariable<FixedString32Bytes>();
+    public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
 
     public static event Action<Player> OnPlayerSpawned;
     public static event Action<Player> OnPlayerDespawned;
@@ -23,7 +23,7 @@ public class Player : NetworkBehaviour
         {
             UserData userData = HostSingleton.Instance.gameManager.networkServer.GetUserDataByClientID(OwnerClientId);
 
-            platerName.Value = userData.userName;
+            playerName.Value = userData.userName;
             OnPlayerSpawned?.Invoke(this);
         }
 

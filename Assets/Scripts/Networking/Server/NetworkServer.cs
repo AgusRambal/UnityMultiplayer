@@ -19,7 +19,16 @@ public class NetworkServer
 
     private void OnNetworkReady()
     {
-        
+        networkManager.OnClientDisconnectCallback += OnClientDisconnect;
+    }
+
+    private void OnClientDisconnect(ulong clientID)
+    {
+        if (clientIDtoAuth.TryGetValue(clientID, out string authID))
+        {
+            clientIDtoAuth.Remove(clientID);
+            authIDtoUserData.Remove(authID);
+        }
     }
 
     private void ApprovalCheck(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)

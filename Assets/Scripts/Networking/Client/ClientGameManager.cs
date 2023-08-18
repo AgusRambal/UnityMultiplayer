@@ -14,12 +14,15 @@ using Unity.Services.Authentication;
 public class ClientGameManager
 {
     private JoinAllocation allocation;
+    private NetworkClient networkClient;
 
     private const string menuSceneName = "MainMenu";
 
     public async Task<bool> InitAsync()
     { 
         await UnityServices.InitializeAsync();
+
+        networkClient = new NetworkClient(NetworkManager.Singleton);
 
         AuthState authState = await AuthenticationWrapper.DoAuth();
 

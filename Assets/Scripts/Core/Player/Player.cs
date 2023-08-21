@@ -9,6 +9,7 @@ public class Player : NetworkBehaviour
     [Header("References")]
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [field: SerializeField] public Health health { get; private set; }
+    [field: SerializeField] public CoinWallet wallet { get; private set; }
 
     [Header("Settings")]
     [SerializeField] private int ownerPriority = 15;

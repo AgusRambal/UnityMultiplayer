@@ -155,6 +155,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6706655982424404806}
+  - {fileID: 305783663}
   m_Father: {fileID: 226395556}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -237,7 +238,7 @@ GameObject:
   - component: {fileID: 65665225}
   - component: {fileID: 65665227}
   - component: {fileID: 65665226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0101
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +412,7 @@ GameObject:
   - component: {fileID: 81835994}
   - component: {fileID: 81835995}
   - component: {fileID: 81835996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -724,7 +725,7 @@ GameObject:
   - component: {fileID: 87546576}
   - component: {fileID: 87546577}
   - component: {fileID: 87546578}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1037,7 +1038,7 @@ GameObject:
   - component: {fileID: 101992513}
   - component: {fileID: 101992515}
   - component: {fileID: 101992514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1168,7 @@ GameObject:
   - component: {fileID: 105087182}
   - component: {fileID: 105087183}
   - component: {fileID: 105087184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1524,7 +1525,7 @@ GameObject:
   - component: {fileID: 124581482}
   - component: {fileID: 124581484}
   - component: {fileID: 124581483}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1654,7 +1655,7 @@ GameObject:
   - component: {fileID: 126780343}
   - component: {fileID: 126780344}
   - component: {fileID: 126780345}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1967,7 +1968,7 @@ GameObject:
   - component: {fileID: 129636262}
   - component: {fileID: 129636263}
   - component: {fileID: 129636264}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2280,7 +2281,7 @@ GameObject:
   - component: {fileID: 135910818}
   - component: {fileID: 135910820}
   - component: {fileID: 135910819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2410,7 +2411,7 @@ GameObject:
   - component: {fileID: 166389536}
   - component: {fileID: 166389538}
   - component: {fileID: 166389537}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2540,7 +2541,7 @@ GameObject:
   - component: {fileID: 192412528}
   - component: {fileID: 192412529}
   - component: {fileID: 192412530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2952,7 +2953,7 @@ Transform:
   m_Children:
   - {fileID: 38999851}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &226395557
 MonoBehaviour:
@@ -3000,7 +3001,7 @@ GameObject:
   - component: {fileID: 228980369}
   - component: {fileID: 228980371}
   - component: {fileID: 228980370}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3130,7 +3131,7 @@ GameObject:
   - component: {fileID: 232493881}
   - component: {fileID: 232493883}
   - component: {fileID: 232493882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3260,7 +3261,7 @@ GameObject:
   - component: {fileID: 238500360}
   - component: {fileID: 238500361}
   - component: {fileID: 238500362}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3573,7 +3574,7 @@ GameObject:
   - component: {fileID: 253219489}
   - component: {fileID: 253219491}
   - component: {fileID: 253219490}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3703,7 +3704,7 @@ GameObject:
   - component: {fileID: 254060996}
   - component: {fileID: 254060998}
   - component: {fileID: 254060997}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3833,7 +3834,7 @@ GameObject:
   - component: {fileID: 299603964}
   - component: {fileID: 299603965}
   - component: {fileID: 299603966}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4224,6 +4225,44 @@ PolygonCollider2D:
       - {x: 2.2724872, y: -3.8596213}
       - {x: 2.3446298, y: -3.7964966}
   m_UseDelaunayMesh: 0
+--- !u!1 &305783662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 305783663}
+  m_Layer: 0
+  m_Name: Minimap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &305783663
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305783662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 864758584}
+  - {fileID: 1894238334}
+  m_Father: {fileID: 38999851}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -20, y: 20}
+  m_SizeDelta: {x: 200, y: 200}
+  m_Pivot: {x: 1, y: 0}
 --- !u!1 &336756692
 GameObject:
   m_ObjectHideFlags: 0
@@ -4323,7 +4362,7 @@ GameObject:
   - component: {fileID: 388748110}
   - component: {fileID: 388748112}
   - component: {fileID: 388748111}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4453,7 +4492,7 @@ GameObject:
   - component: {fileID: 398164754}
   - component: {fileID: 398164756}
   - component: {fileID: 398164755}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4583,7 +4622,7 @@ GameObject:
   - component: {fileID: 400684154}
   - component: {fileID: 400684155}
   - component: {fileID: 400684156}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4896,7 +4935,7 @@ GameObject:
   - component: {fileID: 402788316}
   - component: {fileID: 402788317}
   - component: {fileID: 402788318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5261,7 +5300,7 @@ Transform:
   - {fileID: 540137057}
   - {fileID: 1817332891}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &436734019
 GameObject:
@@ -5274,7 +5313,7 @@ GameObject:
   - component: {fileID: 436734020}
   - component: {fileID: 436734022}
   - component: {fileID: 436734021}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0101 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5404,7 +5443,7 @@ GameObject:
   - component: {fileID: 437311485}
   - component: {fileID: 437311487}
   - component: {fileID: 437311486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5534,7 +5573,7 @@ GameObject:
   - component: {fileID: 443204830}
   - component: {fileID: 443204832}
   - component: {fileID: 443204831}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5763,7 +5802,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &474837320
 GameObject:
@@ -5864,7 +5903,7 @@ GameObject:
   - component: {fileID: 503759370}
   - component: {fileID: 503759371}
   - component: {fileID: 503759372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6410,7 +6449,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 759
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -6430,7 +6469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50.785786, y: -23.061659, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6482,7 +6521,7 @@ GameObject:
   - component: {fileID: 532720078}
   - component: {fileID: 532720080}
   - component: {fileID: 532720079}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6612,7 +6651,7 @@ GameObject:
   - component: {fileID: 540137057}
   - component: {fileID: 540137058}
   - component: {fileID: 540137059}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6924,7 +6963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 545960312}
   - component: {fileID: 545960313}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0110
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7009,7 +7048,7 @@ GameObject:
   - component: {fileID: 573439861}
   - component: {fileID: 573439863}
   - component: {fileID: 573439862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7138,7 +7177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 619394802}
   - component: {fileID: 619394801}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Global Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7208,7 +7247,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &692385944
 GameObject:
@@ -7316,7 +7355,7 @@ Transform:
   - {fileID: 2021374723}
   - {fileID: 962984227}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &712289693
 GameObject:
@@ -7329,7 +7368,7 @@ GameObject:
   - component: {fileID: 712289694}
   - component: {fileID: 712289695}
   - component: {fileID: 712289696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7642,7 +7681,7 @@ GameObject:
   - component: {fileID: 716749321}
   - component: {fileID: 716749323}
   - component: {fileID: 716749322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7761,6 +7800,143 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &718414563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 718414567}
+  - component: {fileID: 718414566}
+  - component: {fileID: 718414565}
+  - component: {fileID: 718414564}
+  m_Layer: 8
+  m_Name: MinimapCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &718414564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718414563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
+--- !u!81 &718414565
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718414563}
+  m_Enabled: 1
+--- !u!20 &718414566
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718414563}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 50
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 768
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: fdd81cdf26cc1c74d8da7e40b6b880c9, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &718414567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718414563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &727290308
 GameObject:
   m_ObjectHideFlags: 0
@@ -7772,7 +7948,7 @@ GameObject:
   - component: {fileID: 727290309}
   - component: {fileID: 727290311}
   - component: {fileID: 727290310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7902,7 +8078,7 @@ GameObject:
   - component: {fileID: 729736485}
   - component: {fileID: 729736487}
   - component: {fileID: 729736486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8032,7 +8208,7 @@ GameObject:
   - component: {fileID: 748299064}
   - component: {fileID: 748299065}
   - component: {fileID: 748299066}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8389,7 +8565,7 @@ GameObject:
   - component: {fileID: 767887107}
   - component: {fileID: 767887108}
   - component: {fileID: 767887109}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8746,7 +8922,7 @@ GameObject:
   - component: {fileID: 776914218}
   - component: {fileID: 776914220}
   - component: {fileID: 776914219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8876,7 +9052,7 @@ GameObject:
   - component: {fileID: 780404079}
   - component: {fileID: 780404080}
   - component: {fileID: 780404081}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9189,7 +9365,7 @@ GameObject:
   - component: {fileID: 797298580}
   - component: {fileID: 797298582}
   - component: {fileID: 797298581}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9319,7 +9495,7 @@ GameObject:
   - component: {fileID: 810078321}
   - component: {fileID: 810078323}
   - component: {fileID: 810078322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0101 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9449,7 +9625,7 @@ GameObject:
   - component: {fileID: 838418974}
   - component: {fileID: 838418976}
   - component: {fileID: 838418975}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0101 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9579,7 +9755,7 @@ GameObject:
   - component: {fileID: 841930142}
   - component: {fileID: 841930143}
   - component: {fileID: 841930144}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9963,8 +10139,84 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &864758583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 864758584}
+  - component: {fileID: 864758586}
+  - component: {fileID: 864758585}
+  m_Layer: 0
+  m_Name: Frame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &864758584
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864758583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1326, y: 1.1326, z: 1.1326}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 305783663}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1.6000061, y: -6.9000015}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &864758585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864758583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 96d4d4384de924045abe5d240e8b191a, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &864758586
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864758583}
+  m_CullTransparentMesh: 1
 --- !u!1 &880981819
 GameObject:
   m_ObjectHideFlags: 0
@@ -10064,7 +10316,7 @@ GameObject:
   - component: {fileID: 950686838}
   - component: {fileID: 950686840}
   - component: {fileID: 950686839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10268,7 +10520,7 @@ GameObject:
   - component: {fileID: 972843540}
   - component: {fileID: 972843542}
   - component: {fileID: 972843541}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10442,7 +10694,7 @@ GameObject:
   - component: {fileID: 1007393140}
   - component: {fileID: 1007393142}
   - component: {fileID: 1007393141}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10572,7 +10824,7 @@ GameObject:
   - component: {fileID: 1068179455}
   - component: {fileID: 1068179456}
   - component: {fileID: 1068179457}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11078,7 +11330,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1131280208
 GameObject:
@@ -11109,7 +11361,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1143308561
 GameObject:
@@ -11122,7 +11374,7 @@ GameObject:
   - component: {fileID: 1143308562}
   - component: {fileID: 1143308563}
   - component: {fileID: 1143308564}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11524,7 +11776,7 @@ GameObject:
   - component: {fileID: 1169860775}
   - component: {fileID: 1169860776}
   - component: {fileID: 1169860777}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11836,7 +12088,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195691779}
   - component: {fileID: 1195691780}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11965,7 +12217,7 @@ GameObject:
   - component: {fileID: 1250633847}
   - component: {fileID: 1250633849}
   - component: {fileID: 1250633848}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12095,7 +12347,7 @@ GameObject:
   - component: {fileID: 1260091915}
   - component: {fileID: 1260091916}
   - component: {fileID: 1260091917}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12540,7 +12792,7 @@ GameObject:
   - component: {fileID: 1289008762}
   - component: {fileID: 1289008764}
   - component: {fileID: 1289008763}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12670,7 +12922,7 @@ GameObject:
   - component: {fileID: 1326721805}
   - component: {fileID: 1326721807}
   - component: {fileID: 1326721806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12800,7 +13052,7 @@ GameObject:
   - component: {fileID: 1327830790}
   - component: {fileID: 1327830792}
   - component: {fileID: 1327830791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12930,7 +13182,7 @@ GameObject:
   - component: {fileID: 1337023802}
   - component: {fileID: 1337023803}
   - component: {fileID: 1337023804}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13243,7 +13495,7 @@ GameObject:
   - component: {fileID: 1347201721}
   - component: {fileID: 1347201722}
   - component: {fileID: 1347201723}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13610,7 +13862,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404037757
 GameObject:
@@ -13623,7 +13875,7 @@ GameObject:
   - component: {fileID: 1404037758}
   - component: {fileID: 1404037759}
   - component: {fileID: 1404037760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14025,7 +14277,7 @@ GameObject:
   - component: {fileID: 1405756162}
   - component: {fileID: 1405756163}
   - component: {fileID: 1405756164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14427,7 +14679,7 @@ GameObject:
   - component: {fileID: 1454946797}
   - component: {fileID: 1454946799}
   - component: {fileID: 1454946798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14557,7 +14809,7 @@ GameObject:
   - component: {fileID: 1455894003}
   - component: {fileID: 1455894004}
   - component: {fileID: 1455894005}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15003,7 +15255,7 @@ GameObject:
   - component: {fileID: 1512036964}
   - component: {fileID: 1512036966}
   - component: {fileID: 1512036965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15133,7 +15385,7 @@ GameObject:
   - component: {fileID: 1530656904}
   - component: {fileID: 1530656906}
   - component: {fileID: 1530656905}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15263,7 +15515,7 @@ GameObject:
   - component: {fileID: 1562364373}
   - component: {fileID: 1562364374}
   - component: {fileID: 1562364375}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15576,7 +15828,7 @@ GameObject:
   - component: {fileID: 1577370154}
   - component: {fileID: 1577370156}
   - component: {fileID: 1577370155}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15750,7 +16002,7 @@ GameObject:
   - component: {fileID: 1612077138}
   - component: {fileID: 1612077140}
   - component: {fileID: 1612077139}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15924,7 +16176,7 @@ GameObject:
   - component: {fileID: 1644644404}
   - component: {fileID: 1644644406}
   - component: {fileID: 1644644405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16054,7 +16306,7 @@ GameObject:
   - component: {fileID: 1647965089}
   - component: {fileID: 1647965091}
   - component: {fileID: 1647965090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16184,7 +16436,7 @@ GameObject:
   - component: {fileID: 1650199938}
   - component: {fileID: 1650199940}
   - component: {fileID: 1650199939}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16446,7 +16698,7 @@ GameObject:
   - component: {fileID: 1741037538}
   - component: {fileID: 1741037540}
   - component: {fileID: 1741037539}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16620,7 +16872,7 @@ GameObject:
   - component: {fileID: 1747363190}
   - component: {fileID: 1747363192}
   - component: {fileID: 1747363191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16750,7 +17002,7 @@ GameObject:
   - component: {fileID: 1757192515}
   - component: {fileID: 1757192517}
   - component: {fileID: 1757192516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16931,7 +17183,7 @@ Transform:
   - {fileID: 474837321}
   - {fileID: 107266064}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1777231644
 GameObject:
@@ -17032,7 +17284,7 @@ GameObject:
   - component: {fileID: 1808339190}
   - component: {fileID: 1808339192}
   - component: {fileID: 1808339191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17161,7 +17413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1810433332}
   - component: {fileID: 1810433333}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0110 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17246,7 +17498,7 @@ GameObject:
   - component: {fileID: 1817332891}
   - component: {fileID: 1817332892}
   - component: {fileID: 1817332893}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17621,8 +17873,84 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1894238333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894238334}
+  - component: {fileID: 1894238336}
+  - component: {fileID: 1894238335}
+  m_Layer: 0
+  m_Name: Radar
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1894238334
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894238333}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 305783663}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.5280762, y: 0.7466965}
+  m_SizeDelta: {x: -0.9325, y: -11.8808}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1894238335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894238333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 16b74084c63f08f48874c991a63bf571, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1894238336
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894238333}
+  m_CullTransparentMesh: 1
 --- !u!1 &1901941202
 GameObject:
   m_ObjectHideFlags: 0
@@ -17634,7 +17962,7 @@ GameObject:
   - component: {fileID: 1901941203}
   - component: {fileID: 1901941205}
   - component: {fileID: 1901941204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17764,7 +18092,7 @@ GameObject:
   - component: {fileID: 1910680947}
   - component: {fileID: 1910680949}
   - component: {fileID: 1910680948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17938,7 +18266,7 @@ GameObject:
   - component: {fileID: 1931395225}
   - component: {fileID: 1931395227}
   - component: {fileID: 1931395226}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18068,7 +18396,7 @@ GameObject:
   - component: {fileID: 1947406194}
   - component: {fileID: 1947406195}
   - component: {fileID: 1947406196}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18470,7 +18798,7 @@ GameObject:
   - component: {fileID: 1974947376}
   - component: {fileID: 1974947378}
   - component: {fileID: 1974947377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18600,7 +18928,7 @@ GameObject:
   - component: {fileID: 1998826121}
   - component: {fileID: 1998826123}
   - component: {fileID: 1998826122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0000 (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18813,7 +19141,7 @@ GameObject:
   - component: {fileID: 2067630250}
   - component: {fileID: 2067630251}
   - component: {fileID: 2067630252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19259,7 +19587,7 @@ GameObject:
   - component: {fileID: 2099548234}
   - component: {fileID: 2099548235}
   - component: {fileID: 2099548236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19571,7 +19899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2102615891}
   - component: {fileID: 2102615892}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wall_0011 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19656,7 +19984,7 @@ GameObject:
   - component: {fileID: 2120279048}
   - component: {fileID: 2120279049}
   - component: {fileID: 2120279050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19969,7 +20297,7 @@ GameObject:
   - component: {fileID: 2125922492}
   - component: {fileID: 2125922493}
   - component: {fileID: 2125922494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_01 (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20282,7 +20610,7 @@ GameObject:
   - component: {fileID: 2126867932}
   - component: {fileID: 2126867933}
   - component: {fileID: 2126867934}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rock_Dark_02 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -59,5 +59,4 @@ public class CoinSpawner : NetworkBehaviour
                 return spawnPoint;
         }
     }
-
 }

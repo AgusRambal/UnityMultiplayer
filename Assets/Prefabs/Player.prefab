@@ -1435,6 +1435,7 @@ MonoBehaviour:
   muzzleFlashLVL3: {fileID: 1859778613515876589}
   playerCollider: {fileID: 6197860000326693298}
   tankLevel: {fileID: 1472325093104950064}
+  shotSound: {fileID: 8300000, guid: 5ed1920912e5b1249bf0124ee98cdf37, type: 3}
   projectileSpeed: 30
   fireRate: 0.75
   muzzleFlashDuration: 0.075

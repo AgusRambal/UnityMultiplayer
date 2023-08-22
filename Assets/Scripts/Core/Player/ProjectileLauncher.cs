@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ public class ProjectileLauncher : NetworkBehaviour
     //[SerializeField] private GameObject muzzleFlashLVL3b;
     [SerializeField] private Collider2D playerCollider;
     [SerializeField] private TankLevelHandling tankLevel;
+    [SerializeField] private AudioSource gameplaySource;
+    [SerializeField] private AudioClip shotSound;
 
     [Header("Settings")]
     [SerializeField] private float projectileSpeed;
@@ -40,7 +43,6 @@ public class ProjectileLauncher : NetworkBehaviour
             return;
 
         inputReader.PrimaryFireEvent -= HandlePrimaryFire;
-
     }
 
     private void Update()
@@ -92,6 +94,11 @@ public class ProjectileLauncher : NetworkBehaviour
 
     private void SpawnDummyProjectile(Vector3 spawnPos, Vector3 direction)
     {
+        //Shot Sound
+        EventManager.TriggerEvent(GenericEvents.PlayGameplaySound, new Hashtable() {
+        {GameplayEventHashtableParams.AudioClip.ToString(), shotSound}
+        });
+
         muzzleFlash.SetActive(true);
         muzzleFlashTimer = muzzleFlashDuration;
 

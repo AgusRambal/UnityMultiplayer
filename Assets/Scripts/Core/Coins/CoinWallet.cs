@@ -8,6 +8,7 @@ public class CoinWallet : NetworkBehaviour
     [Header("References")]
     [SerializeField] private BountyCoin coinPrefab;
     [SerializeField] private Health health;
+    [SerializeField] private AudioSource audioSource; 
     [SerializeField] private AudioClip coinCollected; 
 
     [Header("Settings")]
@@ -86,8 +87,9 @@ public class CoinWallet : NetworkBehaviour
         if (IsOwner)
         {
             //Only the owner reproduce the coinCollcted sound
-            EventManager.TriggerEvent(GenericEvents.PlayGameplaySound, new Hashtable() {
-            {GameplayEventHashtableParams.AudioClip.ToString(), coinCollected}
+            EventManager.TriggerEvent(GenericEvents.PlaySound, new Hashtable() {
+            {GameplayEventHashtableParams.AudioClip.ToString(), coinCollected},
+            {GameplayEventHashtableParams.AudioSource.ToString(), audioSource}
             });
         }
 

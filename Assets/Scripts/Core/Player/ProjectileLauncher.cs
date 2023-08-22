@@ -16,6 +16,7 @@ public class ProjectileLauncher : NetworkBehaviour
     //[SerializeField] private GameObject muzzleFlashLVL3b;
     [SerializeField] private Collider2D playerCollider;
     [SerializeField] private TankLevelHandling tankLevel;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shotSound;
 
     [Header("Settings")]
@@ -94,8 +95,9 @@ public class ProjectileLauncher : NetworkBehaviour
     private void SpawnDummyProjectile(Vector3 spawnPos, Vector3 direction)
     {
         //Shot Sound
-        EventManager.TriggerEvent(GenericEvents.PlayGameplaySound, new Hashtable() {
-        {GameplayEventHashtableParams.AudioClip.ToString(), shotSound}
+        EventManager.TriggerEvent(GenericEvents.PlaySound, new Hashtable() {
+        {GameplayEventHashtableParams.AudioClip.ToString(), shotSound},
+        {GameplayEventHashtableParams.AudioSource.ToString(), audioSource}
         });
 
         muzzleFlash.SetActive(true);

@@ -10,7 +10,6 @@ public class SoundManager : MonoBehaviour, IEventListener
 
     [Header("AudioSources")]
     [SerializeField] private AudioSource UI_FX_Source;
-    [SerializeField] private AudioSource GameplaySource;
 
     [Header("Sliders")]
     [SerializeField] private Slider generalSlider;
@@ -40,18 +39,12 @@ public class SoundManager : MonoBehaviour, IEventListener
         GameplaySlider.value = PlayerPrefs.GetFloat(AudioManager.Gameplay_Key, 1f);
     }
 
-    public void PlayUISFXSound(Hashtable hashtable)
+    public void PlaySound(Hashtable hashtable)
     {
         AudioClip clip = (AudioClip)hashtable[GameplayEventHashtableParams.AudioClip.ToString()];
+        AudioSource source = (AudioSource)hashtable[GameplayEventHashtableParams.AudioSource.ToString()];
 
-        UI_FX_Source.PlayOneShot(clip);
-    }
-
-    public void PlayGameplaySound(Hashtable hashtable)
-    {
-        AudioClip clip = (AudioClip)hashtable[GameplayEventHashtableParams.AudioClip.ToString()];
-
-        GameplaySource.PlayOneShot(clip);
+        source.PlayOneShot(clip);
     }
 
     public void SetGeneralVolume(float value)
@@ -76,14 +69,12 @@ public class SoundManager : MonoBehaviour, IEventListener
 
     public void OnEnableEventListenerSubscriptions()
     {
-        EventManager.StartListening(GenericEvents.PlayUISFXSound, PlayUISFXSound);
-        EventManager.StartListening(GenericEvents.PlayGameplaySound, PlayGameplaySound);
+        EventManager.StartListening(GenericEvents.PlaySound, PlaySound);
     }
 
     public void CancelEventListenerSubscriptions()
     {
-        EventManager.StopListening(GenericEvents.PlayUISFXSound, PlayUISFXSound);
-        EventManager.StopListening(GenericEvents.PlayGameplaySound, PlayGameplaySound);
+        EventManager.StopListening(GenericEvents.PlaySound, PlaySound);
     }
 
     private void OnDisable()

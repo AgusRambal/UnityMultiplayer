@@ -1,5 +1,4 @@
 ﻿public enum GenericEvents
 {
-    PlayUISFXSound,
-    PlayGameplaySound
+    PlaySound,
 }

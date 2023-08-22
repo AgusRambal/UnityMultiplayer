@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class CoinWallet : NetworkBehaviour
     [Header("References")]
     [SerializeField] private BountyCoin coinPrefab;
     [SerializeField] private Health health;
+    [SerializeField] private AudioClip coinCollected; 
 
     [Header("Settings")]
     [SerializeField] private float coinSpread = 3f;
@@ -80,6 +82,14 @@ public class CoinWallet : NetworkBehaviour
             return;
 
         int coinValue = coin.Collect();
+
+        if (IsOwner)
+        {
+            //Only the owner reproduce the coinCollcted sound
+            EventManager.TriggerEvent(GenericEvents.PlayGameplaySound, new Hashtable() {
+            {GameplayEventHashtableParams.AudioClip.ToString(), coinCollected}
+            });
+        }
 
         if (!IsServer)
             return;

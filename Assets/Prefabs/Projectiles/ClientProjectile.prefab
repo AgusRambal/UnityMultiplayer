@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 4133219599294262748, guid: 820be94210b418843854e596e8d5f87a, type: 3}
+  impact: {fileID: 8300000, guid: 11d7b6c523521de468b09b66ced30d6e, type: 3}
 --- !u!4 &6002527839564107395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9205911496372272639, guid: 50f36f73a68d64244ba51c6f605d90da, type: 3}

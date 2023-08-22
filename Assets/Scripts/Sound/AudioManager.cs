@@ -3,7 +3,6 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;
     [SerializeField] private AudioMixer audioMixer;
 
     public const string General_Key = "generalVolume";
@@ -13,17 +12,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
-        { 
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-
-        else
-        {
-            Destroy(gameObject);
-        }
-
+        DontDestroyOnLoad(gameObject);
         LoadVolume();
     }
 

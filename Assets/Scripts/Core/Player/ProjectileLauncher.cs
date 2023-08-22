@@ -16,7 +16,6 @@ public class ProjectileLauncher : NetworkBehaviour
     //[SerializeField] private GameObject muzzleFlashLVL3b;
     [SerializeField] private Collider2D playerCollider;
     [SerializeField] private TankLevelHandling tankLevel;
-    [SerializeField] private AudioSource gameplaySource;
     [SerializeField] private AudioClip shotSound;
 
     [Header("Settings")]

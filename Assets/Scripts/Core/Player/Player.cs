@@ -8,6 +8,9 @@ public class Player : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private SpriteRenderer miniMapIcon;
+    [SerializeField] private Sprite playerIcon;
+    [SerializeField] private Color playerColor;
     [field: SerializeField] public Health health { get; private set; }
     [field: SerializeField] public CoinWallet wallet { get; private set; }
 
@@ -31,6 +34,8 @@ public class Player : NetworkBehaviour
         if (IsOwner)
         {
             virtualCamera.Priority = ownerPriority;
+            miniMapIcon.sprite = playerIcon;
+            miniMapIcon.color = playerColor;
         }
     }
 

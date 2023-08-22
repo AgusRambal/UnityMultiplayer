@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private List<GameObject> backButtons = new List<GameObject>();
     [SerializeField] private GameObject lobbiesPanel;
 
-
     void Start()
     {
         DOTween.Init();

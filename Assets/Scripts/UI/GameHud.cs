@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -7,10 +8,15 @@ public class GameHud : MonoBehaviour
 
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settings;
+    [SerializeField] private TMP_Text codeText;
 
     private bool isPaused = false;
+    public void Awake()
+    {
+        SetJoinCodeOnScreen();
+    }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape))
         {
@@ -28,5 +34,10 @@ public class GameHud : MonoBehaviour
         }
 
         ClientSingleton.Instance.gameManager.Disconnect();
+    }
+
+    public void SetJoinCodeOnScreen()
+    {
+        codeText.text = $"Game code: {HostSingleton.Instance.gameManager.joinCode}";
     }
 }

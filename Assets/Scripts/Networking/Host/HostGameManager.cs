@@ -17,7 +17,7 @@ using Unity.Services.Authentication;
 public class HostGameManager : IDisposable
 {
     private Allocation allocation;
-    private string joinCode;
+    public string joinCode { get; private set; }
     private string lobbyID;
     public NetworkServer networkServer { get; private set; }
 
@@ -33,7 +33,6 @@ public class HostGameManager : IDisposable
 
         catch (Exception e)
 		{
-
             Debug.Log(e);
             return;
 		}
@@ -41,12 +40,10 @@ public class HostGameManager : IDisposable
         try
         {
             joinCode = await Relay.Instance.GetJoinCodeAsync(allocation.AllocationId);
-            Debug.Log(joinCode);
         }
 
         catch (Exception e)
         {
-
             Debug.Log(e);
             return;
         }

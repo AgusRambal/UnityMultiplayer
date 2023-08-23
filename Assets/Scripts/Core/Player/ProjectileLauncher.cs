@@ -73,6 +73,9 @@ public class ProjectileLauncher : NetworkBehaviour, IEventListener
         if (wallet.totalCoins.Value < costToFire)
             return;
 
+        if (player.isPaused)
+            return;
+
         PrimaryFireServerRPC(projectileSpawnPoint.position, projectileSpawnPoint.up);
         SpawnDummyProjectile(projectileSpawnPoint.position, projectileSpawnPoint.up);
 

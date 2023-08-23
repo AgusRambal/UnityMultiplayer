@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelUpHandler : NetworkBehaviour, IEventListener
 {
+    [SerializeField] private GameObject levelUpVFX;
+
     private Vector2 posToSpawn;
 
     public override void OnNetworkSpawn()
@@ -41,6 +43,7 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         yield return null;
 
         Player playerInstance = Instantiate(lvlTo, posToSpawn, Quaternion.identity);
+        Instantiate(levelUpVFX, posToSpawn, Quaternion.identity);
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.wallet.totalCoins.Value = keptCoins;
         playerInstance.level = level;

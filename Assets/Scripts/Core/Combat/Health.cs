@@ -1,6 +1,8 @@
 using System;
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 public class Health : NetworkBehaviour
 {
@@ -39,8 +41,13 @@ public class Health : NetworkBehaviour
         currentHealth.Value = Mathf.Clamp(newHealth, 0, maxHelath);
 
         if (currentHealth.Value == 0)
-        { 
+        {
             onDie?.Invoke(this);
+
+            EventManager.TriggerEvent(GenericEvents.DieVFX, new Hashtable() {
+            {GameplayEventHashtableParams.DieVFXpos.ToString(), (Vector2)transform.position}
+            });
+
             isDead = true;
         }
     }

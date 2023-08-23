@@ -19,6 +19,7 @@ public class Player : NetworkBehaviour
     [SerializeField] private int ownerPriority = 15;
     public int level = 1;
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
+    [HideInInspector] public bool isPaused = false;
 
     public static event Action<Player> OnPlayerSpawned;
     public static event Action<Player> OnPlayerDespawned;
@@ -47,6 +48,14 @@ public class Player : NetworkBehaviour
         if (IsServer)
         {
             OnPlayerDespawned?.Invoke(this);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            isPaused = !isPaused;
         }
     }
 }

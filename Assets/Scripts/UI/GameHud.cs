@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class GameHud : MonoBehaviour
 {
+    [SerializeField] private Options options;
+
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settings;
 
@@ -14,7 +16,7 @@ public class GameHud : MonoBehaviour
         {
             isPaused = !isPaused;
             pauseMenu.SetActive(isPaused);
-            settings.SetActive(false);
+            options.OptionsHandler(false);
         }
     }
 

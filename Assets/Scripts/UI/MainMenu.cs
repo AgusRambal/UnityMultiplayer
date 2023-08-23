@@ -10,7 +10,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Image background;
     [SerializeField] private TMP_InputField joinCodeField;
     [SerializeField] private List<GameObject> middleButtons = new List<GameObject>();
-    [SerializeField] private List<GameObject> backButtons = new List<GameObject>();
+    [SerializeField] private List<GameObject> backButtons = new List<GameObject>();//change the name to bottom
     [SerializeField] private GameObject lobbiesPanel;
 
     void Start()

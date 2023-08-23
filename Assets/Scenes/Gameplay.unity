@@ -3006,7 +3006,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb7c9bc40384a54fbc0fafde759c018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  options: {fileID: 226395560}
   pauseMenu: {fileID: 791621704}
+  settings: {fileID: 2085339629}
 --- !u!114 &226395560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6381,6 +6383,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6532,6 +6535,14 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!81 &519420034
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
 --- !u!1 &532720077
 GameObject:
   m_ObjectHideFlags: 0
@@ -9994,6 +10005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
   AudioSource: {fileID: 960688301}
+  playAtStart: 0
 --- !u!114 &791621710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10008,6 +10020,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
   AudioSource: {fileID: 960688301}
+  playAtStart: 0
 --- !u!114 &791621711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10022,6 +10035,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
   AudioSource: {fileID: 960688301}
+  playAtStart: 0
 --- !u!114 &791621712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10036,6 +10050,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
   AudioSource: {fileID: 960688301}
+  playAtStart: 0
 --- !u!1 &797298579
 GameObject:
   m_ObjectHideFlags: 0

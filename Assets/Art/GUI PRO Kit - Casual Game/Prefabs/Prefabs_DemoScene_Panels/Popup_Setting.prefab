@@ -4760,6 +4760,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  AudioSource: {fileID: 0}
+  playAtStart: 0
 --- !u!1 &3105850382909988053
 GameObject:
   m_ObjectHideFlags: 0
@@ -5572,7 +5574,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 0.5
   m_WholeNumbers: 0
-  m_Value: 0.25
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6457,6 +6459,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  AudioSource: {fileID: 0}
+  playAtStart: 0
 --- !u!1 &4188563112007456927
 GameObject:
   m_ObjectHideFlags: 0
@@ -7432,7 +7436,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 0.5
   m_WholeNumbers: 0
-  m_Value: 0.25
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7949,7 +7953,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 0.5
   m_WholeNumbers: 0
-  m_Value: 0.25
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -8985,6 +8989,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  AudioSource: {fileID: 0}
+  playAtStart: 0
 --- !u!1 &5824982626001035581
 GameObject:
   m_ObjectHideFlags: 0
@@ -9133,6 +9139,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  AudioSource: {fileID: 0}
+  playAtStart: 0
 --- !u!1 &5824982626004508022
 GameObject:
   m_ObjectHideFlags: 0
@@ -9481,6 +9489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  AudioSource: {fileID: 0}
+  playAtStart: 0
 --- !u!1 &5824982626117495429
 GameObject:
   m_ObjectHideFlags: 0
@@ -10159,6 +10169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  AudioSource: {fileID: 0}
+  playAtStart: 0
 --- !u!1 &5824982626576153655
 GameObject:
   m_ObjectHideFlags: 0
@@ -10746,9 +10758,9 @@ RectTransform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
-  m_AnchorMax: {x: 0.4743627, y: 0.5}
-  m_AnchoredPosition: {x: 30.5, y: 321.99997}
-  m_SizeDelta: {x: -134.45142, y: 0}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 370, y: 317}
+  m_SizeDelta: {x: 606.5486, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &5824982627174231044
 MonoBehaviour:
@@ -11153,7 +11165,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5824982627361964602
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11617,6 +11629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  AudioSource: {fileID: 0}
+  playAtStart: 0
 --- !u!1 &5824982627543458461
 GameObject:
   m_ObjectHideFlags: 0
@@ -11841,6 +11855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  AudioSource: {fileID: 0}
+  playAtStart: 0
 --- !u!1 &5824982627694548251
 GameObject:
   m_ObjectHideFlags: 0
@@ -11989,6 +12005,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  AudioSource: {fileID: 0}
+  playAtStart: 0
 --- !u!1 &5824982627760276969
 GameObject:
   m_ObjectHideFlags: 0
@@ -15869,7 +15887,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 0.5
   m_WholeNumbers: 0
-  m_Value: 0.25
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -1223,8 +1223,8 @@ GameObject:
   - component: {fileID: 8799812862903366330}
   - component: {fileID: 8716039937176261815}
   - component: {fileID: 3988242707679510687}
-  - component: {fileID: 1472325093104950064}
   - component: {fileID: 2258461431754647473}
+  - component: {fileID: 7340094157314708081}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1437,7 +1437,7 @@ MonoBehaviour:
   muzzleFlashLVL2: {fileID: 5884232889929026133}
   muzzleFlashLVL3: {fileID: 1859778613515876589}
   playerCollider: {fileID: 6197860000326693298}
-  tankLevel: {fileID: 1472325093104950064}
+  tankLevel: {fileID: 0}
   audioSource: {fileID: 607396926593790128}
   shotSound: {fileID: 8300000, guid: 5ed1920912e5b1249bf0124ee98cdf37, type: 3}
   projectileSpeed: 30
@@ -1475,6 +1475,7 @@ MonoBehaviour:
   health: {fileID: 8716039937176261815}
   audioSource: {fileID: 607396926593790128}
   coinCollected: {fileID: 8300000, guid: 601c6d982a38c415ab70e744df5a65c1, type: 3}
+  tankLevelHandling: {fileID: 7340094157314708081}
   coinSpread: 3
   bountyPercentage: 50
   bountyCoinCount: 10
@@ -1484,28 +1485,6 @@ MonoBehaviour:
     m_Bits: 1
   totalCoins:
     m_InternalValue: 0
---- !u!114 &1472325093104950064
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3976252709956174990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aef8d0855d306194eb13295302701427, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputReader: {fileID: 11400000, guid: 5c89ea4be3c2f5c47866988153501788, type: 2}
-  tankPartsLVL1:
-  - {fileID: 3416283556264672634}
-  - {fileID: 7619674628351197934}
-  tankPartsLVL2:
-  - {fileID: 8228155382640631943}
-  - {fileID: 1242482019110054889}
-  tankPartsLVL3:
-  - {fileID: 6649261676806221162}
-  - {fileID: 2056555394609857040}
 --- !u!82 &2258461431754647473
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1602,6 +1581,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7340094157314708081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976252709956174990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef8d0855d306194eb13295302701427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1968739323692528234}
+  playerLvl1: {fileID: 3352220325430966622, guid: c45061b965ff4e747b3f61dfa1a97923, type: 3}
+  playerLvl2: {fileID: 7729472983647801063, guid: 9d318639afbc7634bb4a4a376958b950, type: 3}
+  playerLvl3: {fileID: 5627710429661553057, guid: 81bbaff335747a6438bbf9774c95021d, type: 3}
+  coinsForLevelTwo: 50
+  coinsForLevelThree: 100
 --- !u!1 &4224271320111794940
 GameObject:
   m_ObjectHideFlags: 0

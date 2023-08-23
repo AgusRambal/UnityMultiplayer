@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -10,6 +9,7 @@ public class CoinWallet : NetworkBehaviour
     [SerializeField] private Health health;
     [SerializeField] private AudioSource audioSource; 
     [SerializeField] private AudioClip coinCollected; 
+    [SerializeField] private TankLevelHandling tankLevelHandling; 
 
     [Header("Settings")]
     [SerializeField] private float coinSpread = 3f;
@@ -59,9 +59,6 @@ public class CoinWallet : NetworkBehaviour
 
     private Vector2 GetSpawnPoint()
     {
-        float x = 0;
-        float y = 0;
-
         while (true)
         {
             Vector2 spawnPoint = (Vector2)transform.position + UnityEngine.Random.insideUnitCircle * coinSpread;
@@ -97,5 +94,7 @@ public class CoinWallet : NetworkBehaviour
             return;
 
         totalCoins.Value += coinValue;
+
+        tankLevelHandling.LevelUpCheck(this);
     }
 }

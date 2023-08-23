@@ -47,15 +47,17 @@ public class ProjectileLauncher : NetworkBehaviour
 
     private void Update()
     {
-        if (tankLevel.lvl == 2)
-        {
-            muzzleFlash = muzzleFlashLVL2;
-        }
+        muzzleFlash = muzzleFlashLVL2;
 
-        if (tankLevel.lvl == 3)
-        {
-            muzzleFlash = muzzleFlashLVL3;
-        }
+        /* if (tankLevel.lvl == 2)
+         {
+             muzzleFlash = muzzleFlashLVL2;
+         }
+
+         if (tankLevel.lvl == 3)
+         {
+             muzzleFlash = muzzleFlashLVL3;
+         }*/
 
         if (muzzleFlashTimer > 0f)
         {

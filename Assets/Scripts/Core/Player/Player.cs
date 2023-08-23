@@ -17,6 +17,7 @@ public class Player : NetworkBehaviour
 
     [Header("Settings")]
     [SerializeField] private int ownerPriority = 15;
+    public int level = 1;
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
 
     public static event Action<Player> OnPlayerSpawned;

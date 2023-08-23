@@ -2,6 +2,9 @@
 {
     AudioClip,
     AudioSource,
+    Player,
+    PlayerLVL,
+    PlayerPos,
 }
 
 

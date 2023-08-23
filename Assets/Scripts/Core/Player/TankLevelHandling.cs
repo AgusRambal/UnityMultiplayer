@@ -1,57 +1,86 @@
-using System.Collections.Generic;
+using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
 public class TankLevelHandling : NetworkBehaviour
 {
-    [SerializeField] private InputReader inputReader;
-    [SerializeField] private List<GameObject> tankPartsLVL1 = new List<GameObject>();
-    [SerializeField] private List<GameObject> tankPartsLVL2 = new List<GameObject>();
-    [SerializeField] private List<GameObject> tankPartsLVL3 = new List<GameObject>();
+    [SerializeField] private Player player;
 
-    public int lvl { get; private set; } = 1;
+    [SerializeField] private Player playerLvl1;
+    [SerializeField] private Player playerLvl2;
+    [SerializeField] private Player playerLvl3;
 
-    public override void OnNetworkSpawn()
+    [SerializeField] private int coinsForLevelTwo = 50;
+    [SerializeField] private int coinsForLevelThree = 100;
+
+    private Vector2 lastPos;
+    private bool inLevelOne = true;
+    private bool inLevelTwo = false;
+    private bool inLevelThree = false;
+
+    private void Start()
     {
-        if (!IsOwner)
-            return;
-
-        inputReader.LevelUpEvent += SetLevel;
-    }
-
-    public override void OnNetworkDespawn()
-    {
-        if (!IsOwner)
-            return;
-
-        inputReader.LevelUpEvent -= SetLevel;
-    }
-
-    private void Update()
-    {
-        if (!IsOwner)
-            return;
-
-        if (Input.GetKeyDown(KeyCode.R))
+        if (player.level == 1)
         {
-            lvl++;
-            SetLevel(lvl);
+            inLevelOne = true;
+            inLevelTwo = false;
+            inLevelThree = false;
+        }
+
+        if (player.level == 2) 
+        {
+            inLevelOne = false;
+            inLevelTwo = true;
+            inLevelThree = false;
+        }
+
+        if (player.level == 3) 
+        {
+            inLevelOne = false;
+            inLevelTwo = false;
+            inLevelThree = true;
         }
     }
 
-    private void SetLevel(int lvlup)
+    public void LevelUpCheck(CoinWallet wallet)
     {
-        if (lvl == 2)
+        if (!inLevelOne && wallet.totalCoins.Value < coinsForLevelTwo) 
         {
-            tankPartsLVL1.ForEach(tankPart => tankPart.SetActive(false));
-            tankPartsLVL2.ForEach(tankPart => tankPart.SetActive(true));
+            SetLevel(playerLvl1, 1);
+
+            inLevelOne = true;
+            inLevelTwo = false;
+            inLevelThree = false;
         }
 
-        if (lvl == 3)
+        if (!inLevelTwo && wallet.totalCoins.Value >= coinsForLevelTwo && wallet.totalCoins.Value < coinsForLevelThree)
         {
-            tankPartsLVL1.ForEach(tankPart => tankPart.SetActive(false));
-            tankPartsLVL2.ForEach(tankPart => tankPart.SetActive(false));
-            tankPartsLVL3.ForEach(tankPart => tankPart.SetActive(true));
+            SetLevel(playerLvl2, 2);
+
+            inLevelOne = false;
+            inLevelTwo = true;
+            inLevelThree = false;
         }
+
+        if (!inLevelThree && wallet.totalCoins.Value >= coinsForLevelThree)
+        {
+            SetLevel(playerLvl3, 3);
+
+            inLevelOne = false;
+            inLevelTwo = false;
+            inLevelThree = true;
+        }
+    }
+
+    public void SetLevel(Player playerLvl, int level)
+    {
+        lastPos = (Vector2)transform.position;
+        player.level = level;
+
+        EventManager.TriggerEvent(GenericEvents.HandlePlayerLevel, new Hashtable() {
+        {GameplayEventHashtableParams.Player.ToString(), player},
+        {GameplayEventHashtableParams.PlayerLVL.ToString(), playerLvl},
+        {GameplayEventHashtableParams.PlayerPos.ToString(), lastPos}
+        });
     }
 }

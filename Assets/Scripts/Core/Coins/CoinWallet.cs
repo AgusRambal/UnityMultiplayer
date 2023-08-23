@@ -94,7 +94,11 @@ public class CoinWallet : NetworkBehaviour
             return;
 
         totalCoins.Value += coinValue;
+        LevelUpCheck();
+    }
 
+    public void LevelUpCheck()
+    {
         tankLevelHandling.LevelUpCheck(this);
     }
 }

@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 92bb59410b4740a4e8d99456fb12f01d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd2b712412a05644da4d741f11a4b1f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -168,9 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0420c0780ea14624c9baa992fc5a54f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4133219599294262748, guid: 820be94210b418843854e596e8d5f87a, type: 3}
-  impact: {fileID: 8300000, guid: 11d7b6c523521de468b09b66ced30d6e, type: 3}
-  audioSource: {fileID: 0}
+  prefab: {fileID: 4228883952203472486, guid: 4a1170465bc74c1439f706eef6c4d4f6, type: 3}
 --- !u!4 &6002527839564107395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9205911496372272639, guid: 50f36f73a68d64244ba51c6f605d90da, type: 3}

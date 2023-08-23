@@ -14,61 +14,35 @@ public class TankLevelHandling : NetworkBehaviour
     [SerializeField] private int coinsForLevelThree = 100;
 
     private Vector2 lastPos;
-    private bool inLevelOne = true;
-    private bool inLevelTwo = false;
-    private bool inLevelThree = false;
+    private bool passedLevelTwo = false;
+    private bool passedLevelThree = false;
 
     private void Start()
     {
-        if (player.level == 1)
+        if (player.level == 2)
         {
-            inLevelOne = true;
-            inLevelTwo = false;
-            inLevelThree = false;
+            passedLevelTwo = true;
         }
 
-        if (player.level == 2) 
+        if (player.level == 3)
         {
-            inLevelOne = false;
-            inLevelTwo = true;
-            inLevelThree = false;
-        }
-
-        if (player.level == 3) 
-        {
-            inLevelOne = false;
-            inLevelTwo = false;
-            inLevelThree = true;
+            passedLevelTwo = true;
+            passedLevelThree = true;
         }
     }
 
     public void LevelUpCheck(CoinWallet wallet)
     {
-        if (!inLevelOne && wallet.totalCoins.Value < coinsForLevelTwo) 
-        {
-            SetLevel(playerLvl1, 1);
-
-            inLevelOne = true;
-            inLevelTwo = false;
-            inLevelThree = false;
-        }
-
-        if (!inLevelTwo && wallet.totalCoins.Value >= coinsForLevelTwo && wallet.totalCoins.Value < coinsForLevelThree)
+        if (!passedLevelTwo && wallet.totalCoins.Value >= coinsForLevelTwo)
         {
             SetLevel(playerLvl2, 2);
-
-            inLevelOne = false;
-            inLevelTwo = true;
-            inLevelThree = false;
+            passedLevelTwo = true;
         }
 
-        if (!inLevelThree && wallet.totalCoins.Value >= coinsForLevelThree)
+        if (!passedLevelThree && wallet.totalCoins.Value >= coinsForLevelThree)
         {
             SetLevel(playerLvl3, 3);
-
-            inLevelOne = false;
-            inLevelTwo = false;
-            inLevelThree = true;
+            passedLevelThree = true;
         }
     }
 

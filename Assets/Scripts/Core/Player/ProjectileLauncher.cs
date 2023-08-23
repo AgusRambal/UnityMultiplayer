@@ -15,7 +15,6 @@ public class ProjectileLauncher : NetworkBehaviour
     [SerializeField] private GameObject muzzleFlashLVL3;
     //[SerializeField] private GameObject muzzleFlashLVL3b;
     [SerializeField] private Collider2D playerCollider;
-    [SerializeField] private TankLevelHandling tankLevel;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shotSound;
 
@@ -47,7 +46,7 @@ public class ProjectileLauncher : NetworkBehaviour
 
     private void Update()
     {
-        muzzleFlash = muzzleFlashLVL2;
+        //muzzleFlash = muzzleFlashLVL2;
 
         /* if (tankLevel.lvl == 2)
          {

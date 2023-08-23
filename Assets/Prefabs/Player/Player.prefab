@@ -1350,6 +1350,7 @@ MonoBehaviour:
   <health>k__BackingField: {fileID: 8716039937176261815}
   <wallet>k__BackingField: {fileID: 3988242707679510687}
   ownerPriority: 15
+  level: 1
   playerName:
     m_InternalValue:
       utf8LengthInBytes: 0
@@ -1437,7 +1438,7 @@ MonoBehaviour:
   muzzleFlashLVL2: {fileID: 5884232889929026133}
   muzzleFlashLVL3: {fileID: 1859778613515876589}
   playerCollider: {fileID: 6197860000326693298}
-  tankLevel: {fileID: 0}
+  tankLevel: {fileID: 7340094157314708081}
   audioSource: {fileID: 607396926593790128}
   shotSound: {fileID: 8300000, guid: 5ed1920912e5b1249bf0124ee98cdf37, type: 3}
   projectileSpeed: 30

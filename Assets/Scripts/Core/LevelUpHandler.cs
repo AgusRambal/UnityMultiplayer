@@ -32,11 +32,11 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         int keptCoins = player.wallet.totalCoins.Value;
         int level = player.level;
 
-        StartCoroutine(Level(player.OwnerClientId, keptCoins, lvlTo, level));
         Destroy(player.gameObject);
+        StartCoroutine(LevelUp(player.OwnerClientId, keptCoins, lvlTo, level));
     }
 
-    private IEnumerator Level(ulong ownerClientID, int keptCoins, Player lvlTo, int level)
+    private IEnumerator LevelUp(ulong ownerClientID, int keptCoins, Player lvlTo, int level)
     {
         yield return null;
 
@@ -44,6 +44,8 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.wallet.totalCoins.Value = keptCoins;
         playerInstance.level = level;
+
+        EventManager.TriggerEvent(GenericEvents.SetMuzzleFlash);
     }
 
     public void OnEnableEventListenerSubscriptions()

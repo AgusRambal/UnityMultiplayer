@@ -1,5 +1,6 @@
 ﻿public enum GenericEvents
 {
     PlaySound,
-    HandlePlayerLevel
+    HandlePlayerLevel,
+    SetMuzzleFlash
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-public class ProjectileLauncher : NetworkBehaviour
+public class ProjectileLauncher : NetworkBehaviour, IEventListener
 {
     [Header("References")]
     [SerializeField] private InputReader inputReader;
@@ -11,12 +11,13 @@ public class ProjectileLauncher : NetworkBehaviour
     [SerializeField] private GameObject serverProjectilePrefab;
     [SerializeField] private GameObject clientProjectilePrefab;
     [SerializeField] private GameObject muzzleFlash;
+    [SerializeField] private GameObject muzzleFlashLVL1;
     [SerializeField] private GameObject muzzleFlashLVL2;
     [SerializeField] private GameObject muzzleFlashLVL3;
-    //[SerializeField] private GameObject muzzleFlashLVL3b;
     [SerializeField] private Collider2D playerCollider;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shotSound;
+    [SerializeField] private Player player;
 
     [Header("Settings")]
     [SerializeField] private float projectileSpeed;
@@ -33,6 +34,7 @@ public class ProjectileLauncher : NetworkBehaviour
         if (!IsOwner)
             return;
 
+        OnEnableEventListenerSubscriptions();
         inputReader.PrimaryFireEvent += HandlePrimaryFire;
     }
 
@@ -41,29 +43,18 @@ public class ProjectileLauncher : NetworkBehaviour
         if (!IsOwner)
             return;
 
+        CancelEventListenerSubscriptions();
         inputReader.PrimaryFireEvent -= HandlePrimaryFire;
     }
 
     private void Update()
     {
-        //muzzleFlash = muzzleFlashLVL2;
-
-        /* if (tankLevel.lvl == 2)
-         {
-             muzzleFlash = muzzleFlashLVL2;
-         }
-
-         if (tankLevel.lvl == 3)
-         {
-             muzzleFlash = muzzleFlashLVL3;
-         }*/
-
         if (muzzleFlashTimer > 0f)
         {
             muzzleFlashTimer -= Time.deltaTime;
 
             if (muzzleFlashTimer <= 0f)
-            { 
+            {
                 muzzleFlash.SetActive(false);
             }
         }
@@ -86,6 +77,24 @@ public class ProjectileLauncher : NetworkBehaviour
         SpawnDummyProjectile(projectileSpawnPoint.position, projectileSpawnPoint.up);
 
         timer = 1 / fireRate;
+    }
+
+    public void SetMuzzleFlash(Hashtable hashtable)
+    {
+        if (player.level == 1)
+        {
+            muzzleFlash = muzzleFlashLVL1;
+        }
+
+        if (player.level == 2)
+        {
+            muzzleFlash = muzzleFlashLVL2;
+        }
+
+        if (player.level == 3)
+        {
+            muzzleFlash = muzzleFlashLVL3;
+        }
     }
 
     private void HandlePrimaryFire(bool shouldFire)
@@ -148,5 +157,15 @@ public class ProjectileLauncher : NetworkBehaviour
         }
 
         SpawnDummyProjectileClientRPC(spawnPos, direction);
+    }
+
+    public void OnEnableEventListenerSubscriptions()
+    {
+        EventManager.StartListening(GenericEvents.SetMuzzleFlash, SetMuzzleFlash);
+    }
+
+    public void CancelEventListenerSubscriptions()
+    {
+        EventManager.StopListening(GenericEvents.SetMuzzleFlash, SetMuzzleFlash);
     }
 }

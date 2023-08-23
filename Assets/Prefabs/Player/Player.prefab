@@ -418,7 +418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4815766123563501564
 Transform:
   m_ObjectHideFlags: 0
@@ -426,14 +426,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859778613515876589}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.292, y: 1.456, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.72504747, w: 0.68869895}
+  m_LocalPosition: {x: -0.345, y: 2.427, z: 0}
+  m_LocalScale: {x: 0.17027192, y: 0.17027192, z: 1.702719}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3814265734816573535}
+  m_Father: {fileID: 2663954953029297652}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.946}
 --- !u!212 &6874185895539553463
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -475,7 +475,7 @@ SpriteRenderer:
   m_SortingLayerID: -1968596159
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9d8bd4f8481a773488649b18bd02cbc1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7258acc4bb643f241af4e931a0a8cc0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 6831042389866496830}
   - component: {fileID: 3929554819264422831}
   m_Layer: 0
-  m_Name: MuzzleFlash
+  m_Name: MuzzleFlashLVL1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -681,14 +681,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2399037158607021233}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.010000002, y: 0.9330001, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.72504747, w: 0.68869895}
+  m_LocalPosition: {x: -0.048, y: 0.984, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 926020441765957891}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.946}
 --- !u!212 &3929554819264422831
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -730,7 +730,7 @@ SpriteRenderer:
   m_SortingLayerID: -1968596159
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9d8bd4f8481a773488649b18bd02cbc1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b903492db4e935f42b0048b5be61efca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1435,12 +1435,13 @@ MonoBehaviour:
   serverProjectilePrefab: {fileID: 7066831541942535367, guid: fdc80804f8c011a45a3832aafeb3694c, type: 3}
   clientProjectilePrefab: {fileID: 1339745971142275146, guid: f35eb289899593a49b8b209f93e9f5b8, type: 3}
   muzzleFlash: {fileID: 2399037158607021233}
+  muzzleFlashLVL1: {fileID: 2399037158607021233}
   muzzleFlashLVL2: {fileID: 5884232889929026133}
-  muzzleFlashLVL3: {fileID: 1859778613515876589}
+  muzzleFlashLVL3: {fileID: 6908331202238296137}
   playerCollider: {fileID: 6197860000326693298}
-  tankLevel: {fileID: 7340094157314708081}
   audioSource: {fileID: 607396926593790128}
   shotSound: {fileID: 8300000, guid: 5ed1920912e5b1249bf0124ee98cdf37, type: 3}
+  player: {fileID: 1968739323692528234}
   projectileSpeed: 30
   fireRate: 0.75
   muzzleFlashDuration: 0.075
@@ -1935,7 +1936,7 @@ GameObject:
   - component: {fileID: 7503170719777019266}
   - component: {fileID: 3972292424640020281}
   m_Layer: 0
-  m_Name: MuzzleFlash
+  m_Name: MuzzleFlashLVL2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1948,14 +1949,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5884232889929026133}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.039, y: 1.279, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.72504747, w: 0.68869895}
+  m_LocalPosition: {x: -0.082, y: 1.286, z: 0}
+  m_LocalScale: {x: 0.13182, y: 0.13182, z: 1.3182}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 493389194862153639}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -92.946}
 --- !u!212 &3972292424640020281
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1997,7 +1998,7 @@ SpriteRenderer:
   m_SortingLayerID: -1968596159
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9d8bd4f8481a773488649b18bd02cbc1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3767ccf3e5990004691f926caa85f61f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2173,8 +2174,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3564442891226146744}
-  - {fileID: 4815766123563501564}
-  - {fileID: 2372009032461226171}
   m_Father: {fileID: 1904798266145017601}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2420,7 +2419,8 @@ Transform:
   m_LocalPosition: {x: 0.001, y: -0.796, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2663954953029297652}
   m_Father: {fileID: 3814265734816573535}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2476,6 +2476,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6908331202238296137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2663954953029297652}
+  m_Layer: 0
+  m_Name: MuzzleFlashLVL3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2663954953029297652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6908331202238296137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4815766123563501564}
+  - {fileID: 2372009032461226171}
+  m_Father: {fileID: 3564442891226146744}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7540725854767859021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,7 +2873,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2372009032461226171
 Transform:
   m_ObjectHideFlags: 0
@@ -2848,14 +2881,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7987009679155040576}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.305, y: 1.456, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7250499, y: 0.6886964, z: -0, w: 0}
+  m_LocalPosition: {x: 0.32500002, y: 2.427, z: 0}
+  m_LocalScale: {x: 0.17027192, y: 0.17027192, z: 1.702719}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3814265734816573535}
+  m_Father: {fileID: 2663954953029297652}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -92.946}
 --- !u!212 &1525672244856089510
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2897,7 +2930,7 @@ SpriteRenderer:
   m_SortingLayerID: -1968596159
   m_SortingLayer: 3
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 9d8bd4f8481a773488649b18bd02cbc1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7258acc4bb643f241af4e931a0a8cc0a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

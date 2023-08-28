@@ -35,7 +35,6 @@ RectTransform:
   - {fileID: 2920544594689457756}
   - {fileID: 1558198535281839029}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -125,7 +124,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4513891381450242078}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -260,7 +258,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4513891381450242078}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -502,7 +499,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7018945476141878962, guid: 889608bb0f2024861b25e0b3c772326e, type: 3}
       propertyPath: m_text
-      value: Join
+      value: Enter
       objectReference: {fileID: 0}
     - target: {fileID: 7018945476141878962, guid: 889608bb0f2024861b25e0b3c772326e, type: 3}
       propertyPath: m_fontSize

@@ -12,6 +12,8 @@ public class PlayerInstance : NetworkBehaviour
     [SerializeField] private Sprite playerIcon;
     [SerializeField] private Color playerColor;
     [SerializeField] private AudioSource tankAudio;
+    [SerializeField] private Texture2D corssHair;
+
     [field: SerializeField] public Health health { get; private set; }
     [field: SerializeField] public CoinWallet wallet { get; private set; }
 
@@ -36,6 +38,7 @@ public class PlayerInstance : NetworkBehaviour
 
         if (IsOwner)
         {
+            Cursor.SetCursor(corssHair, new Vector2(corssHair.width / 2, corssHair.height / 2), CursorMode.Auto);
             virtualCamera.Priority = ownerPriority;
             miniMapIcon.sprite = playerIcon;
             miniMapIcon.color = playerColor;

@@ -15,6 +15,8 @@ public class ClientGameManager : IDisposable
 {
     private JoinAllocation allocation;
     private NetworkClient networkClient;
+    private MatchplayMatchmaker matchmaker;
+    private GameData gameData;
 
     private const string menuSceneName = "MainMenu";
 
@@ -23,11 +25,19 @@ public class ClientGameManager : IDisposable
         await UnityServices.InitializeAsync();
 
         networkClient = new NetworkClient(NetworkManager.Singleton);
+        matchmaker = new MatchplayMatchmaker();
 
         AuthState authState = await AuthenticationWrapper.DoAuth();
 
         if (authState == AuthState.Authenticated)
         {
+            gameData = new GameData
+
+            {
+                userName = PlayerPrefs.GetString(NameSelector.playerNameKey, "Missing Name"),
+                userAuthID = AuthenticationService.Instance.PlayerId
+            };
+
             return true;
         }
 
@@ -56,19 +66,26 @@ public class ClientGameManager : IDisposable
         RelayServerData relayServerData = new RelayServerData(allocation, "dtls"); //The other one was udp
         transport.SetRelayServerData(relayServerData);
 
-        GameData userData = new GameData
-        {
-            userName = PlayerPrefs.GetString(NameSelector.playerNameKey, "Missing Name"),
-            userAuthID = AuthenticationService.Instance.PlayerId
-        };
-
-        string payload = JsonUtility.ToJson(userData);
+        string payload = JsonUtility.ToJson(gameData);
         byte[] payloadBytes = Encoding.UTF8.GetBytes(payload);
 
         NetworkManager.Singleton.NetworkConfig.ConnectionData = payloadBytes;
 
         NetworkManager.Singleton.StartClient();
     }
+
+    private async Task<MatchmakerPollingResult> GetMatchAsync()
+    {
+        MatchmakingResult matchmakingResult = await matchmaker.Matchmake(gameData);
+
+        if (matchmakingResult.result == MatchmakerPollingResult.Success) 
+        { 
+            //Connect to server
+        }
+
+        return matchmakingResult.result;
+    }
+
     public void Disconnect()
     {
         networkClient.Disconnect();

@@ -13,6 +13,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject lobbiesPanel;
     [SerializeField] private TMP_Text findMatchButtonText;
     [SerializeField] private TMP_Text queueTimerText;
+    [SerializeField] private TMP_Text queueTimerStatus;
+
+    private bool isMatchmaking;
+    private bool isCancelling;
 
     void Start()
     {
@@ -51,6 +55,30 @@ public class MainMenu : MonoBehaviour
     public void ExitGame()
     { 
         Application.Quit();
+    }
+
+    public async void FindMatch()
+    {
+        if (isCancelling)
+            return;
+
+        if (isMatchmaking)
+        {
+            queueTimerStatus.text = "Cancelling...";
+            isCancelling = true;
+            //Cancel matchmaking
+            isCancelling = false;
+            isMatchmaking = false;
+            findMatchButtonText.text = "Find Match";
+            queueTimerStatus.text = string.Empty;
+
+            return;
+        }
+
+        //start queue
+        findMatchButtonText.text = "Cancel";
+        queueTimerStatus.text = "Searching...";
+        isMatchmaking = true;
     }
 
     public void InteractWithLobbiesPanel(bool state)

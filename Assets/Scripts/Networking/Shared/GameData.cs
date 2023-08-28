@@ -20,7 +20,7 @@ public class GameData
 {
     public string userName;
     public string userAuthID;
-    public GameInfo userGamePreferences;
+    public GameInfo userGamePreferences = new GameInfo();
 }
 
 [Serializable]

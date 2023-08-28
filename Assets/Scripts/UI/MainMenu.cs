@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
+using Unity.Services.Lobbies.Models;
+using Unity.Services.Lobbies;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,8 +18,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private TMP_Text queueTimerText;
     [SerializeField] private TMP_Text queueTimerStatus;
 
+    private float timeInQueue = 0;
     private bool isMatchmaking;
     private bool isCancelling;
+    private bool isBusy;
 
     void Start()
     {
@@ -24,7 +29,7 @@ public class MainMenu : MonoBehaviour
             return;
 
         DOTween.Init();
-        background.sprite = backgrounds[Random.Range(0, backgrounds.Count)];
+        background.sprite = backgrounds[UnityEngine.Random.Range(0, backgrounds.Count)];
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         queueTimerText.text = string.Empty;
         SetAnims();
@@ -34,7 +39,7 @@ public class MainMenu : MonoBehaviour
     {
         for (int i = 0; i < buttons.Count; i++) 
         {
-            float time = Random.Range(.2f, .9f);
+            float time = UnityEngine.Random.Range(.2f, .9f);
 
             buttons[i].transform.DOScale(1f, time);
             buttons[i].transform.DOScale(.75f, time);       
@@ -44,17 +49,64 @@ public class MainMenu : MonoBehaviour
     //Buttons
     public async void StartHost()
     {
+        if (isBusy)
+            return;
+
+        isBusy = true;
+
         await HostSingleton.Instance.gameManager.StartHostAsync();
+
+        isBusy = false;
     }
 
     public async void StartClient()
     {
+        if (isBusy)
+            return;
+
+        isBusy = true;
+
         await ClientSingleton.Instance.gameManager.StartClientAsync(joinCodeField.text);
+
+        isBusy = false;
+    }
+
+    public async void JoinAsync(Lobby lobby)
+    {
+        if (isBusy)
+            return;
+
+        isBusy = true;
+
+        try
+        {
+            Lobby joininLobby = await Lobbies.Instance.JoinLobbyByIdAsync(lobby.Id);
+            string joinCode = joininLobby.Data["JoinCode"].Value;
+
+            await ClientSingleton.Instance.gameManager.StartClientAsync(joinCode);
+        }
+
+        catch (LobbyServiceException e)
+        {
+            Debug.Log(e);
+        }
+
+        isBusy = false;
     }
 
     public void ExitGame()
     { 
         Application.Quit();
+    }
+
+    private void Update()
+    {
+        if (isMatchmaking)
+        {
+            timeInQueue += Time.deltaTime;
+            TimeSpan ts = TimeSpan.FromSeconds(timeInQueue);
+            queueTimerText.text = string.Format("{0:00}:{1:00}", ts.Minutes, ts.Seconds);
+        }
     }
 
     public async void FindMatch()
@@ -69,16 +121,23 @@ public class MainMenu : MonoBehaviour
             await ClientSingleton.Instance.gameManager.CancelMatchmaking();
             isCancelling = false;
             isMatchmaking = false;
+            isBusy = false;
             findMatchButtonText.text = "Find Match";
             queueTimerStatus.text = string.Empty;
+            queueTimerText.text = string.Empty;
 
             return;
         }
 
+        if (isBusy)
+            return;
+
         ClientSingleton.Instance.gameManager.MatchmakeAsync(OnMatchMade);
         findMatchButtonText.text = "Cancel";
         queueTimerStatus.text = "Searching...";
+        timeInQueue = 0f;
         isMatchmaking = true;
+        isBusy = true;
     }
 
     private void OnMatchMade(MatchmakerPollingResult result)

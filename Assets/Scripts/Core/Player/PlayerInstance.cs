@@ -4,7 +4,7 @@ using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Player : NetworkBehaviour
+public class PlayerInstance : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
@@ -21,14 +21,14 @@ public class Player : NetworkBehaviour
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
     [HideInInspector] public bool isPaused = false;
 
-    public static event Action<Player> OnPlayerSpawned;
-    public static event Action<Player> OnPlayerDespawned;
+    public static event Action<PlayerInstance> OnPlayerSpawned;
+    public static event Action<PlayerInstance> OnPlayerDespawned;
 
     public override void OnNetworkSpawn()
     {
         if (IsServer) 
         {
-            UserData userData = HostSingleton.Instance.gameManager.networkServer.GetUserDataByClientID(OwnerClientId);
+            GameData userData = HostSingleton.Instance.gameManager.networkServer.GetUserDataByClientID(OwnerClientId);
 
             playerName.Value = userData.userName;
             OnPlayerSpawned?.Invoke(this);

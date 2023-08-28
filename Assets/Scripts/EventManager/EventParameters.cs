@@ -5,7 +5,7 @@
     Player,
     PlayerLVL,
     PlayerPos,
-    DieVFXpos,
+    PlayerHealth
 }
 
 

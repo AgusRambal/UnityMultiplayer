@@ -1,42 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
 
-public class OnDieVFX : NetworkBehaviour, IEventListener
+public class OnDieVFX : MonoBehaviour
 {
-    [SerializeField] private GameObject dieVFX;
+    [SerializeField] private GameObject onDie;
+    [SerializeField] private GameObject levelUp;
 
-    public override void OnNetworkSpawn()
+    [HideInInspector] public int health;
+
+    private void OnDestroy()
     {
-        if (!IsServer)
-            return;
+        if (health <= 0)
+        {
+            Instantiate(onDie, transform.position, Quaternion.identity);
+        }
 
-        OnEnableEventListenerSubscriptions();
-    }
-
-    public override void OnNetworkDespawn()
-    {
-        if (!IsServer)
-            return;
-
-        CancelEventListenerSubscriptions();
-    }
-
-    public void DieVFX(Hashtable hashtable)
-    {
-        Vector2 pos = (Vector2)hashtable[GameplayEventHashtableParams.DieVFXpos.ToString()];
-
-        Instantiate(dieVFX, pos, Quaternion.identity);
-    }
-
-    public void OnEnableEventListenerSubscriptions()
-    {
-        EventManager.StartListening(GenericEvents.DieVFX, DieVFX);
-    }
-
-    public void CancelEventListenerSubscriptions()
-    {
-        EventManager.StopListening(GenericEvents.DieVFX, DieVFX);
+        else
+        {
+            Instantiate(levelUp, transform.position, Quaternion.identity);
+        }
     }
 }

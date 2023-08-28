@@ -17,7 +17,7 @@ public class ProjectileLauncher : NetworkBehaviour, IEventListener
     [SerializeField] private Collider2D playerCollider;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shotSound;
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerInstance player;
 
     [Header("Settings")]
     [SerializeField] private float projectileSpeed;

@@ -84,7 +84,7 @@ public class HostGameManager : IDisposable
 
         networkServer = new NetworkServer(NetworkManager.Singleton);
 
-        UserData userData = new UserData
+        GameData userData = new GameData
         {
             userName = PlayerPrefs.GetString(NameSelector.playerNameKey, "Missing Name"),
             userAuthID = AuthenticationService.Instance.PlayerId

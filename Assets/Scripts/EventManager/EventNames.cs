@@ -3,5 +3,4 @@
     PlaySound,
     HandlePlayerLevel,
     SetMuzzleFlash,
-    DieVFX,
 }

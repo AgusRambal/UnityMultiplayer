@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TankLevelHandling : NetworkBehaviour
 {
-    [SerializeField] private Player player;
+    [SerializeField] private PlayerInstance player;
+    [SerializeField] private Health health;
 
-    [SerializeField] private Player playerLvl1;
-    [SerializeField] private Player playerLvl2;
-    [SerializeField] private Player playerLvl3;
+    [SerializeField] private PlayerInstance playerLvl1;
+    [SerializeField] private PlayerInstance playerLvl2;
+    [SerializeField] private PlayerInstance playerLvl3;
 
     [SerializeField] private int coinsForLevelTwo = 50;
     [SerializeField] private int coinsForLevelThree = 100;
@@ -46,7 +47,7 @@ public class TankLevelHandling : NetworkBehaviour
         }
     }
 
-    public void SetLevel(Player playerLvl, int level)
+    public void SetLevel(PlayerInstance playerLvl, int level)
     {
         lastPos = (Vector2)transform.position;
         player.level = level;
@@ -54,7 +55,8 @@ public class TankLevelHandling : NetworkBehaviour
         EventManager.TriggerEvent(GenericEvents.HandlePlayerLevel, new Hashtable() {
         {GameplayEventHashtableParams.Player.ToString(), player},
         {GameplayEventHashtableParams.PlayerLVL.ToString(), playerLvl},
-        {GameplayEventHashtableParams.PlayerPos.ToString(), lastPos}
+        {GameplayEventHashtableParams.PlayerPos.ToString(), lastPos},
+        {GameplayEventHashtableParams.PlayerHealth.ToString(), health}
         });
     }
 }

@@ -11,7 +11,8 @@ public class GameHud : MonoBehaviour
     [SerializeField] private TMP_Text codeText;
 
     private bool isPaused = false;
-    public void Awake()
+
+    public void Start()
     {
         SetJoinCodeOnScreen();
     }

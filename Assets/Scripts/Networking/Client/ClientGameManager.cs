@@ -56,7 +56,7 @@ public class ClientGameManager : IDisposable
         RelayServerData relayServerData = new RelayServerData(allocation, "dtls"); //The other one was udp
         transport.SetRelayServerData(relayServerData);
 
-        UserData userData = new UserData
+        GameData userData = new GameData
         {
             userName = PlayerPrefs.GetString(NameSelector.playerNameKey, "Missing Name"),
             userAuthID = AuthenticationService.Instance.PlayerId

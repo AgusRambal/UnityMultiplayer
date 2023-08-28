@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class Health : NetworkBehaviour
 {
@@ -43,10 +44,6 @@ public class Health : NetworkBehaviour
         if (currentHealth.Value == 0)
         {
             onDie?.Invoke(this);
-
-            EventManager.TriggerEvent(GenericEvents.DieVFX, new Hashtable() {
-            {GameplayEventHashtableParams.DieVFXpos.ToString(), (Vector2)transform.position}
-            });
 
             isDead = true;
         }

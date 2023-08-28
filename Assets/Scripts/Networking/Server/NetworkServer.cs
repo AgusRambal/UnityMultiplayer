@@ -8,7 +8,7 @@ public class NetworkServer : IDisposable
     private NetworkManager networkManager;
     public Action<string> OnClientLeft;
     private Dictionary<ulong, string> clientIDtoAuth = new Dictionary<ulong, string>();
-    private Dictionary<string, UserData> authIDtoUserData = new Dictionary<string, UserData>();
+    private Dictionary<string, GameData> authIDtoUserData = new Dictionary<string, GameData>();
         
     public NetworkServer(NetworkManager networkManager)
     {
@@ -33,11 +33,11 @@ public class NetworkServer : IDisposable
         }
     }
 
-    public UserData GetUserDataByClientID(ulong clientID)
+    public GameData GetUserDataByClientID(ulong clientID)
     {
         if (clientIDtoAuth.TryGetValue(clientID, out string authID))
         {
-            if (authIDtoUserData.TryGetValue(authID, out UserData data))
+            if (authIDtoUserData.TryGetValue(authID, out GameData data))
             {
                 return data;
             }
@@ -51,7 +51,7 @@ public class NetworkServer : IDisposable
     private void ApprovalCheck(NetworkManager.ConnectionApprovalRequest request, NetworkManager.ConnectionApprovalResponse response)
     {
         string payload =  System.Text.Encoding.UTF8.GetString(request.Payload);
-        UserData userData = JsonUtility.FromJson<UserData>(payload);
+        GameData userData = JsonUtility.FromJson<GameData>(payload);
 
         clientIDtoAuth[request.ClientNetworkId] = userData.userAuthID;
         authIDtoUserData[userData.userAuthID] = userData;

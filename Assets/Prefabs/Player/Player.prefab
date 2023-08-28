@@ -1225,6 +1225,7 @@ GameObject:
   - component: {fileID: 3988242707679510687}
   - component: {fileID: 2258461431754647473}
   - component: {fileID: 7340094157314708081}
+  - component: {fileID: 7729018708991092613}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1386,6 +1387,7 @@ MonoBehaviour:
         byte0027: 0
         byte0028: 0
         byte0029: 0
+  isPaused: 0
 --- !u!114 &3695574179822663429
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1596,11 +1598,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1968739323692528234}
+  health: {fileID: 8716039937176261815}
   playerLvl1: {fileID: 3352220325430966622, guid: c45061b965ff4e747b3f61dfa1a97923, type: 3}
   playerLvl2: {fileID: 7729472983647801063, guid: 9d318639afbc7634bb4a4a376958b950, type: 3}
   playerLvl3: {fileID: 5627710429661553057, guid: 81bbaff335747a6438bbf9774c95021d, type: 3}
   coinsForLevelTwo: 50
   coinsForLevelThree: 100
+--- !u!114 &7729018708991092613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3976252709956174990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf578929839e1e42a69d130dbf0e17e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDie: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
+  levelUp: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+  health: 0
 --- !u!1 &4224271320111794940
 GameObject:
   m_ObjectHideFlags: 0

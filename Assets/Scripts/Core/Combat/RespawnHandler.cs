@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RespawnHandler : NetworkBehaviour
 {
-    [SerializeField] private Player playerPrefab;
+    [SerializeField] private PlayerInstance playerPrefab;
     [SerializeField] private float keptCoinPercentage;
 
     public override void OnNetworkSpawn()
@@ -12,15 +12,15 @@ public class RespawnHandler : NetworkBehaviour
         if (!IsServer)
             return;
 
-        Player[] players = FindObjectsOfType<Player>();
+        PlayerInstance[] players = FindObjectsOfType<PlayerInstance>();
 
-        foreach (Player player in players)
+        foreach (PlayerInstance player in players)
         {
             HandlePlayerSpawned(player);
         }
 
-        Player.OnPlayerSpawned += HandlePlayerSpawned;
-        Player.OnPlayerDespawned += HandlePlayerDespawned;
+        PlayerInstance.OnPlayerSpawned += HandlePlayerSpawned;
+        PlayerInstance.OnPlayerDespawned += HandlePlayerDespawned;
     }
 
     public override void OnNetworkDespawn()
@@ -28,21 +28,21 @@ public class RespawnHandler : NetworkBehaviour
         if (!IsServer)
             return;
 
-        Player.OnPlayerSpawned -= HandlePlayerSpawned;
-        Player.OnPlayerDespawned -= HandlePlayerDespawned;
+        PlayerInstance.OnPlayerSpawned -= HandlePlayerSpawned;
+        PlayerInstance.OnPlayerDespawned -= HandlePlayerDespawned;
     }
 
-    private void HandlePlayerSpawned(Player player)
+    private void HandlePlayerSpawned(PlayerInstance player)
     {
         player.health.onDie += (health) => HandlePlayerDie(player);
     }
 
-    private void HandlePlayerDespawned(Player player)
+    private void HandlePlayerDespawned(PlayerInstance player)
     {
         player.health.onDie -= (health) => HandlePlayerDie(player);
     }
 
-    private void HandlePlayerDie(Player player)
+    private void HandlePlayerDie(PlayerInstance player)
     {
         int keptCoins = (int)(player.wallet.totalCoins.Value * (keptCoinPercentage / 100));
 
@@ -55,7 +55,7 @@ public class RespawnHandler : NetworkBehaviour
     {
         yield return null;
 
-        Player playerInstance = Instantiate(playerPrefab, SpawnPoint.GetRandomSpawnPos(), Quaternion.identity);
+        PlayerInstance playerInstance = Instantiate(playerPrefab, SpawnPoint.GetRandomSpawnPos(), Quaternion.identity);
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.wallet.totalCoins.Value += keptCoins;
     }

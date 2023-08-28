@@ -5042,7 +5042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: 13ab3703eb1565740b10f00cf4c3989c, type: 3}
-  AudioSource: {fileID: 0}
+  AudioSource: {fileID: 4849640657097184729}
   playAtStart: 1
 --- !u!1 &2433282508753476420
 GameObject:

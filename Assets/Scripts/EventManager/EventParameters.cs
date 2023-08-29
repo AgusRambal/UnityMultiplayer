@@ -5,7 +5,6 @@
     Player,
     PlayerLVL,
     PlayerPos,
-    PlayerHealth
 }
 
 

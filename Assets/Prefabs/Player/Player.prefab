@@ -6065,7 +6065,6 @@ GameObject:
   - component: {fileID: 3988242707679510687}
   - component: {fileID: 2258461431754647473}
   - component: {fileID: 7340094157314708081}
-  - component: {fileID: 7729018708991092613}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6278,11 +6277,18 @@ MonoBehaviour:
   wallet: {fileID: 3988242707679510687}
   projectileSpawnPoint: {fileID: 926020441765957891}
   serverProjectilePrefab: {fileID: 7066831541942535367, guid: fdc80804f8c011a45a3832aafeb3694c, type: 3}
-  clientProjectilePrefab: {fileID: 1339745971142275146, guid: f35eb289899593a49b8b209f93e9f5b8, type: 3}
+  clientProjectilePrefab: {fileID: 1339745971142275146, guid: 85087cba038714444b6ea52d9b2bee6c, type: 3}
+  clientProjectilePrefabs:
+  - {fileID: 1339745971142275146, guid: f35eb289899593a49b8b209f93e9f5b8, type: 3}
+  - {fileID: 1339745971142275146, guid: 85087cba038714444b6ea52d9b2bee6c, type: 3}
+  - {fileID: 1339745971142275146, guid: 6b06cb46044853c4583b4e1b41c13afb, type: 3}
+  - {fileID: 1339745971142275146, guid: 6de1d833ac8838a40adcf967967b9b9e, type: 3}
   muzzleFlash: {fileID: 2399037158607021233}
-  muzzleFlashLVL1: {fileID: 2399037158607021233}
-  muzzleFlashLVL2: {fileID: 5884232889929026133}
-  muzzleFlashLVL3: {fileID: 6908331202238296137}
+  muzzleFlashes:
+  - {fileID: 0}
+  - {fileID: 2399037158607021233}
+  - {fileID: 5884232889929026133}
+  - {fileID: 6908331202238296137}
   playerCollider: {fileID: 6197860000326693298}
   audioSource: {fileID: 607396926593790128}
   shotSound: {fileID: 8300000, guid: 5ed1920912e5b1249bf0124ee98cdf37, type: 3}
@@ -6306,6 +6312,7 @@ MonoBehaviour:
   <maxHelath>k__BackingField: 100
   currentHealth:
     m_InternalValue: 0
+  dieVFX: {fileID: 832067881215097347, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
 --- !u!114 &3988242707679510687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6442,26 +6449,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1968739323692528234}
   health: {fileID: 8716039937176261815}
+  projectile: {fileID: 8799812862903366330}
   playerLvl1: {fileID: 3352220325430966622, guid: c45061b965ff4e747b3f61dfa1a97923, type: 3}
   playerLvl2: {fileID: 7729472983647801063, guid: 9d318639afbc7634bb4a4a376958b950, type: 3}
   playerLvl3: {fileID: 5627710429661553057, guid: 81bbaff335747a6438bbf9774c95021d, type: 3}
   coinsForLevelTwo: 50
   coinsForLevelThree: 100
---- !u!114 &7729018708991092613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3976252709956174990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf578929839e1e42a69d130dbf0e17e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onDie: {fileID: 2433282508537954060, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
-  levelUp: {fileID: 5112403345868107898, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
-  health: 0
 --- !u!1 &4224271320111794940
 GameObject:
   m_ObjectHideFlags: 0

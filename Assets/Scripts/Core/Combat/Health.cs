@@ -1,15 +1,13 @@
 using System;
-using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class Health : NetworkBehaviour
 {
     [field: SerializeField] public int maxHelath { get; private set; } = 100;
 
     public NetworkVariable<int> currentHealth = new NetworkVariable<int>();
+    public NetworkObject dieVFX;
 
     private bool isDead;
 
@@ -45,7 +43,15 @@ public class Health : NetworkBehaviour
         {
             onDie?.Invoke(this);
 
+            DieVFX();
+
             isDead = true;
         }
+    }
+
+    public void DieVFX()
+    {
+        NetworkObject vfx = Instantiate(dieVFX, transform.position, Quaternion.identity);
+        vfx.Spawn();
     }
 }

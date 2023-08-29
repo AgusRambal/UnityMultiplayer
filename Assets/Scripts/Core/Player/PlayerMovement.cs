@@ -8,8 +8,6 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private Transform bodyTransform;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private ParticleSystem dustCloud;
-    //[SerializeField] private ParticleSystem rightTracks;
-    //[SerializeField] private ParticleSystem leftTracks;
 
     [Header("Settings")]
     [SerializeField] private float movementSpeed = 4f;

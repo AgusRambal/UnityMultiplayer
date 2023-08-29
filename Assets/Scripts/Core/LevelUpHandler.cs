@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LevelUpHandler : NetworkBehaviour, IEventListener
 {
-    [SerializeField] private GameObject levelUpVFX;
+    [SerializeField] private NetworkObject levelUpVFX;
 
     private Vector2 posToSpawn;
     private Quaternion rotation;
@@ -30,13 +30,11 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         PlayerInstance player = (PlayerInstance)hashtable[GameplayEventHashtableParams.Player.ToString()];
         PlayerInstance lvlTo = (PlayerInstance)hashtable[GameplayEventHashtableParams.PlayerLVL.ToString()];
         Vector2 position = (Vector2)hashtable[GameplayEventHashtableParams.PlayerPos.ToString()];
-        Health health = (Health)hashtable[GameplayEventHashtableParams.PlayerHealth.ToString()];
 
         posToSpawn = position;
         rotation = player.transform.GetChild(0).transform.rotation;
         int keptCoins = player.wallet.totalCoins.Value;
         int level = player.level;
-        player.GetComponent<OnDieVFX>().health = health.currentHealth.Value;
 
         Destroy(player.gameObject);
         StartCoroutine(LevelUp(player.OwnerClientId, keptCoins, lvlTo, level));
@@ -47,12 +45,20 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         yield return null;
 
         PlayerInstance playerInstance = Instantiate(lvlTo, posToSpawn, Quaternion.identity);
+
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.transform.GetChild(0).transform.rotation = rotation;
         playerInstance.wallet.totalCoins.Value = keptCoins;
         playerInstance.level = level;
 
+        LevelUpVFX();
         EventManager.TriggerEvent(GenericEvents.SetMuzzleFlash);
+    }
+
+    public void LevelUpVFX()
+    {
+        NetworkObject vfx = Instantiate(levelUpVFX, posToSpawn, Quaternion.identity);
+        vfx.Spawn();
     }
 
     public void OnEnableEventListenerSubscriptions()

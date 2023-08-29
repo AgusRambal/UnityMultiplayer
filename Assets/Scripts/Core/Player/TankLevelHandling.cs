@@ -6,6 +6,7 @@ public class TankLevelHandling : NetworkBehaviour
 {
     [SerializeField] private PlayerInstance player;
     [SerializeField] private Health health;
+    [SerializeField] private ProjectileLauncher projectile;
 
     [SerializeField] private PlayerInstance playerLvl1;
     [SerializeField] private PlayerInstance playerLvl2;
@@ -55,8 +56,7 @@ public class TankLevelHandling : NetworkBehaviour
         EventManager.TriggerEvent(GenericEvents.HandlePlayerLevel, new Hashtable() {
         {GameplayEventHashtableParams.Player.ToString(), player},
         {GameplayEventHashtableParams.PlayerLVL.ToString(), playerLvl},
-        {GameplayEventHashtableParams.PlayerPos.ToString(), lastPos},
-        {GameplayEventHashtableParams.PlayerHealth.ToString(), health}
+        {GameplayEventHashtableParams.PlayerPos.ToString(), lastPos}
         });
     }
 }

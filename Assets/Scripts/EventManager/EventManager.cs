@@ -35,10 +35,7 @@ public class EventManager : MonoBehaviour
 
     void Init()
     {
-        if (eventsGenericDictionary == null)
-        {
-            eventsGenericDictionary = new Dictionary<GenericEvents, Action<Hashtable>>();
-        }
+        eventsGenericDictionary ??= new Dictionary<GenericEvents, Action<Hashtable>>();
     }
 
 

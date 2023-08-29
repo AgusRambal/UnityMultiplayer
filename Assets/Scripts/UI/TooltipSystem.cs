@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class TooltipSystem : MonoBehaviour
@@ -7,17 +8,18 @@ public class TooltipSystem : MonoBehaviour
 
     private void Awake()
     {
+        DOTween.Init();
         instance = this;
     }
 
     public static void Show(string content, string header = "")
     { 
         instance.Tooltip.SetText(content, header);
-        instance.Tooltip.gameObject.SetActive(true);
+        instance.Tooltip.transform.DOScale(1f, .1f);
     }
 
     public static void Hide()
     {
-        instance.Tooltip.gameObject.SetActive(false);
+        instance.Tooltip.transform.DOScale(0f, .1f);
     }
 }

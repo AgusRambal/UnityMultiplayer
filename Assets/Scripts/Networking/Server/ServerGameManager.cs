@@ -1,7 +1,6 @@
 using System;
 using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Unity.Netcode;
 using Unity.Services.Matchmaker.Models;
 
@@ -12,15 +11,14 @@ public class ServerGameManager : IDisposable
     private int queryPort;
     public NetworkServer server { get; private set; }
     private MultiplayAllocationService multiplayAllocationService;
-    private const string gameplayScene = "Gameplay";
     private MatchplayBackfiller backfiller;
 
-    public ServerGameManager(string serverIP, int serverPort, int queryPort, NetworkManager manager) 
+    public ServerGameManager(string serverIP, int serverPort, int queryPort, NetworkManager manager, NetworkObject playerPrefab) 
     { 
         this.serverIP = serverIP;
         this.serverPort = serverPort;
         this.queryPort = queryPort;
-        server = new NetworkServer(manager);
+        server = new NetworkServer(manager, playerPrefab);
         multiplayAllocationService = new MultiplayAllocationService();
     }
 
@@ -55,8 +53,6 @@ public class ServerGameManager : IDisposable
             Debug.LogError("Network server did not start as expected");
             return;
         }
-
-        NetworkManager.Singleton.SceneManager.LoadScene(gameplayScene, LoadSceneMode.Single);
     }
 
     private async Task StartBackfill(MatchmakingResults payload)

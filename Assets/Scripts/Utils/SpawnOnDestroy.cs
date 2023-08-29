@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class SpawnOnDestroy : MonoBehaviour
@@ -7,6 +6,9 @@ public class SpawnOnDestroy : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (!gameObject.scene.isLoaded)
+            return;
+
         Instantiate(prefab, transform.position, Quaternion.identity);
     }
 }

@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3695574179822663429, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+      propertyPath: movementSpeed
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3976252709956174990, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_Name
       value: PlayerLVL3 Variant
@@ -118,7 +122,7 @@ PrefabInstance:
       objectReference: {fileID: 762422846841217922}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: projectileSpeed
-      value: 45
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: clientProjectilePrefab

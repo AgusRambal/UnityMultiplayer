@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 1385089620213046061}
   - component: {fileID: 1385089620213046035}
   - component: {fileID: 1385089620213046060}
+  - component: {fileID: 5059223811615237680}
   m_Layer: 5
   m_Name: Play_Text_Kill_Triple
   m_TagString: Untagged
@@ -211,6 +212,42 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5059223811615237680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385089620213046062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184a21923a43e1648ae375957e7b700e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFX: {fileID: 0}
+  SFXs:
+  - {fileID: 8300000, guid: f931aad2c06de46d4a71b0b167eedf7e, type: 3}
+  - {fileID: 8300000, guid: 008e9c19e69f74d68ba76af446500091, type: 3}
+  - {fileID: 8300000, guid: 06714f09b4e924048b8738f07395dc91, type: 3}
+  - {fileID: 8300000, guid: 4e21348cbe9494c3294dde42c492e473, type: 3}
+  - {fileID: 8300000, guid: 1c7998646d10d477aa95c83c49ea9ff4, type: 3}
+  - {fileID: 8300000, guid: 7bb4e815af4084f189fe4eaaa228afe3, type: 3}
+  - {fileID: 8300000, guid: 8004650ab744549258d1d34070c6bf56, type: 3}
+  - {fileID: 8300000, guid: e6598a127fba14002a3dd924dd6732e2, type: 3}
+  - {fileID: 8300000, guid: 6a269f3a59de14d748f2412ba7c1f105, type: 3}
+  - {fileID: 8300000, guid: 9e941a7272d944e89865b04992848245, type: 3}
+  - {fileID: 8300000, guid: 1d2d0bce3dc354e9daa53dc8ef05cf35, type: 3}
+  - {fileID: 8300000, guid: 74f89c182f0a44f36aa3854272133a13, type: 3}
+  - {fileID: 8300000, guid: 39d4fa19627f54740bffdf053c7476b1, type: 3}
+  - {fileID: 8300000, guid: ea9e03e8468a344a6bc43ff313baf1f0, type: 3}
+  - {fileID: 8300000, guid: 87d11c4ccb1b248efbbe988c8c078e0c, type: 3}
+  - {fileID: 8300000, guid: 04eebda4eb81640b29ad4d02dddc39a5, type: 3}
+  - {fileID: 8300000, guid: 9075dac5a312841559db675c69b1690c, type: 3}
+  - {fileID: 8300000, guid: dfa8d178f9da04c10a90163119ee2104, type: 3}
+  - {fileID: 8300000, guid: 79f8db787cf92404bbbab59ff28e621a, type: 3}
+  AudioSource: {fileID: 6202901754318160179}
+  playAtStart: 1
+  useRandomList: 1
 --- !u!1 &6023513471980812414
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,8 +290,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 5638973403170680855, guid: 483196d5f449c4e4d820ba30b8eaddb3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8004650ab744549258d1d34070c6bf56, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 0

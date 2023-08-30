@@ -12,9 +12,7 @@ public class ProjectileLauncher : NetworkBehaviour
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private GameObject serverProjectilePrefab;
     [SerializeField] private GameObject clientProjectilePrefab;
-    [SerializeField] private List<GameObject> clientProjectilePrefabs = new List<GameObject>();
     [SerializeField] private GameObject muzzleFlash;
-    [SerializeField] private List<GameObject> muzzleFlashes = new List<GameObject>();
     [SerializeField] private Collider2D playerCollider;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip shotSound;
@@ -37,17 +35,6 @@ public class ProjectileLauncher : NetworkBehaviour
             return;
 
         inputReader.PrimaryFireEvent += HandlePrimaryFire;
-
-        //Arreglar esto
-        if (player.level == 2)
-        {
-            SetMuzzleFlash(2);
-        }
-
-        if (player.level == 3)
-        {
-            SetMuzzleFlash(3);
-        }
     }
 
     public override void OnNetworkDespawn()
@@ -96,12 +83,6 @@ public class ProjectileLauncher : NetworkBehaviour
         SpawnDummyProjectile(projectileSpawnPoint.position, projectileSpawnPoint.up);
 
         timer = 1 / fireRate;
-    }
-
-    public void SetMuzzleFlash(int id)
-    {
-        muzzleFlash = muzzleFlashes[id];
-        clientProjectilePrefab = clientProjectilePrefabs[id];
     }
 
     private void HandlePrimaryFire(bool shouldFire)

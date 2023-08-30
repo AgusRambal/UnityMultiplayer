@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.009260893
       objectReference: {fileID: 0}
+    - target: {fileID: 7340094157314708081, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+      propertyPath: playerLvl2
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7619674628351197934, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -113,11 +117,24 @@ PrefabInstance:
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+      propertyPath: muzzleFlash
+      value: 
+      objectReference: {fileID: 2431444487971845848}
+    - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: projectileSpeed
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+      propertyPath: clientProjectilePrefab
+      value: 
+      objectReference: {fileID: 1339745971142275146, guid: 6b06cb46044853c4583b4e1b41c13afb, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+--- !u!1 &2431444487971845848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5884232889929026133, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+  m_PrefabInstance: {fileID: 8076862068273675405}
+  m_PrefabAsset: {fileID: 0}

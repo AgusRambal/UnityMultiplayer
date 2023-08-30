@@ -4,6 +4,7 @@ using UnityEngine;
 public class FeedCollider : MonoBehaviour
 {
     public int bulletDamage = 20;
+    public PlayerInstance player;
     public string playerOwner;
     public string enemy;
 
@@ -17,6 +18,13 @@ public class FeedCollider : MonoBehaviour
                 {
                     enemy = otherPlayer.playerName.Value.ToString();
                 }
+
+                player.killingCounter++;
+
+                EventManager.TriggerEvent(GenericEvents.KillingSpree, new Hashtable() {
+                {GameplayEventHashtableParams.Player.ToString(), player},
+                {GameplayEventHashtableParams.Killings.ToString(), player.killingCounter}
+                });
 
                 EventManager.TriggerEvent(GenericEvents.KillingFeed, new Hashtable() {
                 {GameplayEventHashtableParams.Killer.ToString(), playerOwner},

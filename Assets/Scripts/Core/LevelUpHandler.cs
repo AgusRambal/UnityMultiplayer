@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics.Tracing;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
 
     private Vector2 posToSpawn;
     private Quaternion rotation;
+    private int killingCounter;
 
     public override void OnNetworkSpawn()
     {
@@ -33,6 +35,7 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
 
         posToSpawn = position;
         rotation = player.transform.GetChild(0).transform.rotation;
+        killingCounter = player.killingCounter;
         int keptCoins = player.wallet.totalCoins.Value;
         int level = player.level;
 
@@ -50,6 +53,7 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         playerInstance.transform.GetChild(0).transform.rotation = rotation;
         playerInstance.wallet.totalCoins.Value = keptCoins;
         playerInstance.level = level;
+        playerInstance.killingCounter = killingCounter;
 
         LevelUpVFX();
     }

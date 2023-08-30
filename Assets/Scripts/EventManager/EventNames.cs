@@ -2,5 +2,6 @@
 {
     PlaySound,
     HandlePlayerLevel,
-    KillingFeed
+    KillingFeed,
+    KillingSpree
 }

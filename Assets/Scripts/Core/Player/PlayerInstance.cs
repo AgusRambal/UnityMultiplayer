@@ -13,6 +13,7 @@ public class PlayerInstance : NetworkBehaviour
     [SerializeField] private Color playerColor;
     [SerializeField] private AudioSource tankAudio;
     [SerializeField] private Texture2D corssHair;
+    public int killingCounter = 0;
 
     [field: SerializeField] public Health health { get; private set; }
     [field: SerializeField] public CoinWallet wallet { get; private set; }

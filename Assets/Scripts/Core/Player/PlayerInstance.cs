@@ -1,5 +1,6 @@
 using Cinemachine;
 using System;
+using System.Collections;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -13,14 +14,14 @@ public class PlayerInstance : NetworkBehaviour
     [SerializeField] private Color playerColor;
     [SerializeField] private AudioSource tankAudio;
     [SerializeField] private Texture2D corssHair;
-    public int killingCounter = 0;
 
     [field: SerializeField] public Health health { get; private set; }
     [field: SerializeField] public CoinWallet wallet { get; private set; }
 
     [Header("Settings")]
     [SerializeField] private int ownerPriority = 15;
-    public int level = 1;
+    public int level;
+    public int killingCounter;
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
     [HideInInspector] public bool isPaused = false;
 
@@ -29,11 +30,11 @@ public class PlayerInstance : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
-        if (IsServer) 
+        if (IsServer)
         {
             GameData userData = null;
 
-            if (IsHost) 
+            if (IsHost)
             {
                 userData = HostSingleton.Instance.gameManager.networkServer.GetUserDataByClientID(OwnerClientId);
             }
@@ -70,6 +71,27 @@ public class PlayerInstance : NetworkBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             isPaused = !isPaused;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.TryGetComponent(out FeedCollider bullet))
+            return;
+
+        if (health.currentHealth.Value - 20 <= 0)
+        {
+            bullet.playerShooted.killingCounter++;
+
+            EventManager.TriggerEvent(GenericEvents.KillingSpree, new Hashtable() {
+                {GameplayEventHashtableParams.Player.ToString(), bullet.playerShooted},
+                {GameplayEventHashtableParams.Killings.ToString(), bullet.playerShooted.killingCounter}
+                });
+
+            EventManager.TriggerEvent(GenericEvents.KillingFeed, new Hashtable() {
+                {GameplayEventHashtableParams.Killer.ToString(), bullet.playerShooted.playerName.Value.ToString()},
+                {GameplayEventHashtableParams.Dead.ToString(), playerName.Value.ToString()}
+                });
         }
     }
 }

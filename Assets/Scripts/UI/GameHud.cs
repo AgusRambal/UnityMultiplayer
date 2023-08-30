@@ -113,7 +113,7 @@ public class GameHud : MonoBehaviour, IEventListener
         codeText.text = $"Game code: {HostSingleton.Instance.gameManager.joinCode}";
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         CancelEventListenerSubscriptions();
     }
@@ -122,13 +122,11 @@ public class GameHud : MonoBehaviour, IEventListener
     {
         EventManager.StartListening(GenericEvents.KillingFeed, KillingFeed);
         EventManager.StartListening(GenericEvents.KillingSpree, KillingSpree);
-
     }
 
     public void CancelEventListenerSubscriptions()
     {
         EventManager.StopListening(GenericEvents.KillingFeed, KillingFeed);
         EventManager.StopListening(GenericEvents.KillingSpree, KillingSpree);
-
     }
 }

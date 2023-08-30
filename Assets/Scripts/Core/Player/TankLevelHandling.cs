@@ -26,7 +26,7 @@ public class TankLevelHandling : NetworkBehaviour
             passedLevelTwo = true;
         }
 
-        if (player.level == 3)
+        if (player.level >= 3)
         {
             passedLevelTwo = true;
             passedLevelThree = true;

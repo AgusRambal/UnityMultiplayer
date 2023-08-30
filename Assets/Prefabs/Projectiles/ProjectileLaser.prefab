@@ -233,10 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9626bdf9f6789469995ce50390a943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 20
-  player: {fileID: 0}
-  playerOwner: 
-  enemy: 
+  playerShooted: {fileID: 0}
 --- !u!4 &6002527839564107395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9205911496372272639, guid: 50f36f73a68d64244ba51c6f605d90da, type: 3}

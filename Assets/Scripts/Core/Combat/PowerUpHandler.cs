@@ -5,13 +5,6 @@ using UnityEngine;
 public class PowerUpHandler : NetworkBehaviour, IEventListener
 {
     [SerializeField] private NetworkObject levelUpVFX;
-
-    private PlayerInstance newPlayer;
-    private Vector2 posToSpawn;
-    private Quaternion rotation;
-    private int killingCounter;
-    private int keptCoins;
-    private int level;
      
     public override void OnNetworkSpawn()
     {
@@ -34,19 +27,18 @@ public class PowerUpHandler : NetworkBehaviour, IEventListener
         PlayerInstance player = (PlayerInstance)hashtable[GameplayEventHashtableParams.Player.ToString()];
         PlayerInstance newPlayer = (PlayerInstance)hashtable[GameplayEventHashtableParams.NewPlayer.ToString()];
 
-        posToSpawn = player.transform.position;
-        rotation = player.transform.GetChild(0).transform.rotation;
-        killingCounter = player.killingCounter;
-        keptCoins = player.wallet.totalCoins.Value;
-        level = player.level;
-        this.newPlayer = newPlayer;
+        PlayerInstance newPlayerInstance = newPlayer;
+        Vector2 posToSpawn = player.transform.position;
+        Quaternion rotation = player.transform.GetChild(0).transform.rotation;
+        int keptCoins = player.wallet.totalCoins.Value;
+        int killingCounter = player.killingCounter;
 
         Destroy(player.gameObject);
 
-        StartCoroutine(LevelUp(player.OwnerClientId));
+        StartCoroutine(LevelUp(player.OwnerClientId, newPlayerInstance, posToSpawn, rotation, keptCoins, killingCounter));
     }
 
-    private IEnumerator LevelUp(ulong ownerClientID)
+    private IEnumerator LevelUp(ulong ownerClientID, PlayerInstance newPlayer, Vector2 posToSpawn, Quaternion rotation, int keptCoins, int killingCounter)
     {
         yield return null;
 
@@ -55,13 +47,12 @@ public class PowerUpHandler : NetworkBehaviour, IEventListener
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.transform.GetChild(0).transform.rotation = rotation;
         playerInstance.wallet.totalCoins.Value = keptCoins;
-        playerInstance.level = level;
         playerInstance.killingCounter = killingCounter;
 
-        LevelUpVFX();
+        LevelUpVFX(posToSpawn);
     }
 
-    public void LevelUpVFX()
+    public void LevelUpVFX(Vector2 posToSpawn)
     {
         NetworkObject vfx = Instantiate(levelUpVFX, posToSpawn, Quaternion.identity);
         vfx.Spawn();

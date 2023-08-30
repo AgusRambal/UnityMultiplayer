@@ -1,11 +1,19 @@
+using DG.Tweening;
+using System.Collections;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class GameHud : MonoBehaviour
+public class GameHud : MonoBehaviour, IEventListener
 {
+    [Header("References")]
     [SerializeField] private Options options;
 
+    [Header("Killing feed")]
+    [SerializeField] private GameObject feed;
+    [SerializeField] private GameObject feedParent;
+
+    [Header("Other")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settings;
     [SerializeField] private TMP_Text codeText;
@@ -15,6 +23,8 @@ public class GameHud : MonoBehaviour
 
     public void Start()
     {
+        OnEnableEventListenerSubscriptions();
+        DOTween.Init();
         SetJoinCodeOnScreen();
     }
 
@@ -27,6 +37,16 @@ public class GameHud : MonoBehaviour
             options.OptionsHandler(false);
             SetCursor();
         }
+    }
+
+    public void KillingFeed(Hashtable hashtable)
+    {
+        string player1 = (string)hashtable[GameplayEventHashtableParams.Killer.ToString()];
+        string player2 = (string)hashtable[GameplayEventHashtableParams.Dead.ToString()];
+
+        GameObject feedInstantiated = Instantiate(feed, feedParent.transform);
+        feedInstantiated.GetComponent<TMP_Text>().text = $"{player1} killed {player2}";
+        feedInstantiated.transform.DOScale(1f, .1f);
     }
 
     public void SetCursor()
@@ -55,5 +75,22 @@ public class GameHud : MonoBehaviour
     public void SetJoinCodeOnScreen()
     {
         codeText.text = $"Game code: {HostSingleton.Instance.gameManager.joinCode}";
+    }
+
+    private void OnDestroy()
+    {
+        CancelEventListenerSubscriptions();
+    }
+
+    public void OnEnableEventListenerSubscriptions()
+    {
+        EventManager.StartListening(GenericEvents.KillingFeed, KillingFeed);
+
+    }
+
+    public void CancelEventListenerSubscriptions()
+    {
+        EventManager.StopListening(GenericEvents.KillingFeed, KillingFeed);
+
     }
 }

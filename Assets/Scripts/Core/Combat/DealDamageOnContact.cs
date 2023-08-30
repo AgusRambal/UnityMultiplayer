@@ -16,12 +16,11 @@ public class DealDamageOnContact : MonoBehaviour
     {
         if (collision.attachedRigidbody == null)
             return;
-
+        
         if (collision.attachedRigidbody.TryGetComponent(out NetworkObject netObj))
         {
             if (ownerClientID == netObj.OwnerClientId)
             {
-
                 return;
             }
         }

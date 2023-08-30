@@ -471,6 +471,7 @@ RectTransform:
   - {fileID: 305783663}
   - {fileID: 791621703}
   - {fileID: 2085339628}
+  - {fileID: 955089837}
   m_Father: {fileID: 226395556}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3111,6 +3112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   options: {fileID: 226395560}
+  feed: {fileID: 1451381756831751331, guid: c4f956baf06022a40a1442d08191dcde, type: 3}
+  feedParent: {fileID: 955089836}
   pauseMenu: {fileID: 791621704}
   settings: {fileID: 2085339629}
   codeText: {fileID: 1891247918}
@@ -10328,6 +10331,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ef69d49a62ca26479853809fc6dab05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &955089836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955089837}
+  - component: {fileID: 955089838}
+  m_Layer: 0
+  m_Name: KillingFeed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &955089837
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955089836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 38999851}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -157.2, y: -174.3591}
+  m_SizeDelta: {x: 294.9089, y: 348.7184}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &955089838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955089836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1001 &960688300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22476,9 +22541,9 @@ RectTransform:
   - {fileID: 212856908}
   m_Father: {fileID: 38999851}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 798.6, y: 332}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 157, y: -206.2}
   m_SizeDelta: {x: 300, y: 399.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6740156560384268797

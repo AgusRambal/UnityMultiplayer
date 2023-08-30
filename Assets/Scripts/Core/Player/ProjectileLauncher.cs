@@ -109,6 +109,7 @@ public class ProjectileLauncher : NetworkBehaviour
 
         GameObject projectileInstance = Instantiate(clientProjectilePrefab, spawnPos, Quaternion.identity);
         projectileInstance.transform.up = direction;
+        projectileInstance.GetComponent<FeedCollider>().playerOwner = player.playerName.Value.ToString();
 
         Physics2D.IgnoreCollision(playerCollider, projectileInstance.GetComponent<Collider2D>());
 

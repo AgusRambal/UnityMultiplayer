@@ -52,7 +52,6 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         playerInstance.level = level;
 
         LevelUpVFX();
-        EventManager.TriggerEvent(GenericEvents.SetMuzzleFlash);
     }
 
     public void LevelUpVFX()

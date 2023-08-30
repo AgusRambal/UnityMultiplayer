@@ -5,6 +5,8 @@
     Player,
     PlayerLVL,
     PlayerPos,
+    Killer,
+    Dead
 }
 
 

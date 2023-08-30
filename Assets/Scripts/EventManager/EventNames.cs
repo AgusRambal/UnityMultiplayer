@@ -2,6 +2,5 @@
 {
     PlaySound,
     HandlePlayerLevel,
-    SetMuzzleFlash,
-    DieVFX
+    KillingFeed
 }

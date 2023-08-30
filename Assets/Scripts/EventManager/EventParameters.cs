@@ -7,7 +7,8 @@
     PlayerPos,
     Killer,
     Dead,
-    Killings
+    Killings,
+    NewPlayer
 }
 
 

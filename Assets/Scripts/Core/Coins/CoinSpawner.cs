@@ -1,16 +1,21 @@
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
 public class CoinSpawner : NetworkBehaviour
 {
     [SerializeField] private RespawningCoin coinPrefab;
+    [SerializeField] private List<RespawningCoin> powerUpPrefab = new List<RespawningCoin>();
     [SerializeField] private int maxCoins = 50;
+    [SerializeField] private int maxpowerUps = 5;
     [SerializeField] private int coinValue = 10;
+    [SerializeField] private int powerUpValue = 15;
     [SerializeField] private Vector2 xSpawnRange;
     [SerializeField] private Vector2 ySpawnRange;
     [SerializeField] private LayerMask layerMask;
 
     private float coinRadius;
+    private List<float> powerUpRadius = new List<float>();
     private Collider2D[] coinBuffer = new Collider2D[1];
 
     public override void OnNetworkSpawn()
@@ -20,9 +25,19 @@ public class CoinSpawner : NetworkBehaviour
 
         coinRadius = coinPrefab.GetComponent<CircleCollider2D>().radius;
 
+        for (int i = 0; i < powerUpPrefab.Count; i++)
+        {
+            powerUpRadius.Add(powerUpPrefab[i].GetComponent<CircleCollider2D>().radius);
+        }
+
         for (int i = 0; i < maxCoins; i++)
         {
             SpawnCoin();
+        }
+
+        for (int i = 0; i < maxpowerUps; i++)
+        {
+            SpawnPowerUp();
         }
     }
 
@@ -35,10 +50,25 @@ public class CoinSpawner : NetworkBehaviour
         coinInstance.OnCollected += HandleCoinCollected;
     }
 
+    private void SpawnPowerUp()
+    {
+        RespawningCoin coinInstance = Instantiate(powerUpPrefab[Random.Range(0, powerUpPrefab.Count)], GetSpawnPoint(), Quaternion.identity);
+        coinInstance.SetValue(powerUpValue);
+        coinInstance.GetComponent<NetworkObject>().Spawn();
+
+        coinInstance.OnCollected += HandlePowerUpCollected;
+    }
+
     private void HandleCoinCollected(RespawningCoin coin)
     {
         coin.transform.position = GetSpawnPoint();
         coin.Reset();
+    }
+
+    private void HandlePowerUpCollected(RespawningCoin powerUp)
+    {
+        powerUp.transform.position = GetSpawnPoint();
+        powerUp.Reset();
     }
 
     private Vector2 GetSpawnPoint()

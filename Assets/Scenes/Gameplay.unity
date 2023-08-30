@@ -9055,8 +9055,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  SFXs: []
   AudioSource: {fileID: 960688301}
   playAtStart: 0
+  useRandomList: 0
 --- !u!114 &791621710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9070,8 +9072,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  SFXs: []
   AudioSource: {fileID: 960688301}
   playAtStart: 0
+  useRandomList: 0
 --- !u!114 &791621711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9085,8 +9089,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  SFXs: []
   AudioSource: {fileID: 960688301}
   playAtStart: 0
+  useRandomList: 0
 --- !u!114 &791621712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9100,8 +9106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  SFXs: []
   AudioSource: {fileID: 960688301}
   playAtStart: 0
+  useRandomList: 0
 --- !u!114 &791621713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11346,8 +11354,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinPrefab: {fileID: 1823428411968993565, guid: a282ba4256523ab4caa3e2d1fbfe82b2, type: 3}
+  powerUpPrefab:
+  - {fileID: 1762018931227635790, guid: 98c4ca3d48fc1ab4eb38b0b6a2e4a731, type: 3}
   maxCoins: 200
+  maxpowerUps: 5
   coinValue: 10
+  powerUpValue: 15
   xSpawnRange: {x: -50, y: 50}
   ySpawnRange: {x: -50, y: 50}
   layerMask:
@@ -12267,6 +12279,72 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1159650832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1159650835}
+  - component: {fileID: 1159650834}
+  - component: {fileID: 1159650836}
+  m_Layer: 0
+  m_Name: PowerUpHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1159650834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159650832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 3798146905
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!4 &1159650835
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159650832}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1159650836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159650832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6eeaac4d079ab94ea349f1417af014c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelUpVFX: {fileID: 6431783100921954490, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
 --- !u!1 &1169860774
 GameObject:
   m_ObjectHideFlags: 0
@@ -22653,6 +22731,7 @@ SceneRoots:
   - {fileID: 1097726048}
   - {fileID: 1386895323}
   - {fileID: 343904464}
+  - {fileID: 1159650835}
   - {fileID: 960688300}
   - {fileID: 1195042568}
   - {fileID: 1871711350}

@@ -6184,10 +6184,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 8290623973381558963}
   miniMapIcon: {fileID: 4894765391980819483}
-  playerIcon: {fileID: 21300000, guid: f906e57fb43bb4c48b8705c36ff4bafa, type: 3}
+  playerIcon: {fileID: 21300000, guid: 3c7dc21b9cfc64a28a0db252abd7f3ad, type: 3}
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   tankAudio: {fileID: 2258461431754647473}
   corssHair: {fileID: 2800000, guid: 0a07aa6c8e0036a4e986443af5afbbd3, type: 3}
+  killingCounter: 0
   <health>k__BackingField: {fileID: 8716039937176261815}
   <wallet>k__BackingField: {fileID: 3988242707679510687}
   ownerPriority: 15
@@ -6278,17 +6279,7 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 926020441765957891}
   serverProjectilePrefab: {fileID: 7066831541942535367, guid: fdc80804f8c011a45a3832aafeb3694c, type: 3}
   clientProjectilePrefab: {fileID: 1339745971142275146, guid: 85087cba038714444b6ea52d9b2bee6c, type: 3}
-  clientProjectilePrefabs:
-  - {fileID: 1339745971142275146, guid: f35eb289899593a49b8b209f93e9f5b8, type: 3}
-  - {fileID: 1339745971142275146, guid: 85087cba038714444b6ea52d9b2bee6c, type: 3}
-  - {fileID: 1339745971142275146, guid: 6b06cb46044853c4583b4e1b41c13afb, type: 3}
-  - {fileID: 1339745971142275146, guid: 6de1d833ac8838a40adcf967967b9b9e, type: 3}
   muzzleFlash: {fileID: 2399037158607021233}
-  muzzleFlashes:
-  - {fileID: 0}
-  - {fileID: 2399037158607021233}
-  - {fileID: 5884232889929026133}
-  - {fileID: 6908331202238296137}
   playerCollider: {fileID: 6197860000326693298}
   audioSource: {fileID: 607396926593790128}
   shotSound: {fileID: 8300000, guid: 5ed1920912e5b1249bf0124ee98cdf37, type: 3}
@@ -6482,7 +6473,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 15, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 63291826833508591}
@@ -6528,7 +6519,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: 21300000, guid: 978f5921e87d04a7f88a2dc6c330fab2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1763c140e7caf4eb2a38686bf8a790ec, type: 3}
   m_Color: {r: 1, g: 0.34673175, b: 0.28773582, a: 1}
   m_FlipX: 0
   m_FlipY: 0

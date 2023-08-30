@@ -3,10 +3,11 @@ using UnityEngine;
 
 public class FeedCollider : MonoBehaviour
 {
-    public int bulletDamage = 20;
-    public PlayerInstance player;
-    public string playerOwner;
-    public string enemy;
+    [HideInInspector] public PlayerInstance player;
+    [HideInInspector] public string playerOwner;
+
+    private string enemy;
+    private int bulletDamage = 20;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

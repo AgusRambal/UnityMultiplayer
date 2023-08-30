@@ -14,7 +14,7 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public IEnumerator TooltipDelay()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
 
         TooltipSystem.Show(content, header);
     }

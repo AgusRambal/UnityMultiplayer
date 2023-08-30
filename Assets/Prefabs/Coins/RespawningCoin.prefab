@@ -56,10 +56,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3157157071810150721, guid: a49b8f639ba2e67498391b89b547e91b, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d363c86f558114e2f97ec9fb6a23bf08, type: 3}
     - target: {fileID: 9086306985129909707, guid: a49b8f639ba2e67498391b89b547e91b, type: 3}
       propertyPath: m_Name
       value: RespawningCoin

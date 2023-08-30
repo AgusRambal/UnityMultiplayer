@@ -64,9 +64,13 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 951099334
       objectReference: {fileID: 0}
-    - target: {fileID: 2056555394609857040, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+    - target: {fileID: 1242482019110054889, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2056555394609857040, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3416283556264672634, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_IsActive
@@ -74,31 +78,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3695574179822663429, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: movementSpeed
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3976252709956174990, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_Name
-      value: PlayerLVL3 Variant
+      value: PlayerLaser
       objectReference: {fileID: 0}
     - target: {fileID: 6197860000326693298, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_Size.x
-      value: 2.7194865
+      value: 2.0829363
       objectReference: {fileID: 0}
     - target: {fileID: 6197860000326693298, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_Size.y
-      value: 2.5038357
+      value: 1.8734066
       objectReference: {fileID: 0}
     - target: {fileID: 6197860000326693298, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_Offset.x
-      value: -0.004630685
+      value: -0.01687193
       objectReference: {fileID: 0}
     - target: {fileID: 6197860000326693298, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_Offset.y
-      value: -0.0023152828
+      value: 0.012986302
       objectReference: {fileID: 0}
     - target: {fileID: 6649261676806221162, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7340094157314708081, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: playerLvl3
@@ -108,38 +112,46 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8228155382640631943, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8716039937176261815, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: <maxHelath>k__BackingField
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: fireRate
       value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+      propertyPath: shotSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b5dcaf6be7d3e7a4bab60bdfb3ec0370, type: 3}
+    - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: costToFire
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: muzzleFlash
       value: 
-      objectReference: {fileID: 762422846841217922}
+      objectReference: {fileID: 352133482557086110}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: projectileSpeed
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: clientProjectilePrefab
       value: 
-      objectReference: {fileID: 1339745971142275146, guid: 6de1d833ac8838a40adcf967967b9b9e, type: 3}
+      objectReference: {fileID: 1339745971142275146, guid: f35eb289899593a49b8b209f93e9f5b8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
---- !u!1 &762422846841217922 stripped
+--- !u!1 &352133482557086110 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6908331202238296137, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+  m_CorrespondingSourceObject: {fileID: 5884232889929026133, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
   m_PrefabInstance: {fileID: 6146280076581655499}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5627710429661553057 stripped

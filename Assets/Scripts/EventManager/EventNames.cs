@@ -3,5 +3,6 @@
     PlaySound,
     HandlePlayerLevel,
     KillingFeed,
-    KillingSpree
+    KillingSpree,
+    HandlePowerUp
 }

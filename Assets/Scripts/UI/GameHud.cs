@@ -5,7 +5,7 @@ using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
-public class GameHud : MonoBehaviour, IEventListener
+public class GameHud : NetworkBehaviour, IEventListener
 {
     [Header("References")]
     [SerializeField] private Options options;
@@ -15,6 +15,7 @@ public class GameHud : MonoBehaviour, IEventListener
     [SerializeField] private GameObject feedParent;
     [SerializeField] private List<NetworkObject> killMessages = new List<NetworkObject>();
     [SerializeField] private GameObject killMessagesParent;
+    [SerializeField] private NetworkObject levelUpVFX;
 
     [Header("Other")]
     [SerializeField] private GameObject pauseMenu;
@@ -47,10 +48,10 @@ public class GameHud : MonoBehaviour, IEventListener
         string player1 = (string)hashtable[GameplayEventHashtableParams.Killer.ToString()];
         string player2 = (string)hashtable[GameplayEventHashtableParams.Dead.ToString()];
 
-        Debug.Log("asd");
-
         NetworkObject feedInstantiated = Instantiate(feed, feedParent.transform);
         feedInstantiated.Spawn();
+        feedInstantiated.transform.SetParent(feedParent.transform);
+        feedInstantiated.transform.localPosition = Vector3.zero;
         feedInstantiated.GetComponent<TMP_Text>().text = $"{player1} killed {player2}";
         feedInstantiated.transform.DOScale(1f, .1f);
     }
@@ -59,9 +60,6 @@ public class GameHud : MonoBehaviour, IEventListener
     {
         PlayerInstance player = (PlayerInstance)hashtable[GameplayEventHashtableParams.Player.ToString()];
         int killings = (int)hashtable[GameplayEventHashtableParams.Killings.ToString()];
-
-        Debug.Log("dsa");
-
 
         if (player.kills > 5)
             return;
@@ -79,6 +77,8 @@ public class GameHud : MonoBehaviour, IEventListener
 
             NetworkObject feedInstantiated = Instantiate(killMessages[killings], killMessagesParent.transform);
             feedInstantiated.Spawn();
+            feedInstantiated.transform.SetParent(killMessagesParent.transform);
+            feedInstantiated.transform.localPosition = Vector3.zero;
             feedInstantiated.transform.DOScale(1f, .1f);
 
             StartCoroutine(MessageDisappear(feedInstantiated));
@@ -89,7 +89,8 @@ public class GameHud : MonoBehaviour, IEventListener
     {
         yield return new WaitForSeconds(4);
         feed.transform.DOScale(0f, .2f);
-        Destroy(feed, .21f);
+        yield return new WaitForSeconds(.21f);
+        feed.Despawn();
     }
 
     public void SetCursor()

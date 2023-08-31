@@ -3116,13 +3116,14 @@ MonoBehaviour:
   feed: {fileID: 3317546466047138098, guid: c4f956baf06022a40a1442d08191dcde, type: 3}
   feedParent: {fileID: 955089836}
   killMessages:
+  - {fileID: 2833561421703756264, guid: 288b57854aecd46c68e2f9472828cfac, type: 3}
+  - {fileID: 2833561421703756264, guid: 288b57854aecd46c68e2f9472828cfac, type: 3}
+  - {fileID: 6953645555128003171, guid: 7f8d8b20f63474c16a1f297818dfe9e7, type: 3}
+  - {fileID: 2833561421703756264, guid: 288b57854aecd46c68e2f9472828cfac, type: 3}
+  - {fileID: 456608199236965550, guid: 680713c0222424b67b431e09a7a5203f, type: 3}
   - {fileID: 8053859383463002554, guid: 54a3814d9cf704226832f7e44cd9350a, type: 3}
-  - {fileID: 8053859383463002554, guid: 54a3814d9cf704226832f7e44cd9350a, type: 3}
-  - {fileID: 523797144052371628, guid: 7f8d8b20f63474c16a1f297818dfe9e7, type: 3}
-  - {fileID: 1385089620213046062, guid: 288b57854aecd46c68e2f9472828cfac, type: 3}
-  - {fileID: 5427856433665586953, guid: 680713c0222424b67b431e09a7a5203f, type: 3}
-  - {fileID: 6108848220608017754, guid: 54a3814d9cf704226832f7e44cd9350a, type: 3}
   killMessagesParent: {fileID: 1594117941}
+  levelUpVFX: {fileID: 6431783100921954490, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
   pauseMenu: {fileID: 791621704}
   settings: {fileID: 2085339629}
   codeText: {fileID: 1891247918}
@@ -10358,6 +10359,7 @@ GameObject:
   m_Component:
   - component: {fileID: 955089837}
   - component: {fileID: 955089838}
+  - component: {fileID: 955089839}
   m_Layer: 0
   m_Name: KillingFeed
   m_TagString: Untagged
@@ -10410,6 +10412,26 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &955089839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955089836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 719314902
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1001 &960688300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16345,6 +16367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1594117942}
+  - component: {fileID: 1594117943}
   m_Layer: 0
   m_Name: KillingMessage
   m_TagString: Untagged
@@ -16371,6 +16394,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1594117943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594117941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 4092610683
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1627406299
 GameObject:
   m_ObjectHideFlags: 0

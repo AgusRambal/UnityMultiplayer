@@ -35,13 +35,9 @@ public class DealDamageOnContact : MonoBehaviour
 
         health.TakeDamage(damage);
 
-        Debug.Log(health.currentHealth.Value);
-
         if (health.currentHealth.Value <= 0)
         {
             playerShooted.kills++;
-
-            Debug.Log("mate");
 
             EventManager.TriggerEvent(GenericEvents.KillingSpree, new Hashtable() {
             {GameplayEventHashtableParams.Player.ToString(), playerShooted},

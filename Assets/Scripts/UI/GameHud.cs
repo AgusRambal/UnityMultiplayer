@@ -23,6 +23,7 @@ public class GameHud : NetworkBehaviour, IEventListener
     [SerializeField] private GameObject settings;
     [SerializeField] private TMP_Text codeText;
     [SerializeField] private Texture2D corssHair;
+    [SerializeField] private TMP_Text totalCoins;
 
     private bool isPaused = false;
 
@@ -42,6 +43,13 @@ public class GameHud : NetworkBehaviour, IEventListener
             options.OptionsHandler(false);
             SetCursor();
         }
+    }
+
+    public void ShowCoins(Hashtable hashtable)
+    {
+        int coins = (int)hashtable[GameplayEventHashtableParams.Coins.ToString()];
+
+        totalCoins.text = $"Total coins: {coins}";
     }
 
     public void KillingFeed(Hashtable hashtable)
@@ -146,11 +154,13 @@ public class GameHud : NetworkBehaviour, IEventListener
     {
         EventManager.StartListening(GenericEvents.KillingFeed, KillingFeed);
         EventManager.StartListening(GenericEvents.KillingSpree, KillingSpree);
+        EventManager.StartListening(GenericEvents.ShowCoins, ShowCoins);
     }
 
     public void CancelEventListenerSubscriptions()
     {
         EventManager.StopListening(GenericEvents.KillingFeed, KillingFeed);
         EventManager.StopListening(GenericEvents.KillingSpree, KillingSpree);
+        EventManager.StopListening(GenericEvents.ShowCoins, ShowCoins);
     }
 }

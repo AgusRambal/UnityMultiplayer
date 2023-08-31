@@ -4,5 +4,6 @@
     HandlePlayerLevel,
     KillingFeed,
     KillingSpree,
-    HandlePowerUp
+    HandlePowerUp,
+    ShowCoins
 }

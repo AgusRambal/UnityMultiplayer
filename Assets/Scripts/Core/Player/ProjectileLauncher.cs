@@ -108,7 +108,6 @@ public class ProjectileLauncher : NetworkBehaviour
 
         GameObject projectileInstance = Instantiate(clientProjectilePrefab, spawnPos, Quaternion.identity);
         projectileInstance.transform.up = direction;
-        //projectileInstance.GetComponent<FeedCollider>().playerShooted = player;
 
         Physics2D.IgnoreCollision(playerCollider, projectileInstance.GetComponent<Collider2D>());
 
@@ -144,6 +143,7 @@ public class ProjectileLauncher : NetworkBehaviour
         {
             dealDamage.SetOwner(OwnerClientId);
             dealDamage.playerShooted = player;
+            dealDamage.damage = player.damage;
         }
 
         if (projectileInstance.TryGetComponent(out Rigidbody2D rb))

@@ -8,7 +8,8 @@
     Killer,
     Dead,
     Killings,
-    NewPlayer
+    NewPlayer,
+    Coins
 }
 
 

@@ -19,8 +19,15 @@ public class PlayerInstance : NetworkBehaviour
 
     [Header("Settings")]
     [SerializeField] private int ownerPriority = 15;
+
     public int level;
+    public int damage;
     public int kills;
+
+    public NetworkVariable<int> totalKills = new NetworkVariable<int>();
+
+    //public int totalKills;
+
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
     [HideInInspector] public bool isPaused = false;
 

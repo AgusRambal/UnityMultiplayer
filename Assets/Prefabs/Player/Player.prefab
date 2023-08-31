@@ -6192,6 +6192,8 @@ MonoBehaviour:
   <wallet>k__BackingField: {fileID: 3988242707679510687}
   ownerPriority: 15
   level: 1
+  damage: 20
+  kills: 0
   playerName:
     m_InternalValue:
       utf8LengthInBytes: 0
@@ -6300,11 +6302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <maxHelath>k__BackingField: 100
-  player: {fileID: 1968739323692528234}
-  playerWhoKilledMe: {fileID: 0}
   currentHealth:
-    m_InternalValue: 0
-  kills:
     m_InternalValue: 0
   dieVFX: {fileID: 832067881215097347, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
 --- !u!114 &3988242707679510687

@@ -59,7 +59,7 @@ public class Leaderboard : NetworkBehaviour
                 if (!entityDisplays.Any(x => x.clientID == changeEvent.Value.clientID))
                 {
                     LeaderboardEntityDisplay leaderboardEntity = Instantiate(leaderboardEntityPrefab, leaderboardEntityHolder);
-                    leaderboardEntity.Initialize(changeEvent.Value.clientID, changeEvent.Value.playerName, changeEvent.Value.coins, changeEvent.Value.kills);
+                    leaderboardEntity.Initialize(changeEvent.Value.clientID, changeEvent.Value.playerName, changeEvent.Value.kills);
                     entityDisplays.Add(leaderboardEntity);
                 }
 
@@ -86,7 +86,6 @@ public class Leaderboard : NetworkBehaviour
 
                 if (displayToUpdate != null)
                 {
-                    //displayToUpdate.UpdateCoins(changeEvent.Value.coins);
                     displayToUpdate.UpdateKills(changeEvent.Value.kills);
                 }
 
@@ -141,11 +140,9 @@ public class Leaderboard : NetworkBehaviour
         {
             clientID = player.OwnerClientId,
             playerName = player.playerName.Value,
-            coins = 0,
             kills = 0
         }) ;
 
-        //player.wallet.totalCoins.OnValueChanged += (oldCoins, newCoins) => HandleCoinsChange(player.OwnerClientId, newCoins);
         player.totalKills.OnValueChanged += (oldKills, newKills) => HandleKillsChange(player.OwnerClientId, newKills);
     }
 
@@ -165,7 +162,6 @@ public class Leaderboard : NetworkBehaviour
             break;
         }
 
-        //player.wallet.totalCoins.OnValueChanged -= (oldCoins, newCoins) => HandleCoinsChange(player.OwnerClientId, newCoins);
         player.totalKills.OnValueChanged -= (oldKills, newKills) => HandleKillsChange(player.OwnerClientId, newKills);
     }
 
@@ -180,29 +176,10 @@ public class Leaderboard : NetworkBehaviour
             {
                 clientID = leaderboardEntities[i].clientID,
                 playerName = leaderboardEntities[i].playerName.Value,
-                coins = leaderboardEntities[i].coins,
                 kills = newKills
             };
 
             return;
         }
-    }
-
-    private void HandleCoinsChange(ulong clientID, int newCoins)
-    {
-        for (int i = 0; i < leaderboardEntities.Count; i++)
-        {
-            if (leaderboardEntities[i].clientID != clientID)           
-                continue;
-
-            leaderboardEntities[i] = new LeaderboardEntityState
-            {
-                clientID = leaderboardEntities[i].clientID,
-                playerName = leaderboardEntities[i].playerName.Value,
-                coins = newCoins
-            };
-
-            return;
-        }  
     }
 }

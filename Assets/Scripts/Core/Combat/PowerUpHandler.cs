@@ -59,7 +59,7 @@ public class PowerUpHandler : NetworkBehaviour, IEventListener
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.transform.GetChild(0).transform.rotation = rotation;
         playerInstance.wallet.totalCoins.Value = keptCoins;
-        playerInstance.totalKills.Value = keptCoins;
+        playerInstance.totalKills.Value = keptKills;
         playerInstance.kills = playerKills;
 
         LevelUpVFX(posToSpawn);

@@ -21,7 +21,6 @@ public class PlayerInstance : NetworkBehaviour
     [Header("Settings")]
     [SerializeField] private int ownerPriority = 15;
     public int level;
-    public int killingCounter;
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
     [HideInInspector] public bool isPaused = false;
 
@@ -81,17 +80,17 @@ public class PlayerInstance : NetworkBehaviour
 
         if (health.currentHealth.Value - 20 <= 0)
         {
-            bullet.playerShooted.killingCounter++;
+            KDManager.instance.playerKillingCount++;
 
             EventManager.TriggerEvent(GenericEvents.KillingSpree, new Hashtable() {
-                {GameplayEventHashtableParams.Player.ToString(), bullet.playerShooted},
-                {GameplayEventHashtableParams.Killings.ToString(), bullet.playerShooted.killingCounter}
-                });
+            {GameplayEventHashtableParams.Player.ToString(), bullet.playerShooted},
+            {GameplayEventHashtableParams.Killings.ToString(), KDManager.instance.playerKillingCount}
+            });
 
             EventManager.TriggerEvent(GenericEvents.KillingFeed, new Hashtable() {
-                {GameplayEventHashtableParams.Killer.ToString(), bullet.playerShooted.playerName.Value.ToString()},
-                {GameplayEventHashtableParams.Dead.ToString(), playerName.Value.ToString()}
-                });
+            {GameplayEventHashtableParams.Killer.ToString(), bullet.playerShooted.playerName.Value.ToString()},
+            {GameplayEventHashtableParams.Dead.ToString(), playerName.Value.ToString()}
+            });
         }
     }
 }

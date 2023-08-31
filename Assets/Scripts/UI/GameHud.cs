@@ -57,17 +57,17 @@ public class GameHud : MonoBehaviour, IEventListener
         PlayerInstance player = (PlayerInstance)hashtable[GameplayEventHashtableParams.Player.ToString()];
         int killings = (int)hashtable[GameplayEventHashtableParams.Killings.ToString()];
 
-        if (player.killingCounter > 5)
+        if (KDManager.instance.playerKillingCount > 5)
             return;
 
-        if (player.killingCounter >= 2)
+        if (KDManager.instance.playerKillingCount >= 2)
         {
             if (killMessagesParent.transform.childCount > 0)
             {
-                for (int i = 0; i < killMessagesParent.transform.childCount; i++)
+                for (int z = 0; z < killMessagesParent.transform.childCount; z++)
                 {
-                    killMessagesParent.transform.GetChild(i).DOScale(0f, .2f);
-                    Destroy(killMessagesParent.transform.GetChild(i).gameObject, .21f);
+                    killMessagesParent.transform.GetChild(z).DOScale(0f, .2f);
+                    Destroy(killMessagesParent.transform.GetChild(z).gameObject, .21f);
                 }
             }
 
@@ -75,7 +75,7 @@ public class GameHud : MonoBehaviour, IEventListener
             feedInstantiated.transform.DOScale(1f, .1f);
 
             StartCoroutine(MessageDisappear(feedInstantiated));
-        }   
+        }
     }
 
     private IEnumerator MessageDisappear(GameObject feed)

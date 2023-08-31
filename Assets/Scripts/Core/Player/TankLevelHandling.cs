@@ -21,12 +21,12 @@ public class TankLevelHandling : NetworkBehaviour
 
     private void Start()
     {
-        if (player.level == 2)
+        if (KDManager.instance.playerLevel == 2)
         {
             passedLevelTwo = true;
         }
 
-        if (player.level >= 3)
+        if (KDManager.instance.playerLevel >= 3)
         {
             passedLevelTwo = true;
             passedLevelThree = true;
@@ -51,7 +51,8 @@ public class TankLevelHandling : NetworkBehaviour
     public void SetLevel(PlayerInstance playerLvl, int level)
     {
         lastPos = (Vector2)transform.position;
-        player.level = level;
+
+        KDManager.instance.playerLevel = level;
 
         EventManager.TriggerEvent(GenericEvents.HandlePlayerLevel, new Hashtable() {
         {GameplayEventHashtableParams.Player.ToString(), player},

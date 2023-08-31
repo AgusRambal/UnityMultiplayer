@@ -8,13 +8,14 @@ using UnityEngine;
 public class GameHud : NetworkBehaviour, IEventListener
 {
     [Header("References")]
+    [SerializeField] private PlayerInstance[] players;
     [SerializeField] private Options options;
 
     [Header("Killing feed")]
-    [SerializeField] private NetworkObject feed;
-    [SerializeField] private GameObject feedParent;
-    [SerializeField] private List<NetworkObject> killMessages = new List<NetworkObject>();
+    [SerializeField] private List<GameObject> killMessages = new List<GameObject>();
     [SerializeField] private GameObject killMessagesParent;
+    [SerializeField] private GameObject feed;
+    [SerializeField] private GameObject feedParent;
     [SerializeField] private NetworkObject levelUpVFX;
 
     [Header("Other")]
@@ -48,49 +49,64 @@ public class GameHud : NetworkBehaviour, IEventListener
         string player1 = (string)hashtable[GameplayEventHashtableParams.Killer.ToString()];
         string player2 = (string)hashtable[GameplayEventHashtableParams.Dead.ToString()];
 
-        NetworkObject feedInstantiated = Instantiate(feed, feedParent.transform);
-        feedInstantiated.Spawn();
-        feedInstantiated.transform.SetParent(feedParent.transform);
-        feedInstantiated.transform.localPosition = Vector3.zero;
+        SetFeedClientRpc(player1, player2);
+    }
+
+    [ClientRpc]
+    public void SetFeedClientRpc(string player1, string player2)
+    {
+        GameObject feedInstantiated = Instantiate(feed, feedParent.transform);
         feedInstantiated.GetComponent<TMP_Text>().text = $"{player1} killed {player2}";
         feedInstantiated.transform.DOScale(1f, .1f);
     }
 
     public void KillingSpree(Hashtable hashtable)
     {
-        PlayerInstance player = (PlayerInstance)hashtable[GameplayEventHashtableParams.Player.ToString()];
+        string player = (string)hashtable[GameplayEventHashtableParams.Killer.ToString()];
         int killings = (int)hashtable[GameplayEventHashtableParams.Killings.ToString()];
 
-        if (player.kills > 5)
-            return;
-
-        if (player.kills >= 2)
-        {
-            if (killMessagesParent.transform.childCount > 0)
-            {
-                for (int z = 0; z < killMessagesParent.transform.childCount; z++)
-                {
-                    killMessagesParent.transform.GetChild(z).DOScale(0f, .2f);
-                    Destroy(killMessagesParent.transform.GetChild(z).gameObject, .21f);
-                }
-            }
-
-            NetworkObject feedInstantiated = Instantiate(killMessages[killings], killMessagesParent.transform);
-            feedInstantiated.Spawn();
-            feedInstantiated.transform.SetParent(killMessagesParent.transform);
-            feedInstantiated.transform.localPosition = Vector3.zero;
-            feedInstantiated.transform.DOScale(1f, .1f);
-
-            StartCoroutine(MessageDisappear(feedInstantiated));
-        }
+        SetMessageClientRpc(player, killings);
     }
 
-    private IEnumerator MessageDisappear(NetworkObject feed)
+    [ClientRpc]
+    public void SetMessageClientRpc(string player, int killings)
+    {
+        players = FindObjectsOfType<PlayerInstance>();
+
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i].playerName.Value == player)
+            {
+                if (players[i].kills > 5)
+                    return;
+
+                if (players[i].kills >= 2)
+                {
+                    if (killMessagesParent.transform.childCount > 0)
+                    {
+                        for (int z = 0; z < killMessagesParent.transform.childCount; z++)
+                        {
+                            killMessagesParent.transform.GetChild(z).DOScale(0f, .2f);
+                            Destroy(killMessagesParent.transform.GetChild(z).gameObject, .21f);
+                        }
+                    }
+
+                    GameObject feedInstantiated = Instantiate(killMessages[killings], killMessagesParent.transform);
+                    feedInstantiated.transform.DOScale(1f, .1f);
+
+                    StartCoroutine(MessageDisappear(feedInstantiated));
+                }
+            }
+        }
+
+        players = null;
+    }
+
+    private IEnumerator MessageDisappear(GameObject feed)
     {
         yield return new WaitForSeconds(4);
         feed.transform.DOScale(0f, .2f);
-        yield return new WaitForSeconds(.21f);
-        feed.Despawn();
+        Destroy(feed, .21f);
     }
 
     public void SetCursor()

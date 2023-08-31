@@ -133,6 +133,10 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+      propertyPath: projectileSpawnPoint
+      value: 
+      objectReference: {fileID: 7036038034426067860}
+    - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: clientProjectilePrefab
       value: 
       objectReference: {fileID: 1339745971142275146, guid: 6de1d833ac8838a40adcf967967b9b9e, type: 3}
@@ -157,3 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b25f67d9aa8994c940cf04345b887a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7036038034426067860 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3814265734816573535, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
+  m_PrefabInstance: {fileID: 6146280076581655499}
+  m_PrefabAsset: {fileID: 0}

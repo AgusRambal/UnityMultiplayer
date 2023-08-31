@@ -11,9 +11,9 @@ public class GameHud : MonoBehaviour, IEventListener
     [SerializeField] private Options options;
 
     [Header("Killing feed")]
-    [SerializeField] private GameObject feed;
+    [SerializeField] private NetworkObject feed;
     [SerializeField] private GameObject feedParent;
-    [SerializeField] private List<GameObject> killMessages = new List<GameObject>();
+    [SerializeField] private List<NetworkObject> killMessages = new List<NetworkObject>();
     [SerializeField] private GameObject killMessagesParent;
 
     [Header("Other")]
@@ -47,7 +47,10 @@ public class GameHud : MonoBehaviour, IEventListener
         string player1 = (string)hashtable[GameplayEventHashtableParams.Killer.ToString()];
         string player2 = (string)hashtable[GameplayEventHashtableParams.Dead.ToString()];
 
-        GameObject feedInstantiated = Instantiate(feed, feedParent.transform);
+        Debug.Log("asd");
+
+        NetworkObject feedInstantiated = Instantiate(feed, feedParent.transform);
+        feedInstantiated.Spawn();
         feedInstantiated.GetComponent<TMP_Text>().text = $"{player1} killed {player2}";
         feedInstantiated.transform.DOScale(1f, .1f);
     }
@@ -57,10 +60,13 @@ public class GameHud : MonoBehaviour, IEventListener
         PlayerInstance player = (PlayerInstance)hashtable[GameplayEventHashtableParams.Player.ToString()];
         int killings = (int)hashtable[GameplayEventHashtableParams.Killings.ToString()];
 
-        if (KDManager.instance.playerKillingCount > 5)
+        Debug.Log("dsa");
+
+
+        if (player.kills > 5)
             return;
 
-        if (KDManager.instance.playerKillingCount >= 2)
+        if (player.kills >= 2)
         {
             if (killMessagesParent.transform.childCount > 0)
             {
@@ -71,14 +77,15 @@ public class GameHud : MonoBehaviour, IEventListener
                 }
             }
 
-            GameObject feedInstantiated = Instantiate(killMessages[killings], killMessagesParent.transform);
+            NetworkObject feedInstantiated = Instantiate(killMessages[killings], killMessagesParent.transform);
+            feedInstantiated.Spawn();
             feedInstantiated.transform.DOScale(1f, .1f);
 
             StartCoroutine(MessageDisappear(feedInstantiated));
         }
     }
 
-    private IEnumerator MessageDisappear(GameObject feed)
+    private IEnumerator MessageDisappear(NetworkObject feed)
     {
         yield return new WaitForSeconds(4);
         feed.transform.DOScale(0f, .2f);

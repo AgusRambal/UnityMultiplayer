@@ -32,12 +32,13 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         Vector2 posToSpawn = position;
         Quaternion rotation = player.transform.GetChild(0).transform.rotation;
         int keptCoins = player.wallet.totalCoins.Value;
+        int playerKills = player.kills;
 
         Destroy(player.gameObject);
-        StartCoroutine(LevelUp(player.OwnerClientId, newPlayer, posToSpawn, rotation, keptCoins));
+        StartCoroutine(LevelUp(player.OwnerClientId, newPlayer, posToSpawn, rotation, keptCoins, playerKills));
     }
 
-    private IEnumerator LevelUp(ulong ownerClientID, PlayerInstance newPlayer, Vector2 posToSpawn, Quaternion rotation, int keptCoins)
+    private IEnumerator LevelUp(ulong ownerClientID, PlayerInstance newPlayer, Vector2 posToSpawn, Quaternion rotation, int keptCoins, int playerKills)
     {
         yield return null;
 
@@ -46,6 +47,8 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.transform.GetChild(0).transform.rotation = rotation;
         playerInstance.wallet.totalCoins.Value = keptCoins;
+        playerInstance.kills = playerKills;
+
 
         LevelUpVFX(posToSpawn);
     }

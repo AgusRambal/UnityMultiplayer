@@ -6188,7 +6188,6 @@ MonoBehaviour:
   playerColor: {r: 1, g: 1, b: 1, a: 1}
   tankAudio: {fileID: 2258461431754647473}
   corssHair: {fileID: 2800000, guid: 0a07aa6c8e0036a4e986443af5afbbd3, type: 3}
-  killingCounter: 0
   <health>k__BackingField: {fileID: 8716039937176261815}
   <wallet>k__BackingField: {fileID: 3988242707679510687}
   ownerPriority: 15
@@ -6301,7 +6300,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <maxHelath>k__BackingField: 100
+  player: {fileID: 1968739323692528234}
+  playerWhoKilledMe: {fileID: 0}
   currentHealth:
+    m_InternalValue: 0
+  kills:
     m_InternalValue: 0
   dieVFX: {fileID: 832067881215097347, guid: 3ef3ae421f71c5c4e97fe12dc2fc6312, type: 3}
 --- !u!114 &3988242707679510687
@@ -6439,8 +6442,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1968739323692528234}
-  health: {fileID: 8716039937176261815}
-  projectile: {fileID: 8799812862903366330}
   playerLvl1: {fileID: 3352220325430966622, guid: c45061b965ff4e747b3f61dfa1a97923, type: 3}
   playerLvl2: {fileID: 7729472983647801063, guid: 9d318639afbc7634bb4a4a376958b950, type: 3}
   playerLvl3: {fileID: 5627710429661553057, guid: 81bbaff335747a6438bbf9774c95021d, type: 3}

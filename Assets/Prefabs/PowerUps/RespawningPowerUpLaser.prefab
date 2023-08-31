@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RespawningPowerUpLaser
       objectReference: {fileID: 0}
+    - target: {fileID: 6032428152233888330, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7967037169129588109, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

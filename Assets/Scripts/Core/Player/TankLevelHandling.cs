@@ -5,8 +5,6 @@ using UnityEngine;
 public class TankLevelHandling : NetworkBehaviour
 {
     [SerializeField] private PlayerInstance player;
-    [SerializeField] private Health health;
-    [SerializeField] private ProjectileLauncher projectile;
 
     [SerializeField] private PlayerInstance playerLvl1;
     [SerializeField] private PlayerInstance playerLvl2;
@@ -21,12 +19,12 @@ public class TankLevelHandling : NetworkBehaviour
 
     private void Start()
     {
-        if (KDManager.instance.playerLevel == 2)
+        if (player.level == 2)
         {
             passedLevelTwo = true;
         }
 
-        if (KDManager.instance.playerLevel >= 3)
+        if (player.level >= 3)
         {
             passedLevelTwo = true;
             passedLevelThree = true;
@@ -37,22 +35,20 @@ public class TankLevelHandling : NetworkBehaviour
     {
         if (!passedLevelTwo && wallet.totalCoins.Value >= coinsForLevelTwo)
         {
-            SetLevel(playerLvl2, 2);
+            SetLevel(playerLvl2);
             passedLevelTwo = true;
         }
 
         if (!passedLevelThree && wallet.totalCoins.Value >= coinsForLevelThree)
         {
-            SetLevel(playerLvl3, 3);
+            SetLevel(playerLvl3);
             passedLevelThree = true;
         }
     }
 
-    public void SetLevel(PlayerInstance playerLvl, int level)
+    public void SetLevel(PlayerInstance playerLvl)
     {
         lastPos = (Vector2)transform.position;
-
-        KDManager.instance.playerLevel = level;
 
         EventManager.TriggerEvent(GenericEvents.HandlePlayerLevel, new Hashtable() {
         {GameplayEventHashtableParams.Player.ToString(), player},

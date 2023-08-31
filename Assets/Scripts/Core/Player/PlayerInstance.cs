@@ -1,6 +1,5 @@
 using Cinemachine;
 using System;
-using System.Collections;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -21,6 +20,7 @@ public class PlayerInstance : NetworkBehaviour
     [Header("Settings")]
     [SerializeField] private int ownerPriority = 15;
     public int level;
+    public int kills;
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
     [HideInInspector] public bool isPaused = false;
 
@@ -71,26 +71,5 @@ public class PlayerInstance : NetworkBehaviour
         {
             isPaused = !isPaused;
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.TryGetComponent(out FeedCollider bullet))
-            return;
-
-        if (health.currentHealth.Value - 20 <= 0)
-        {
-            KDManager.instance.playerKillingCount++;
-
-            EventManager.TriggerEvent(GenericEvents.KillingSpree, new Hashtable() {
-            {GameplayEventHashtableParams.Player.ToString(), bullet.playerShooted},
-            {GameplayEventHashtableParams.Killings.ToString(), KDManager.instance.playerKillingCount}
-            });
-
-            EventManager.TriggerEvent(GenericEvents.KillingFeed, new Hashtable() {
-            {GameplayEventHashtableParams.Killer.ToString(), bullet.playerShooted.playerName.Value.ToString()},
-            {GameplayEventHashtableParams.Dead.ToString(), playerName.Value.ToString()}
-            });
-        }
-    }
+    }    
 }

@@ -21,7 +21,7 @@ public class EventManager : MonoBehaviour
 
                 if (!eventManager)
                 {
-                    Debug.LogError("You need EventManger.cs in a GameObject on the scene.");
+                    //Debug.LogError("You need EventManger.cs in a GameObject on the scene.");
                 }
                 else
                 {

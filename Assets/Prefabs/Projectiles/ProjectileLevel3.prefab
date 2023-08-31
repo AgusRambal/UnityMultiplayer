@@ -94,7 +94,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4475187300847485750, guid: 50f36f73a68d64244ba51c6f605d90da, type: 3}
       propertyPath: m_Name
-      value: ClientProjectile3
+      value: ProjectileLevel3
       objectReference: {fileID: 0}
     - target: {fileID: 9205911496372272639, guid: 50f36f73a68d64244ba51c6f605d90da, type: 3}
       propertyPath: m_RootOrder
@@ -156,7 +156,7 @@ PrefabInstance:
       addedObject: {fileID: 4606047301125058160}
     - targetCorrespondingSourceObject: {fileID: 4475187300847485750, guid: 50f36f73a68d64244ba51c6f605d90da, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6925372496887762859}
+      addedObject: {fileID: 2692639851363861438}
   m_SourcePrefab: {fileID: 100100000, guid: 50f36f73a68d64244ba51c6f605d90da, type: 3}
 --- !u!1 &1339745971142275146 stripped
 GameObject:
@@ -221,7 +221,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.509797, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6925372496887762859
+--- !u!114 &2692639851363861438
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -233,9 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df9626bdf9f6789469995ce50390a943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletDamage: 20
-  playerOwner: 
-  enemy: 
+  playerShooted: {fileID: 0}
 --- !u!4 &6002527839564107395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9205911496372272639, guid: 50f36f73a68d64244ba51c6f605d90da, type: 3}

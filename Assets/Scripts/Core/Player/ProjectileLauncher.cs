@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -109,7 +108,7 @@ public class ProjectileLauncher : NetworkBehaviour
 
         GameObject projectileInstance = Instantiate(clientProjectilePrefab, spawnPos, Quaternion.identity);
         projectileInstance.transform.up = direction;
-        projectileInstance.GetComponent<FeedCollider>().playerShooted = player;
+        //projectileInstance.GetComponent<FeedCollider>().playerShooted = player;
 
         Physics2D.IgnoreCollision(playerCollider, projectileInstance.GetComponent<Collider2D>());
 
@@ -144,6 +143,7 @@ public class ProjectileLauncher : NetworkBehaviour
         if (projectileInstance.TryGetComponent(out DealDamageOnContact dealDamage))
         {
             dealDamage.SetOwner(OwnerClientId);
+            dealDamage.playerShooted = player;
         }
 
         if (projectileInstance.TryGetComponent(out Rigidbody2D rb))

@@ -5,7 +5,6 @@ using UnityEngine;
 public class RespawnHandler : NetworkBehaviour
 {
     [SerializeField] private PlayerInstance playerPrefab;
-    [SerializeField] private float keptCoinPercentage;
 
     public override void OnNetworkSpawn()
     {
@@ -44,8 +43,7 @@ public class RespawnHandler : NetworkBehaviour
 
     private void HandlePlayerDie(PlayerInstance player)
     {
-        int keptCoins = (int)(player.wallet.totalCoins.Value * (keptCoinPercentage / 100));
-
+        int keptCoins = 0;
         int keptKills = 0;
 
         if (player.totalKills.Value < 1)

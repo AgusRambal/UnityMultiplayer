@@ -11484,9 +11484,9 @@ MonoBehaviour:
   - {fileID: 1762018931227635790, guid: 9b5db3aa86bb8eb4e82ff2072f096c2f, type: 3}
   - {fileID: 1762018931227635790, guid: 1c328440c30b22543be45b94618774ff, type: 3}
   maxCoins: 200
-  maxpowerUps: 5
+  maxpowerUps: 8
   coinValue: 10
-  powerUpValue: 15
+  powerUpValue: 20
   xSpawnRange: {x: -50, y: 50}
   ySpawnRange: {x: -50, y: 50}
   layerMask:
@@ -14527,7 +14527,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1968739323692528234, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
-  keptCoinPercentage: 50
 --- !u!4 &1386895323
 Transform:
   m_ObjectHideFlags: 0
@@ -22829,7 +22828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5803922}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

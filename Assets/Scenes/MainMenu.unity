@@ -2594,8 +2594,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  SFXs: []
   AudioSource: {fileID: 1933476182}
   playAtStart: 0
+  useRandomList: 0
 --- !u!114 &1054154266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3548,8 +3550,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
+  SFXs: []
   AudioSource: {fileID: 1933476182}
   playAtStart: 0
+  useRandomList: 0
 --- !u!114 &1461259812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4414,7 +4418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1055716.9}
+  m_AnchoredPosition: {x: 0, y: 1922138.9}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2092872402

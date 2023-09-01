@@ -1,5 +1,5 @@
-using Cinemachine;
 using System;
+using System.Collections;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -7,7 +7,6 @@ using UnityEngine;
 public class PlayerInstance : NetworkBehaviour
 {
     [Header("References")]
-    [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private SpriteRenderer miniMapIcon;
     [SerializeField] private Sprite playerIcon;
     [SerializeField] private Color playerColor;
@@ -18,16 +17,21 @@ public class PlayerInstance : NetworkBehaviour
     [field: SerializeField] public CoinWallet wallet { get; private set; }
 
     [Header("Settings")]
-    [SerializeField] private int ownerPriority = 15;
-
     public int level;
     public int damage;
     public int kills;
+    public int coins;
 
     public NetworkVariable<int> totalKills = new NetworkVariable<int>();
 
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
     [HideInInspector] public bool isPaused = false;
+
+    [Header("CameraSettings")]
+    [SerializeField] private Vector3 offset;
+    [SerializeField] private float damping;
+    private Camera cam;
+    private Vector3 velocity;
 
     public static event Action<PlayerInstance> OnPlayerSpawned;
     public static event Action<PlayerInstance> OnPlayerDespawned;
@@ -55,7 +59,7 @@ public class PlayerInstance : NetworkBehaviour
         if (IsOwner)
         {
             Cursor.SetCursor(corssHair, new Vector2(corssHair.width / 2, corssHair.height / 2), CursorMode.Auto);
-            virtualCamera.Priority = ownerPriority;
+            cam = Camera.main;
             miniMapIcon.sprite = playerIcon;
             miniMapIcon.color = playerColor;
             tankAudio.Play();
@@ -76,5 +80,27 @@ public class PlayerInstance : NetworkBehaviour
         {
             isPaused = !isPaused;
         }
-    }    
+        coins = wallet.totalCoins.Value;
+
+        if (IsOwner)
+        {
+            EventManager.TriggerEvent(GenericEvents.ShowCoins, new Hashtable() {
+            {GameplayEventHashtableParams.Coins.ToString(), coins}
+            });
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        CameraFollow();
+    }
+
+    private void CameraFollow()
+    {
+        if (IsOwner)
+        {
+            Vector3 movePosition = transform.position + offset;
+            cam.transform.position = Vector3.SmoothDamp(cam.transform.position, movePosition, ref velocity, damping);
+        }
+    }
 }

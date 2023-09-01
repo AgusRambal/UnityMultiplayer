@@ -72,10 +72,6 @@ public class CoinWallet : NetworkBehaviour
     public void SpendCoins(int costToFire)
     {
         totalCoins.Value -= costToFire;
-
-        EventManager.TriggerEvent(GenericEvents.ShowCoins, new Hashtable() {
-        {GameplayEventHashtableParams.Coins.ToString(), totalCoins.Value}
-        });
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -85,6 +81,12 @@ public class CoinWallet : NetworkBehaviour
 
         int coinValue = coin.Collect();
 
+
+        if (!IsServer)
+            return;
+
+        totalCoins.Value += coinValue;
+
         if (IsOwner)
         {
             //Only the owner reproduce the coinCollcted sound
@@ -93,15 +95,6 @@ public class CoinWallet : NetworkBehaviour
             {GameplayEventHashtableParams.AudioSource.ToString(), audioSource}
             });
         }
-
-        if (!IsServer)
-            return;
-
-        totalCoins.Value += coinValue;
-
-        EventManager.TriggerEvent(GenericEvents.ShowCoins, new Hashtable() {
-        {GameplayEventHashtableParams.Coins.ToString(), totalCoins.Value}
-        });
 
         LevelUpCheck();
     }

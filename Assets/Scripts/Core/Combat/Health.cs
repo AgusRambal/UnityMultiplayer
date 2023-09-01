@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -30,6 +29,11 @@ public class Health : NetworkBehaviour
     public void RestoreHealth(int healValue)
     {
         ModifyHealth(+healValue);
+
+        if (currentHealth.Value >= maxHelath)
+        {
+            currentHealth.Value = maxHelath;
+        }
     }
 
     private void ModifyHealth(int value)

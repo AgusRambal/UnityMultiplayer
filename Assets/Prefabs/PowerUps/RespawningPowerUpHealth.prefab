@@ -160,3 +160,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poweredUpPlayer: {fileID: 5627710429661553057, guid: e1a22480e90549e42a9808b0ffae9ca4, type: 3}
+  isHealth: 1

@@ -86,7 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1968739323692528234, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: damage
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2056555394609857040, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: m_IsActive
@@ -174,7 +174,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: fireRate
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: shotSound
@@ -182,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: dab44648ac41f6a4a885d9cfaefc584c, type: 3}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: costToFire
-      value: 10
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: muzzleFlash
@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 352133482557086110}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: projectileSpeed
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: muzzleFlashDuration

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DealDamageOnContact : MonoBehaviour
 {
-    public int damage;
     [HideInInspector] public PlayerInstance playerShooted;
+    public int damage;
 
     private ulong ownerClientID;
 
@@ -37,12 +37,12 @@ public class DealDamageOnContact : MonoBehaviour
 
         if (health.currentHealth.Value <= 0)
         {
-            playerShooted.kills++;
             playerShooted.totalKills.Value++;
+            playerShooted.kills.Value++;
 
             EventManager.TriggerEvent(GenericEvents.KillingSpree, new Hashtable() {
             {GameplayEventHashtableParams.Killer.ToString(), playerShooted.playerName.Value.ToString()},
-            {GameplayEventHashtableParams.Killings.ToString(), playerShooted.kills}
+            {GameplayEventHashtableParams.Killings.ToString(), playerShooted.kills.Value}
             });
 
             EventManager.TriggerEvent(GenericEvents.KillingFeed, new Hashtable() {

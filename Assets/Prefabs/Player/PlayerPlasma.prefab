@@ -230,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: df7d8a330e21d4f4aa190213a50bc09b, type: 3}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: costToFire
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: muzzleFlash
@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 352133482557086110}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: projectileSpeed
-      value: 160
+      value: 175
       objectReference: {fileID: 0}
     - target: {fileID: 8799812862903366330, guid: b365a3ad31d71a4439e10dfc62aefde8, type: 3}
       propertyPath: muzzleFlashDuration

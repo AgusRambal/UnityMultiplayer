@@ -19,10 +19,11 @@ public class PlayerInstance : NetworkBehaviour
     [Header("Settings")]
     public int level;
     public int damage;
-    public int kills;
+    //public int kills;
     public int coins;
 
     public NetworkVariable<int> totalKills = new NetworkVariable<int>();
+    public NetworkVariable<int> kills = new NetworkVariable<int>();
 
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
     [HideInInspector] public bool isPaused = false;

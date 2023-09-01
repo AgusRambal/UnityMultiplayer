@@ -26,8 +26,6 @@ public class PlayerInstance : NetworkBehaviour
 
     public NetworkVariable<int> totalKills = new NetworkVariable<int>();
 
-    //public int totalKills;
-
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();
     [HideInInspector] public bool isPaused = false;
 

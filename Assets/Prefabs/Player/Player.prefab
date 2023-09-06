@@ -6181,7 +6181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b25f67d9aa8994c940cf04345b887a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
   miniMapIcon: {fileID: 4894765391980819483}
   playerIcon: {fileID: 21300000, guid: 3c7dc21b9cfc64a28a0db252abd7f3ad, type: 3}
   playerColor: {r: 1, g: 1, b: 1, a: 1}
@@ -6189,11 +6188,12 @@ MonoBehaviour:
   corssHair: {fileID: 2800000, guid: 0a07aa6c8e0036a4e986443af5afbbd3, type: 3}
   <health>k__BackingField: {fileID: 8716039937176261815}
   <wallet>k__BackingField: {fileID: 3988242707679510687}
-  ownerPriority: 15
   level: 1
   damage: 20
-  kills: 0
+  coins: 0
   totalKills:
+    m_InternalValue: 0
+  kills:
     m_InternalValue: 0
   playerName:
     m_InternalValue:
@@ -11646,7 +11646,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.2}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.085}
+  m_AnchoredPosition: {x: 0, y: -0.012}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8046598760164362528
@@ -11677,7 +11677,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AegonTargaryen
+  m_text: Aegon Targaryen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -11704,7 +11704,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.2
+  m_fontSize: 0.15
   m_fontSizeBase: 0.5
   m_fontWeight: 400
   m_enableAutoSizing: 1

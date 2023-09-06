@@ -11483,10 +11483,11 @@ MonoBehaviour:
   - {fileID: 1762018931227635790, guid: 326c158e7583acc4892bc17e4ea0b40d, type: 3}
   - {fileID: 1762018931227635790, guid: 9b5db3aa86bb8eb4e82ff2072f096c2f, type: 3}
   - {fileID: 1762018931227635790, guid: 1c328440c30b22543be45b94618774ff, type: 3}
+  - {fileID: 1762018931227635790, guid: 79fcf02b8d893624ca31c12bfc6d14aa, type: 3}
   maxCoins: 200
-  maxpowerUps: 8
+  maxpowerUps: 11
   coinValue: 10
-  powerUpValue: 20
+  powerUpValue: 0
   xSpawnRange: {x: -50, y: 50}
   ySpawnRange: {x: -50, y: 50}
   layerMask:

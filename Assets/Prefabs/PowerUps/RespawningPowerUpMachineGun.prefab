@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1414126518272505561, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_Radius
-      value: 0.71
+      value: 0.61
       objectReference: {fileID: 0}
     - target: {fileID: 6032428152233888330, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_Name
-      value: RespawningPowerUpHealth
+      value: RespawningPowerUpMachineGun
       objectReference: {fileID: 0}
     - target: {fileID: 6032428152233888330, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_Layer
@@ -23,26 +23,26 @@ PrefabInstance:
     - target: {fileID: 6787015204948919800, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0882cf9c9c13842c9a3aa4fb74800f83, type: 3}
+      objectReference: {fileID: 21300000, guid: 209e0eb770bd94bc4ac1cf106de18eb7, type: 3}
     - target: {fileID: 7967037169129588109, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 0.71632
       objectReference: {fileID: 0}
     - target: {fileID: 7967037169129588109, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 0.71632
       objectReference: {fileID: 0}
     - target: {fileID: 7967037169129588109, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 0.71632
       objectReference: {fileID: 0}
     - target: {fileID: 7967037169129588109, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0557
       objectReference: {fileID: 0}
     - target: {fileID: 7967037169129588109, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0519
       objectReference: {fileID: 0}
     - target: {fileID: 7967037169129588109, guid: 6b70d3ffc7f5eb040bd95dd8996b9f66, type: 3}
       propertyPath: m_LocalPosition.z
@@ -159,5 +159,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271204f74a902d848b01921dccdb4857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poweredUpPlayer: {fileID: 5627710429661553057, guid: e1a22480e90549e42a9808b0ffae9ca4, type: 3}
-  isHealth: 1
+  poweredUpPlayer: {fileID: 5627710429661553057, guid: 9dd5cc5a79ec0a34398880c1ffcf0d4f, type: 3}
+  isHealth: 0

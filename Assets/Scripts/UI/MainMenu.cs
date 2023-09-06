@@ -6,6 +6,7 @@ using DG.Tweening;
 using System;
 using Unity.Services.Lobbies.Models;
 using Unity.Services.Lobbies;
+using Unity.VisualScripting;
 
 public class MainMenu : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private TMP_Text findMatchButtonText;
     [SerializeField] private TMP_Text queueTimerText;
     [SerializeField] private TMP_Text queueTimerStatus;
+
+    [Header("HowToPlay")]
+    [SerializeField] private GameObject howToPlayScreen;
+    [SerializeField] private GameObject faded;
 
     private float timeInQueue = 0;
     private bool isMatchmaking;
@@ -160,6 +165,21 @@ public class MainMenu : MonoBehaviour
         else
         {
             lobbiesPanel.transform.DOScale(0f, .25f);
+        }
+    }
+
+    public void HowToPlayButton(bool state)
+    {
+        if (state)
+        {
+            faded.SetActive(state);
+            howToPlayScreen.transform.DOScale(1f, .25f);
+        }
+
+        else
+        {
+            faded.SetActive(state);
+            howToPlayScreen.transform.DOScale(0f, .25f);
         }
     }
 }

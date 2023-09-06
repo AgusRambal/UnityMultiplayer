@@ -19,11 +19,16 @@ public class GameHud : NetworkBehaviour, IEventListener
     [SerializeField] private NetworkObject levelUpVFX;
 
     [Header("Other")]
+    [SerializeField] private List<GameObject> buttons = new List<GameObject>();
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject settings;
     [SerializeField] private TMP_Text codeText;
     [SerializeField] private Texture2D corssHair;
     [SerializeField] private TMP_Text totalCoins;
+
+    [Header("HowToPlay")]
+    [SerializeField] private GameObject howToPlayScreen;
+    [SerializeField] private GameObject faded;
 
     private bool isPaused = false;
 
@@ -41,6 +46,7 @@ public class GameHud : NetworkBehaviour, IEventListener
             isPaused = !isPaused;
             pauseMenu.SetActive(isPaused);
             options.OptionsHandler(false);
+            SetAnims(isPaused);
             SetCursor();
         }
     }
@@ -145,6 +151,45 @@ public class GameHud : NetworkBehaviour, IEventListener
     public void SetJoinCodeOnScreen()
     {
         codeText.text = $"Game code: {HostSingleton.Instance.gameManager.joinCode}";
+    }
+
+    public void SetAnims(bool state)
+    {
+        if (state) 
+        {
+            for (int i = 0; i < buttons.Count; i++)
+            {
+                float time = Random.Range(.2f, .9f);
+
+                buttons[i].transform.DOScale(1f, time);
+                buttons[i].transform.DOScale(.75f, time);
+            }
+        }
+
+        else
+        {
+            for (int i = 0; i < buttons.Count; i++)
+            {
+                float time = Random.Range(.2f, .9f);
+
+                buttons[i].transform.DOScale(0, time);
+            }
+        }
+    }
+
+    public void HowToPlayButton(bool state)
+    {
+        if (state)
+        {
+            faded.SetActive(state);
+            howToPlayScreen.transform.DOScale(1f, .25f);
+        }
+
+        else
+        {
+            faded.SetActive(state);
+            howToPlayScreen.transform.DOScale(0f, .25f);
+        }
     }
 
     private void OnDisable()

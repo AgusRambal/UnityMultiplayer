@@ -10,7 +10,7 @@ public class LeaderboardEntityDisplay : MonoBehaviour
     public ulong clientID { get; private set; }
     public int kills{ get; private set; }
 
-    private FixedString32Bytes playerName;
+    public FixedString32Bytes playerName;
 
     public void Initialize(ulong clientID, FixedString32Bytes playerName, int kills)
     { 

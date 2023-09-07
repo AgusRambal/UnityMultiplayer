@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
 
 public class GameHud : NetworkBehaviour, IEventListener
 {
     [Header("References")]
     [SerializeField] private PlayerInstance[] players;
     [SerializeField] private Options options;
+    [SerializeField] private Leaderboard leaderboard;
 
     [Header("Killing feed")]
     [SerializeField] private List<GameObject> killMessages = new List<GameObject>();
@@ -30,17 +32,27 @@ public class GameHud : NetworkBehaviour, IEventListener
     [SerializeField] private GameObject howToPlayScreen;
     [SerializeField] private GameObject faded;
 
+    [Header("Timer")]
+    [Tooltip("Set the timer of the round in seconds")][SerializeField] private float timer = 600;
+    [SerializeField] private TMP_Text timerText;
+    [SerializeField] private TMP_Text winnerText;
+    [SerializeField] private GameObject winnerTab;
+
     private bool isPaused = false;
+    private bool startTimer = false;
 
     public void Start()
     {
         OnEnableEventListenerSubscriptions();
         DOTween.Init();
         SetJoinCodeOnScreen();
+        startTimer = true;
     }
 
     private void Update()
     {
+        SetTimer();
+
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             isPaused = !isPaused;
@@ -93,8 +105,6 @@ public class GameHud : NetworkBehaviour, IEventListener
             {
                 if (players[i].kills.Value > 5)
                     return;
-
-                Debug.Log(players[i].kills.Value);
 
                 if (players[i].kills.Value > 1)
                 {
@@ -190,6 +200,31 @@ public class GameHud : NetworkBehaviour, IEventListener
             faded.SetActive(state);
             howToPlayScreen.transform.DOScale(0f, .25f);
         }
+    }
+
+    private void SetTimer()
+    {
+        if (startTimer)
+        {
+            timer -= Time.deltaTime;
+
+            FormatText();
+
+            if (timer <= 0)
+            {            
+                startTimer = false;
+                winnerTab.SetActive(true);
+                winnerText.text = leaderboard.entityDisplays[0].playerName.ToString();
+            }
+        }
+    }
+
+    private void FormatText()
+    {
+        int minutes = (int)(timer / 60) % 60;
+        int seconds = (int)(timer % 60);
+
+        timerText.text = $"{minutes}:{seconds}";
     }
 
     private void OnDisable()

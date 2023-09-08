@@ -45,12 +45,18 @@ public class PlayerMovement : NetworkBehaviour
         if (!IsOwner)
             return;
 
+        if (!SingeltonGameManaher.instance.startGame.Value)
+            return;
+
         float zRotation = previousMovementInput.x * -turningRate * Time.deltaTime;
         bodyTransform.Rotate(0f, 0f, zRotation);
     }
 
     private void FixedUpdate()
     {
+        if (!SingeltonGameManaher.instance.startGame.Value)
+            return;
+
         if ((transform.position - previousPos).sqrMagnitude > particleStopTreshold)
         {
             emissionModule.rateOverTime = particleEmmisionValue;

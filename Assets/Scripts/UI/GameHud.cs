@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 
 public class GameHud : NetworkBehaviour, IEventListener
 {
@@ -33,11 +32,13 @@ public class GameHud : NetworkBehaviour, IEventListener
     [SerializeField] private GameObject faded;
 
     [Header("Timer")]
-    [Tooltip("Set the timer of the round in seconds")][SerializeField] private float timer = 600;
+    [SerializeField] private TMP_Text waitingText;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text winnerText;
     [SerializeField] private GameObject winnerTab;
+    [SerializeField] private GameObject waitingTab;
 
+    private float timer;
     private bool isPaused = false;
     private bool startTimer = false;
 
@@ -47,12 +48,11 @@ public class GameHud : NetworkBehaviour, IEventListener
         DOTween.Init();
         SetJoinCodeOnScreen();
         startTimer = true;
+        timer = 300;
     }
 
     private void Update()
     {
-        SetTimer();
-
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             isPaused = !isPaused;
@@ -60,6 +60,31 @@ public class GameHud : NetworkBehaviour, IEventListener
             options.OptionsHandler(false);
             SetAnims(isPaused);
             SetCursor();
+        }
+
+        SetWaitingText();
+
+        if (Input.GetKeyUp(KeyCode.F1))
+        {
+            SingeltonGameManaher.instance.startGame.Value = true;
+        }
+
+        if (!SingeltonGameManaher.instance.startGame.Value)
+            return;
+
+        SetTimer();
+    }
+
+    public void SetWaitingText()
+    {
+        if (IsServer)
+        {
+            waitingText.text = "Press key 'F1' to start game";
+        }
+
+        else 
+        {
+            waitingText.text = "Waiting for the host to start the game..";
         }
     }
 
@@ -206,12 +231,14 @@ public class GameHud : NetworkBehaviour, IEventListener
     {
         if (startTimer)
         {
+            waitingTab.gameObject.SetActive(false);
+
             timer -= Time.deltaTime;
 
             FormatText();
 
             if (timer <= 0)
-            {            
+            {
                 startTimer = false;
                 winnerTab.SetActive(true);
                 winnerText.text = leaderboard.entityDisplays[0].playerName.ToString();

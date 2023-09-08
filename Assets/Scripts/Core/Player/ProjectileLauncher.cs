@@ -46,6 +46,9 @@ public class ProjectileLauncher : NetworkBehaviour
 
     private void Update()
     {
+        if (!SingeltonGameManaher.instance.startGame.Value)
+            return;
+
         if (muzzleFlashTimer > 0f)
         {
             muzzleFlashTimer -= Time.deltaTime;

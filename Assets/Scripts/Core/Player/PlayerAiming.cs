@@ -12,6 +12,9 @@ public class PlayerAiming : NetworkBehaviour
         if (!IsOwner)
             return;
 
+        if (!SingeltonGameManaher.instance.startGame.Value)
+            return;
+
         Vector2 aimScreenPosition = inputReader.AimPosition;
         Vector2 aimWorldPosition = Camera.main.ScreenToWorldPoint(aimScreenPosition);
 

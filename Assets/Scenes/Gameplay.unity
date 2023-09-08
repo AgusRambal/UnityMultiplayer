@@ -1033,8 +1033,8 @@ RectTransform:
   - {fileID: 254708059}
   - {fileID: 1107546681}
   - {fileID: 313150081}
-  - {fileID: 2085339628}
   - {fileID: 791621703}
+  - {fileID: 2085339628}
   m_Father: {fileID: 226395556}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -5096,11 +5096,14 @@ MonoBehaviour:
   totalCoins: {fileID: 751538153}
   howToPlayScreen: {fileID: 1663214191}
   faded: {fileID: 388175130}
+  roundTimeInMinutes: 5
   waitingText: {fileID: 1059994430}
   timerText: {fileID: 254708060}
   winnerText: {fileID: 1431580591}
   winnerTab: {fileID: 1107546680}
   waitingTab: {fileID: 313150080}
+  audioSource: {fileID: 960688301}
+  SFX: {fileID: 8300000, guid: 8f7fa3309d5d14f38b83c688709220af, type: 3}
 --- !u!114 &226395560
 MonoBehaviour:
   m_ObjectHideFlags: 0

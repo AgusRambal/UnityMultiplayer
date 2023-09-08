@@ -32,11 +32,14 @@ public class GameHud : NetworkBehaviour, IEventListener
     [SerializeField] private GameObject faded;
 
     [Header("Timer")]
+    [SerializeField] private float roundTimeInMinutes;
     [SerializeField] private TMP_Text waitingText;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text winnerText;
     [SerializeField] private GameObject winnerTab;
     [SerializeField] private GameObject waitingTab;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip SFX;
 
     private float timer;
     private bool isPaused = false;
@@ -48,7 +51,8 @@ public class GameHud : NetworkBehaviour, IEventListener
         DOTween.Init();
         SetJoinCodeOnScreen();
         startTimer = true;
-        timer = 300;
+        timer = roundTimeInMinutes * 60;
+        timerText.text = $"{roundTimeInMinutes}:00";
     }
 
     private void Update()
@@ -231,7 +235,7 @@ public class GameHud : NetworkBehaviour, IEventListener
     {
         if (startTimer)
         {
-            waitingTab.gameObject.SetActive(false);
+            waitingTab.SetActive(false);
 
             timer -= Time.deltaTime;
 
@@ -242,6 +246,11 @@ public class GameHud : NetworkBehaviour, IEventListener
                 startTimer = false;
                 winnerTab.SetActive(true);
                 winnerText.text = leaderboard.entityDisplays[0].playerName.ToString();
+
+                EventManager.TriggerEvent(GenericEvents.PlaySound, new Hashtable() {
+                {GameplayEventHashtableParams.AudioClip.ToString(), SFX},
+                {GameplayEventHashtableParams.AudioSource.ToString(), audioSource}
+                });
             }
         }
     }

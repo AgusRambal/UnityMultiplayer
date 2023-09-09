@@ -33,13 +33,14 @@ public class PowerUpHandler : NetworkBehaviour, IEventListener
         int keptCoins = player.wallet.totalCoins.Value;
         int keptKills = player.totalKills.Value;
         int playerKills = player.kills.Value;
+        int playerDeaths = player.myDeaths.Value;
 
         Destroy(player.gameObject);
 
-        StartCoroutine(LevelUp(player.OwnerClientId, newPlayerInstance, posToSpawn, rotation, keptCoins, playerKills, keptKills));
+        StartCoroutine(LevelUp(player.OwnerClientId, newPlayerInstance, posToSpawn, rotation, keptCoins, playerKills, keptKills, playerDeaths));
     }
 
-    private IEnumerator LevelUp(ulong ownerClientID, PlayerInstance newPlayer, Vector2 posToSpawn, Quaternion rotation, int keptCoins, int playerKills, int keptKills)
+    private IEnumerator LevelUp(ulong ownerClientID, PlayerInstance newPlayer, Vector2 posToSpawn, Quaternion rotation, int keptCoins, int playerKills, int keptKills, int playerDeaths)
     {
         yield return null;
 
@@ -50,6 +51,7 @@ public class PowerUpHandler : NetworkBehaviour, IEventListener
         playerInstance.wallet.totalCoins.Value = keptCoins;
         playerInstance.totalKills.Value = keptKills;
         playerInstance.kills.Value = playerKills;
+        playerInstance.myDeaths.Value = playerDeaths;
 
         LevelUpVFX(posToSpawn);
     }

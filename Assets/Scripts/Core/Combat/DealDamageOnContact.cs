@@ -39,6 +39,7 @@ public class DealDamageOnContact : MonoBehaviour
         {
             playerShooted.totalKills.Value++;
             playerShooted.kills.Value++;
+            playerEnemy.myDeaths.Value++;
 
             EventManager.TriggerEvent(GenericEvents.KillingSpree, new Hashtable() {
             {GameplayEventHashtableParams.Killer.ToString(), playerShooted.playerName.Value.ToString()},

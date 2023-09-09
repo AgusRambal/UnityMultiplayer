@@ -1,3 +1,4 @@
+using Mono.Cecil;
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -56,12 +57,14 @@ public class RespawnHandler : NetworkBehaviour
             keptKills = player.totalKills.Value - 1;
         }
 
+        int playerDeaths = player.myDeaths.Value;
+
         Destroy(player.gameObject);
 
-        StartCoroutine(RespawnPlayer(player.OwnerClientId, keptCoins, keptKills));
+        StartCoroutine(RespawnPlayer(player.OwnerClientId, keptCoins, keptKills, playerDeaths));
     }
 
-    private IEnumerator RespawnPlayer(ulong ownerClientID, int keptCoins, int keptKills)
+    private IEnumerator RespawnPlayer(ulong ownerClientID, int keptCoins, int keptKills, int playerDeaths)
     {
         yield return null;
 
@@ -69,5 +72,7 @@ public class RespawnHandler : NetworkBehaviour
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.wallet.totalCoins.Value += keptCoins;
         playerInstance.totalKills.Value += keptKills;
+        playerInstance.myDeaths.Value += playerDeaths;
+
     }
 }

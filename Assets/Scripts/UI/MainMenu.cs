@@ -22,6 +22,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject howToPlayScreen;
     [SerializeField] private GameObject faded;
 
+    [Header("Loading")]
+    public GameObject loadingScene;
+    public TMP_Text loadingSceneText;
+    public List<GameObject> thingsToDisappear = new List<GameObject>();
+
     private float timeInQueue = 0;
     private bool isMatchmaking;
     private bool isCancelling;
@@ -56,6 +61,8 @@ public class MainMenu : MonoBehaviour
         if (isBusy)
             return;
 
+        StartJoinAnim("Creating lobby...");
+
         isBusy = true;
 
         await HostSingleton.Instance.gameManager.StartHostAsync();
@@ -68,6 +75,8 @@ public class MainMenu : MonoBehaviour
         if (isBusy)
             return;
 
+        StartJoinAnim("Joining lobby...");
+
         isBusy = true;
 
         await ClientSingleton.Instance.gameManager.StartClientAsync(joinCodeField.text);
@@ -79,6 +88,8 @@ public class MainMenu : MonoBehaviour
     {
         if (isBusy)
             return;
+
+        StartJoinAnim("Joining lobby...");
 
         isBusy = true;
 
@@ -96,6 +107,17 @@ public class MainMenu : MonoBehaviour
         }
 
         isBusy = false;
+    }
+
+    private void StartJoinAnim(string text)
+    {
+        for (int i = 0; i < thingsToDisappear.Count; i++)
+        {
+            thingsToDisappear[i].transform.DOScale(.0f, .2f);
+        }
+
+        loadingScene.transform.DOScale(1f, .2f);
+        loadingSceneText.text = text;
     }
 
     public void ExitGame()

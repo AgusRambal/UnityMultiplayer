@@ -810,7 +810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX: {fileID: 8300000, guid: a7112d6e9435945d98181b00421fcd3f, type: 3}
   SFXs: []
-  AudioSource: {fileID: 0}
+  AudioSource: {fileID: 960688301}
   playAtStart: 0
   useRandomList: 0
 --- !u!114 &30365659
@@ -869,8 +869,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 226395559}
+        m_TargetAssemblyTypeName: GameHud, Assembly-CSharp
         m_MethodName: HowToPlayButton
         m_Mode: 6
         m_Arguments:

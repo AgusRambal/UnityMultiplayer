@@ -21,8 +21,9 @@ public class PlayerInstance : NetworkBehaviour
     public int damage;
     public int coins;
 
+    public NetworkVariable<int> points = new NetworkVariable<int>();
     public NetworkVariable<int> totalKills = new NetworkVariable<int>();
-    public NetworkVariable<int> kills = new NetworkVariable<int>();
+    public NetworkVariable<int> killsInARow = new NetworkVariable<int>();
     public NetworkVariable<int> myDeaths = new NetworkVariable<int>();
 
     public NetworkVariable<FixedString32Bytes> playerName = new NetworkVariable<FixedString32Bytes>();

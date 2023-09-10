@@ -44,34 +44,35 @@ public class RespawnHandler : NetworkBehaviour
     private void HandlePlayerDie(PlayerInstance player)
     {
         int keptCoins = 0;
-        int keptKills = 0;
+        int keptPoints = 0;
 
-        if (player.totalKills.Value < 1)
+        if (player.points.Value < 1)
         {
-            keptKills = player.totalKills.Value;
+            keptPoints = player.points.Value;
         }
 
         else
         {
-            keptKills = player.totalKills.Value - 1;
+            keptPoints = player.points.Value - 1;
         }
 
         int playerDeaths = player.myDeaths.Value + 1;
+        int totalKills = player.totalKills.Value;
 
         Destroy(player.gameObject);
 
-        StartCoroutine(RespawnPlayer(player.OwnerClientId, keptCoins, keptKills, playerDeaths));
+        StartCoroutine(RespawnPlayer(player.OwnerClientId, keptCoins, keptPoints, playerDeaths, totalKills));
     }
 
-    private IEnumerator RespawnPlayer(ulong ownerClientID, int keptCoins, int keptKills, int playerDeaths)
+    private IEnumerator RespawnPlayer(ulong ownerClientID, int keptCoins, int keptPoints, int playerDeaths, int totalKills)
     {
         yield return null;
 
         PlayerInstance playerInstance = Instantiate(playerPrefab, SpawnPoint.GetRandomSpawnPos(), Quaternion.identity);
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.wallet.totalCoins.Value += keptCoins;
-        playerInstance.totalKills.Value += keptKills;
+        playerInstance.points.Value += keptPoints;
         playerInstance.myDeaths.Value = playerDeaths;
-
+        playerInstance.totalKills.Value += totalKills;
     }
 }

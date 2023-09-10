@@ -32,15 +32,16 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         Vector2 posToSpawn = position;
         Quaternion rotation = player.transform.GetChild(0).transform.rotation;
         int keptCoins = player.wallet.totalCoins.Value;
-        int keptKills = player.totalKills.Value;  
-        int playerKills = player.kills.Value;
+        int keptPoints = player.points.Value;  
+        int playerKillsInARow = player.killsInARow.Value;
         int playerDeaths = player.myDeaths.Value;
+        int totalKills = player.totalKills.Value;
 
         Destroy(player.gameObject);
-        StartCoroutine(LevelUp(player.OwnerClientId, newPlayer, posToSpawn, rotation, keptCoins, playerKills, keptKills, playerDeaths));
+        StartCoroutine(LevelUp(player.OwnerClientId, newPlayer, posToSpawn, rotation, keptCoins, playerKillsInARow, keptPoints, playerDeaths, totalKills));
     }
 
-    private IEnumerator LevelUp(ulong ownerClientID, PlayerInstance newPlayer, Vector2 posToSpawn, Quaternion rotation, int keptCoins, int playerKills, int keptKills, int playerDeaths)
+    private IEnumerator LevelUp(ulong ownerClientID, PlayerInstance newPlayer, Vector2 posToSpawn, Quaternion rotation, int keptCoins, int playerKillsInARow, int keptPoints, int playerDeaths, int totalKills)
     {
         yield return null;
 
@@ -49,9 +50,10 @@ public class LevelUpHandler : NetworkBehaviour, IEventListener
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.transform.GetChild(0).transform.rotation = rotation;
         playerInstance.wallet.totalCoins.Value = keptCoins;
-        playerInstance.totalKills.Value = keptKills;
-        playerInstance.kills.Value = playerKills;
+        playerInstance.points.Value = keptPoints;
+        playerInstance.killsInARow.Value = playerKillsInARow;
         playerInstance.myDeaths.Value = playerDeaths;
+        playerInstance.totalKills.Value = totalKills;
 
         LevelUpVFX(posToSpawn);
     }

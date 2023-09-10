@@ -59,7 +59,7 @@ public class Leaderboard : NetworkBehaviour
                 if (!entityDisplays.Any(x => x.clientID == changeEvent.Value.clientID))
                 {
                     LeaderboardEntityDisplay leaderboardEntity = Instantiate(leaderboardEntityPrefab, leaderboardEntityHolder);
-                    leaderboardEntity.Initialize(changeEvent.Value.clientID, changeEvent.Value.playerName, changeEvent.Value.kills, changeEvent.Value.deaths);
+                    leaderboardEntity.Initialize(changeEvent.Value.clientID, changeEvent.Value.playerName, changeEvent.Value.points, changeEvent.Value.deaths, changeEvent.Value.totalKills);
                     entityDisplays.Add(leaderboardEntity);
                 }
 
@@ -86,7 +86,7 @@ public class Leaderboard : NetworkBehaviour
 
                 if (displayToUpdate != null)
                 {
-                    displayToUpdate.UpdateKills(changeEvent.Value.kills, changeEvent.Value.deaths);
+                    displayToUpdate.UpdateKills(changeEvent.Value.points, changeEvent.Value.deaths, changeEvent.Value.totalKills);
                 }
 
                 break;
@@ -98,7 +98,7 @@ public class Leaderboard : NetworkBehaviour
                 break;
         }
 
-        entityDisplays.Sort((x, y) => y.kills.CompareTo(x.kills));
+        entityDisplays.Sort((x, y) => y.points.CompareTo(x.points));
 
         for (int i = 0; i < entityDisplays.Count; i++)
         {
@@ -140,12 +140,13 @@ public class Leaderboard : NetworkBehaviour
         {
             clientID = player.OwnerClientId,
             playerName = player.playerName.Value,
-            kills = 0,
+            points = 0,
             deaths = 0,
         }) ;
 
-        player.totalKills.OnValueChanged += (oldKills, newKills) => HandleKillsChange(player.OwnerClientId, newKills);
+        player.points.OnValueChanged += (oldPoints, newPoints) => HandlePointsChange(player.OwnerClientId, newPoints);
         player.myDeaths.OnValueChanged += (oldDeaths, newDeaths) => HandleDeathsChange(player.OwnerClientId, newDeaths);
+        player.totalKills.OnValueChanged += (oldTotalKills, newTotalKills) => HandleTotalKillsChange(player.OwnerClientId, newTotalKills);
     }
 
     private void HandlePlayerDespawned(PlayerInstance player)
@@ -164,11 +165,12 @@ public class Leaderboard : NetworkBehaviour
             break;
         }
 
-        player.totalKills.OnValueChanged -= (oldKills, newKills) => HandleKillsChange(player.OwnerClientId, newKills);
+        player.points.OnValueChanged -= (oldPoints, newPoints) => HandlePointsChange(player.OwnerClientId, newPoints);
         player.myDeaths.OnValueChanged -= (oldDeaths, newDeaths) => HandleDeathsChange(player.OwnerClientId, newDeaths);
+        player.totalKills.OnValueChanged -= (oldTotalKills, newTotalKills) => HandleTotalKillsChange(player.OwnerClientId, newTotalKills);
     }
 
-    private void HandleKillsChange(ulong clientID, int newKills)
+    private void HandlePointsChange(ulong clientID, int newPoints)
     {
         for (int i = 0; i < leaderboardEntities.Count; i++)
         {
@@ -179,8 +181,9 @@ public class Leaderboard : NetworkBehaviour
             {
                 clientID = leaderboardEntities[i].clientID,
                 playerName = leaderboardEntities[i].playerName.Value,
-                kills = newKills,
-                deaths = leaderboardEntities[i].deaths
+                points = newPoints,
+                deaths = leaderboardEntities[i].deaths,
+                totalKills = leaderboardEntities[i].totalKills,
             };
 
             return;
@@ -198,8 +201,29 @@ public class Leaderboard : NetworkBehaviour
             {
                 clientID = leaderboardEntities[i].clientID,
                 playerName = leaderboardEntities[i].playerName.Value,
-                kills = leaderboardEntities[i].kills,
-                deaths = newDeaths
+                points = leaderboardEntities[i].points,
+                deaths = newDeaths,
+                totalKills = leaderboardEntities[i].totalKills,
+            };
+
+            return;
+        }
+    }
+
+    private void HandleTotalKillsChange(ulong clientID, int newTotalKills)
+    {
+        for (int i = 0; i < leaderboardEntities.Count; i++)
+        {
+            if (leaderboardEntities[i].clientID != clientID)
+                continue;
+
+            leaderboardEntities[i] = new LeaderboardEntityState
+            {
+                clientID = leaderboardEntities[i].clientID,
+                playerName = leaderboardEntities[i].playerName.Value,
+                points = leaderboardEntities[i].points,
+                deaths = leaderboardEntities[i].deaths,
+                totalKills = newTotalKills,
             };
 
             return;

@@ -6,19 +6,21 @@ public struct LeaderboardEntityState : INetworkSerializable, IEquatable<Leaderbo
 {
     public ulong clientID;
     public FixedString32Bytes playerName;
-    public int kills;
+    public int points;
     public int deaths;
+    public int totalKills;
 
     public bool Equals(LeaderboardEntityState other)
     {
-        return clientID == other.clientID && playerName.Equals(other.playerName) && kills == other.kills && deaths == other.deaths;
+        return clientID == other.clientID && playerName.Equals(other.playerName) && points == other.points && deaths == other.deaths && totalKills == other.totalKills;
     }
 
     public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
     {
         serializer.SerializeValue(ref clientID);
         serializer.SerializeValue(ref playerName);
-        serializer.SerializeValue(ref kills);
+        serializer.SerializeValue(ref points);
         serializer.SerializeValue(ref deaths);
+        serializer.SerializeValue(ref totalKills);
     }
 }

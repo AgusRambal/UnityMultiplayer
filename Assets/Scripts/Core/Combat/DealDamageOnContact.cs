@@ -37,12 +37,13 @@ public class DealDamageOnContact : MonoBehaviour
 
         if (health.currentHealth.Value <= 0)
         {
+            playerShooted.points.Value++;
             playerShooted.totalKills.Value++;
-            playerShooted.kills.Value++;
+            playerShooted.killsInARow.Value++;
 
             EventManager.TriggerEvent(GenericEvents.KillingSpree, new Hashtable() {
             {GameplayEventHashtableParams.Killer.ToString(), playerShooted.playerName.Value.ToString()},
-            {GameplayEventHashtableParams.Killings.ToString(), playerShooted.kills.Value}
+            {GameplayEventHashtableParams.Killings.ToString(), playerShooted.killsInARow.Value}
             });
 
             EventManager.TriggerEvent(GenericEvents.KillingFeed, new Hashtable() {

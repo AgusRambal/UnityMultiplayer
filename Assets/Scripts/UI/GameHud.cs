@@ -145,10 +145,10 @@ public class GameHud : NetworkBehaviour, IEventListener
         {
             if (players[i].playerName.Value == player)
             {
-                if (players[i].kills.Value > 5)
+                if (players[i].killsInARow.Value > 5)
                     return;
 
-                if (players[i].kills.Value > 1)
+                if (players[i].killsInARow.Value > 1)
                 {
                     if (killMessagesParent.transform.childCount > 0)
                     {

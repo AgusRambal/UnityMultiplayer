@@ -11,22 +11,25 @@ public class LeaderboardEntityDisplay : MonoBehaviour
     [SerializeField] private TMP_Text killsText;
     [SerializeField] private TMP_Text deathsText;
     [SerializeField] private TMP_Text ratioText;
+    [SerializeField] private TMP_Text pointsText;
     [SerializeField] private Color myColour;
     public ulong clientID { get; private set; }
-    public int kills{ get; private set; }
+    public int points { get; private set; }
     public int deaths{ get; private set; }
     public float ratio{ get; private set; }
+    public int totalKills { get; private set; }
 
     public FixedString32Bytes playerName;
 
     [SerializeField] private bool useExtendDisplay;
 
-    public void Initialize(ulong clientID, FixedString32Bytes playerName, int kills, int deaths)
+    public void Initialize(ulong clientID, FixedString32Bytes playerName, int points, int deaths, int totalKills)
     { 
         this.clientID = clientID;
         this.playerName = playerName;
-        this.kills = kills;
+        this.points = points;
         this.deaths = deaths;
+        this.totalKills = totalKills;
 
         if (useExtendDisplay)
         {
@@ -44,22 +47,23 @@ public class LeaderboardEntityDisplay : MonoBehaviour
             }
         }
 
-        UpdateKills(kills, deaths);
+        UpdateKills(points, deaths, totalKills);
     }
 
-    public void UpdateKills(int kills, int deaths)
+    public void UpdateKills(int points, int deaths, int totalKills)
     {
-        this.kills = kills;
+        this.points = points;
         this.deaths = deaths;
+        this.totalKills = totalKills;
 
         if (deaths == 0)
         {
-            ratio = kills;
+            ratio = totalKills;
         }
 
         else
         {
-            ratio = kills / deaths;
+            ratio = totalKills / deaths;
         }
 
         UpdateText();
@@ -71,7 +75,8 @@ public class LeaderboardEntityDisplay : MonoBehaviour
         {
             positionText.text = $"{transform.GetSiblingIndex() + 1}";
             nameText.text = $"{playerName}";
-            killsText.text = $"{kills}";
+            pointsText.text = $"{points}";
+            killsText.text = $"{totalKills}";
             deathsText.text = $"{deaths}";
 
             if (deaths == 0)
@@ -87,7 +92,7 @@ public class LeaderboardEntityDisplay : MonoBehaviour
 
         else
         {
-            displayText.text = $"{transform.GetSiblingIndex() + 1}. {playerName} ({kills})";
+            displayText.text = $"{transform.GetSiblingIndex() + 1}. {playerName} ({points})";
         }
     }
 }

@@ -63,7 +63,7 @@ public class LeaderboardEntityDisplay : MonoBehaviour
 
         else
         {
-            ratio = totalKills / deaths;
+            ratio = (float)totalKills / deaths;
         }
 
         UpdateText();
@@ -78,16 +78,7 @@ public class LeaderboardEntityDisplay : MonoBehaviour
             pointsText.text = $"{points}";
             killsText.text = $"{totalKills}";
             deathsText.text = $"{deaths}";
-
-            if (deaths == 0)
-            {
-                ratioText.text = $"{ratio}.0";
-            }
-
-            else
-            {
-                ratioText.text = $"{ratio}";
-            }
+            ratioText.text = $"{ratio}";
         }
 
         else

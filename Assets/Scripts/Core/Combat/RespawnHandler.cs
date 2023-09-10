@@ -1,4 +1,3 @@
-using Mono.Cecil;
 using System.Collections;
 using Unity.Netcode;
 using UnityEngine;
@@ -57,7 +56,7 @@ public class RespawnHandler : NetworkBehaviour
             keptKills = player.totalKills.Value - 1;
         }
 
-        int playerDeaths = player.myDeaths.Value;
+        int playerDeaths = player.myDeaths.Value + 1;
 
         Destroy(player.gameObject);
 
@@ -72,7 +71,7 @@ public class RespawnHandler : NetworkBehaviour
         playerInstance.NetworkObject.SpawnAsPlayerObject(ownerClientID);
         playerInstance.wallet.totalCoins.Value += keptCoins;
         playerInstance.totalKills.Value += keptKills;
-        playerInstance.myDeaths.Value += playerDeaths;
+        playerInstance.myDeaths.Value = playerDeaths;
 
     }
 }

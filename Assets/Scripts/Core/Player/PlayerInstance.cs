@@ -81,6 +81,7 @@ public class PlayerInstance : NetworkBehaviour
         {
             isPaused = !isPaused;
         }
+
         coins = wallet.totalCoins.Value;
 
         if (IsOwner)

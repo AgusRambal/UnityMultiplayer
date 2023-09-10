@@ -19,6 +19,9 @@ public class GameHud : NetworkBehaviour, IEventListener
     [SerializeField] private GameObject feedParent;
     [SerializeField] private NetworkObject levelUpVFX;
 
+    [Header("LeaderBoard")]
+    [SerializeField] private GameObject leaderboardObject;
+
     [Header("Other")]
     [SerializeField] private List<GameObject> buttons = new List<GameObject>();
     [SerializeField] private GameObject pauseMenu;
@@ -57,7 +60,7 @@ public class GameHud : NetworkBehaviour, IEventListener
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
             pauseMenu.SetActive(isPaused);
@@ -68,7 +71,7 @@ public class GameHud : NetworkBehaviour, IEventListener
 
         SetWaitingText();
 
-        if (Input.GetKeyUp(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F1))
         {
             SingeltonGameManaher.instance.startGame.Value = true;
         }
@@ -77,6 +80,16 @@ public class GameHud : NetworkBehaviour, IEventListener
             return;
 
         SetTimer();
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            leaderboardObject.transform.DOScale(1f, .05f);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            leaderboardObject.transform.DOScale(0f, .05f);
+        }
     }
 
     public void SetWaitingText()
